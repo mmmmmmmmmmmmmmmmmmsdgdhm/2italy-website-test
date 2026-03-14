@@ -43,7 +43,8 @@
        RESET
     ============================================================ */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: auto; }
+    /* html holds the base dark colour — body is transparent so the fixed layer shows through */
+    html { scroll-behavior: auto; background: #0B0D18; }
     body {
       background: transparent;
       color: var(--white);
@@ -59,65 +60,45 @@
     a { color: inherit; }
 
     /* ============================================================
-       FIXED PAGE BACKGROUND  (brand parallax layer)
+       FIXED PARALLAX BACKGROUND  (sits behind everything)
     ============================================================ */
     #page-bg {
       position: fixed;
       inset: 0;
-      z-index: -1;
+      z-index: 0;            /* above html bg, below all content */
       background: #0B0D18;
       overflow: hidden;
     }
     .bg-orb {
       position: absolute;
       border-radius: 50%;
-      filter: blur(130px);
+      filter: blur(120px);
       pointer-events: none;
+      will-change: transform;
     }
     /* Teal — top left */
     .bg-orb-1 {
       width: 900px; height: 900px;
-      background: radial-gradient(circle, rgba(38,182,186,0.38), transparent 68%);
-      top: -25%; left: -20%;
-      animation: bgDrift1 22s ease-in-out infinite alternate;
+      background: radial-gradient(circle, rgba(38,182,186,0.42), transparent 65%);
+      top: -20%; left: -18%;
     }
     /* Forest green — bottom right */
     .bg-orb-2 {
       width: 800px; height: 800px;
-      background: radial-gradient(circle, rgba(13,58,54,0.7), transparent 68%);
-      bottom: -25%; right: -18%;
-      animation: bgDrift2 28s ease-in-out infinite alternate;
+      background: radial-gradient(circle, rgba(21,143,62,0.35), transparent 65%);
+      bottom: -22%; right: -16%;
     }
     /* Orange — mid right */
     .bg-orb-3 {
       width: 600px; height: 600px;
-      background: radial-gradient(circle, rgba(241,151,98,0.14), transparent 68%);
-      top: 38%; right: 5%;
-      animation: bgDrift3 19s ease-in-out infinite alternate;
+      background: radial-gradient(circle, rgba(241,151,98,0.18), transparent 65%);
+      top: 35%; right: 3%;
     }
-    /* Wine — bottom left */
+    /* Wine/dark red — bottom left */
     .bg-orb-4 {
       width: 500px; height: 500px;
-      background: radial-gradient(circle, rgba(93,19,16,0.28), transparent 68%);
-      bottom: 15%; left: 5%;
-      animation: bgDrift4 24s ease-in-out infinite alternate;
-    }
-
-    @keyframes bgDrift1 {
-      from { transform: translate(0,   0)   scale(1);    }
-      to   { transform: translate(90px, 70px) scale(1.18); }
-    }
-    @keyframes bgDrift2 {
-      from { transform: translate(0,    0)    scale(1);    }
-      to   { transform: translate(-80px,-60px) scale(1.12); }
-    }
-    @keyframes bgDrift3 {
-      from { transform: translate(0,   0)   scale(1);    }
-      to   { transform: translate(-50px, 80px) scale(1.22); }
-    }
-    @keyframes bgDrift4 {
-      from { transform: translate(0,   0)   scale(1);    }
-      to   { transform: translate(65px,-45px) scale(1.14); }
+      background: radial-gradient(circle, rgba(93,19,16,0.32), transparent 65%);
+      bottom: 12%; left: 4%;
     }
 
     /* ============================================================
@@ -229,6 +210,7 @@
     ============================================================ */
     #hero {
       position: relative;
+      z-index: 1;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
@@ -254,7 +236,7 @@
       position: absolute;
       bottom: 0; left: 0; right: 0;
       height: 260px;
-      background: linear-gradient(to bottom, transparent, rgba(19,16,28,0.55));
+      background: linear-gradient(to bottom, transparent, rgba(11,13,24,0.6));
       pointer-events: none;
     }
 
@@ -413,14 +395,13 @@
        BRAND MARK
     ============================================================ */
     #brand-mark {
+      position: relative; z-index: 1;
       padding: 5.5rem 5%;
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: 1.4rem;
-      background: rgba(26,19,38,0.72);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
+      background: rgba(26,19,38,0.78);
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
     }
@@ -437,7 +418,7 @@
     /* ============================================================
        SCRUB TEXT
     ============================================================ */
-    .scrub-section { padding: 9rem 5%; }
+    .scrub-section { position: relative; z-index: 1; padding: 9rem 5%; }
     .scrub-inner { max-width: 900px; margin: 0 auto; }
     .scrub-inner p {
       font-family: 'Poppins', sans-serif;
@@ -484,7 +465,7 @@
     /* ============================================================
        SERVICES
     ============================================================ */
-    #services { padding: 7rem 5% 9rem; background: rgba(19,16,28,0.68); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
+    #services { position: relative; z-index: 1; padding: 7rem 5% 9rem; background: rgba(19,16,28,0.75); }
     .services-header { max-width: 1200px; margin: 0 auto; }
 
     .services-grid {
@@ -562,9 +543,8 @@
        TRUST / STATS
     ============================================================ */
     #trust {
-      background: rgba(26,19,38,0.74);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
+      position: relative; z-index: 1;
+      background: rgba(26,19,38,0.78);
       padding: 7rem 5%;
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
@@ -606,7 +586,7 @@
     /* ============================================================
        MISSION / COMPARISON
     ============================================================ */
-    #mission { padding: 9rem 5%; background: rgba(19,16,28,0.65); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
+    #mission { position: relative; z-index: 1; padding: 9rem 5%; background: rgba(19,16,28,0.72); }
     .mission-inner {
       max-width: 1100px;
       margin: 0 auto;
@@ -666,7 +646,7 @@
     /* ============================================================
        PROCESS
     ============================================================ */
-    #how { padding: 9rem 5%; background: rgba(26,19,38,0.72); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+    #how { position: relative; z-index: 1; padding: 9rem 5%; background: rgba(26,19,38,0.78); }
     .how-inner { max-width: 900px; margin: 0 auto; }
     .how-header { text-align: center; margin-bottom: 5rem; }
     .how-header .section-sub { margin: 0 auto; }
@@ -716,7 +696,7 @@
     /* ============================================================
        TESTIMONIALS
     ============================================================ */
-    #testimonials { padding: 9rem 5%; background: rgba(19,16,28,0.65); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
+    #testimonials { position: relative; z-index: 1; padding: 9rem 5%; background: rgba(19,16,28,0.72); }
     .testimonials-inner { max-width: 1100px; margin: 0 auto; }
     .testimonials-header { text-align: center; margin-bottom: 4rem; }
     .testi-grid {
@@ -746,12 +726,10 @@
        CTA FINAL
     ============================================================ */
     #cta-final {
+      position: relative; z-index: 1;
       padding: 11rem 5%;
-      background: rgba(26,19,38,0.74);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
+      background: rgba(26,19,38,0.78);
       text-align: center;
-      position: relative;
       overflow: hidden;
     }
     #cta-final::before {
@@ -791,9 +769,8 @@
        FOOTER
     ============================================================ */
     footer {
+      position: relative; z-index: 1;
       background: rgba(16,8,40,0.88);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
       border-top: 1px solid var(--border);
       padding: 5rem 5% 2.5rem;
     }
@@ -1356,9 +1333,9 @@
       }, { passive: true });
     })();
 
-    /* ---- ORB MOUSE PARALLAX ---- */
+    /* ---- ORB MOUSE PARALLAX (hero orbs) ---- */
     (function () {
-      var orbs = document.querySelectorAll('.orb');
+      var orbs = document.querySelectorAll('#hero .orb');
       document.addEventListener('mousemove', function (e) {
         var cx = window.innerWidth  / 2;
         var cy = window.innerHeight / 2;
@@ -1369,6 +1346,44 @@
           orb.style.transform = 'translate(' + (dx * s) + 'px, ' + (dy * s) + 'px)';
         });
       }, { passive: true });
+    })();
+
+    /* ---- BACKGROUND PARALLAX (Option B — JS rAF loop) ---- */
+    (function () {
+      var bgOrbs   = document.querySelectorAll('#page-bg .bg-orb');
+      var heroInner = document.querySelector('.hero-inner');
+      var t0 = performance.now();
+
+      function loop (now) {
+        var t  = (now - t0) * 0.001;          /* seconds elapsed   */
+        var sy = window.scrollY;               /* scroll position   */
+
+        /* Each orb drifts via sin/cos (organic feel) AND shifts with scroll */
+        if (bgOrbs[0]) bgOrbs[0].style.transform =
+          'translate(' + (Math.sin(t / 11) * 55 + sy *  0.10) + 'px,' +
+                         (Math.cos(t / 13) * 45 + sy *  0.14) + 'px)';
+
+        if (bgOrbs[1]) bgOrbs[1].style.transform =
+          'translate(' + (Math.cos(t / 14) * 65 + sy * -0.08) + 'px,' +
+                         (Math.sin(t / 12) * 50 + sy * -0.11) + 'px)';
+
+        if (bgOrbs[2]) bgOrbs[2].style.transform =
+          'translate(' + (Math.sin(t /  8) * 40 + sy * -0.05) + 'px,' +
+                         (Math.cos(t /  9) * 35 + sy *  0.07) + 'px)';
+
+        if (bgOrbs[3]) bgOrbs[3].style.transform =
+          'translate(' + (Math.cos(t / 12) * 45 + sy *  0.06) + 'px,' +
+                         (Math.sin(t / 10) * 40 + sy * -0.09) + 'px)';
+
+        /* Hero content rises slightly slower than scroll → floats away */
+        if (heroInner && sy < window.innerHeight * 1.3) {
+          heroInner.style.transform = 'translateY(' + (sy * 0.25) + 'px)';
+        }
+
+        requestAnimationFrame(loop);
+      }
+
+      requestAnimationFrame(loop);
     })();
   </script>
 
