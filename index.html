@@ -9,28 +9,34 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet" />
 
   <style>
     /* ============================================================
        VARIABLES
     ============================================================ */
     :root {
+      /* backgrounds — kept dark (EternaCloud-style) */
       --bg:         #13101C;
       --bg2:        #1A1326;
       --bg3:        #100828;
-      --teal:       #26B6BA;
-      --forest:     #0D3A36;
-      --purple:     #AC24FF;
-      --pink:       #F79FFF;
-      --blue:       #1C4EFF;
-      --orange:     #FE881B;
-      --yellow:     #FFD600;
+
+      /* 2italy brand palette (from Visual ID) */
+      --teal:       #26B6BA;   /* logo primary — PANTONE 631 C area */
+      --forest:     #0D3A36;   /* logo secondary — PANTONE 567 C     */
+      --orange:     #F19762;   /* PANTONE 157 C                       */
+      --wine:       #5D1310;   /* PANTONE 7421 C                      */
+      --blue:       #2888BA;   /* PANTONE 631 C                       */
+      --gold:       #EDC013;   /* PANTONE 7406 C                      */
+      --green:      #158F3E;   /* PANTONE 7731 C                      */
+
       --white:      #ffffff;
       --grey:       #83799E;
       --grey-light: #BDBDD3;
       --border:     rgba(255,255,255,0.07);
-      --grad-main:  linear-gradient(90deg, #26B6BA, #AC24FF, #F79FFF);
+
+      /* main gradient — mirrors the logo (teal → forest) */
+      --grad-main:  linear-gradient(135deg, #26B6BA, #158F3E);
     }
 
     /* ============================================================
@@ -41,7 +47,7 @@
     body {
       background: var(--bg);
       color: var(--white);
-      font-family: 'DM Sans', Arial, sans-serif;
+      font-family: 'Poppins', Arial, sans-serif;
       font-size: 1rem;
       line-height: 1.65;
       overflow-x: hidden;
@@ -67,7 +73,7 @@
       gap: 1rem;
     }
     .loader-counter {
-      font-family: 'Fraunces', serif;
+      font-family: 'Poppins', sans-serif;
       font-size: clamp(5rem, 14vw, 11rem);
       font-weight: 300;
       color: var(--white);
@@ -232,7 +238,7 @@
     }
 
     .hero-headline {
-      font-family: 'Fraunces', serif;
+      font-family: 'Poppins', sans-serif;
       font-size: clamp(3.2rem, 7.5vw, 6.5rem);
       font-weight: 700;
       line-height: 1.03;
@@ -282,7 +288,7 @@
       gap: 0.45rem;
       background: var(--teal);
       color: #071a1a;
-      font-family: 'DM Sans', sans-serif;
+      font-family: 'Poppins', sans-serif;
       font-weight: 700;
       font-size: 0.95rem;
       padding: 0.9rem 2rem;
@@ -301,7 +307,7 @@
       align-items: center;
       gap: 0.45rem;
       color: var(--grey-light);
-      font-family: 'DM Sans', sans-serif;
+      font-family: 'Poppins', sans-serif;
       font-weight: 500;
       font-size: 0.95rem;
       text-decoration: none;
@@ -370,7 +376,7 @@
     .scrub-section { padding: 9rem 5%; }
     .scrub-inner { max-width: 900px; margin: 0 auto; }
     .scrub-inner p {
-      font-family: 'Fraunces', serif;
+      font-family: 'Poppins', sans-serif;
       font-size: clamp(1.7rem, 3.6vw, 2.8rem);
       font-weight: 300;
       line-height: 1.45;
@@ -396,7 +402,7 @@
       margin-bottom: 1rem;
     }
     .section-headline {
-      font-family: 'Fraunces', serif;
+      font-family: 'Poppins', sans-serif;
       font-size: clamp(2.2rem, 4.5vw, 3.8rem);
       font-weight: 700;
       line-height: 1.08;
@@ -445,7 +451,7 @@
       color: var(--teal);
     }
     .service-title {
-      font-family: 'Fraunces', serif;
+      font-family: 'Poppins', sans-serif;
       font-size: 1.35rem;
       font-weight: 600;
       color: var(--white);
@@ -515,7 +521,7 @@
     .trust-stat:hover { border-color: rgba(38,182,186,0.25); transform: translateY(-4px); }
     .trust-stat .num {
       display: block;
-      font-family: 'Fraunces', serif;
+      font-family: 'Poppins', sans-serif;
       font-size: clamp(2.6rem, 4vw, 3.6rem);
       font-weight: 700;
       background: var(--grad-main);
@@ -544,7 +550,7 @@
       align-items: center;
     }
     .mission-headline {
-      font-family: 'Fraunces', serif;
+      font-family: 'Poppins', sans-serif;
       font-size: clamp(2rem, 3.8vw, 3rem);
       font-weight: 700;
       line-height: 1.15;
@@ -625,7 +631,7 @@
       background: rgba(38,182,186,0.09);
       border: 1px solid rgba(38,182,186,0.28);
       display: flex; align-items: center; justify-content: center;
-      font-family: 'Fraunces', serif;
+      font-family: 'Poppins', sans-serif;
       font-size: 1.15rem; font-weight: 700;
       color: var(--teal); flex-shrink: 0;
       transition: background 0.3s, box-shadow 0.3s;
@@ -635,7 +641,7 @@
       box-shadow: 0 0 24px rgba(38,182,186,0.22);
     }
     .step-body h3 {
-      font-family: 'Fraunces', serif;
+      font-family: 'Poppins', sans-serif;
       font-size: 1.35rem; font-weight: 600;
       margin-bottom: 0.5rem; letter-spacing: -0.01em;
     }
@@ -661,7 +667,7 @@
       transition: border-color 0.3s ease, transform 0.35s ease;
     }
     .testi-card:hover { border-color: rgba(38,182,186,0.3); transform: translateY(-5px); }
-    .testi-stars { color: var(--yellow); font-size: 0.88rem; letter-spacing: 0.08em; }
+    .testi-stars { color: var(--gold); font-size: 0.88rem; letter-spacing: 0.08em; }
     .testi-quote { font-size: 0.94rem; color: var(--grey-light); line-height: 1.72; flex: 1; }
     .testi-author {
       display: flex; flex-direction: column; gap: 0.2rem;
@@ -688,7 +694,7 @@
     }
     .cta-inner { position: relative; z-index: 1; }
     .cta-headline {
-      font-family: 'Fraunces', serif;
+      font-family: 'Poppins', sans-serif;
       font-size: clamp(2.6rem, 5.5vw, 4.4rem);
       font-weight: 700;
       line-height: 1.08;
@@ -706,7 +712,7 @@
     }
     .cta-quote {
       margin-top: 5rem;
-      font-family: 'Fraunces', serif;
+      font-family: 'Poppins', sans-serif;
       font-style: italic;
       font-size: 1rem;
       color: var(--grey);
