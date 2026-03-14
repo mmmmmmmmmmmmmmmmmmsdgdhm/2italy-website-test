@@ -45,7 +45,7 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: auto; }
     body {
-      background: var(--bg);
+      background: transparent;
       color: var(--white);
       font-family: 'Poppins', Arial, sans-serif;
       font-size: 1rem;
@@ -57,6 +57,68 @@
     body::-webkit-scrollbar { display: none; }
     img { display: block; max-width: 100%; }
     a { color: inherit; }
+
+    /* ============================================================
+       FIXED PAGE BACKGROUND  (brand parallax layer)
+    ============================================================ */
+    #page-bg {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background: #0B0D18;
+      overflow: hidden;
+    }
+    .bg-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(130px);
+      pointer-events: none;
+    }
+    /* Teal — top left */
+    .bg-orb-1 {
+      width: 900px; height: 900px;
+      background: radial-gradient(circle, rgba(38,182,186,0.38), transparent 68%);
+      top: -25%; left: -20%;
+      animation: bgDrift1 22s ease-in-out infinite alternate;
+    }
+    /* Forest green — bottom right */
+    .bg-orb-2 {
+      width: 800px; height: 800px;
+      background: radial-gradient(circle, rgba(13,58,54,0.7), transparent 68%);
+      bottom: -25%; right: -18%;
+      animation: bgDrift2 28s ease-in-out infinite alternate;
+    }
+    /* Orange — mid right */
+    .bg-orb-3 {
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(241,151,98,0.14), transparent 68%);
+      top: 38%; right: 5%;
+      animation: bgDrift3 19s ease-in-out infinite alternate;
+    }
+    /* Wine — bottom left */
+    .bg-orb-4 {
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(93,19,16,0.28), transparent 68%);
+      bottom: 15%; left: 5%;
+      animation: bgDrift4 24s ease-in-out infinite alternate;
+    }
+
+    @keyframes bgDrift1 {
+      from { transform: translate(0,   0)   scale(1);    }
+      to   { transform: translate(90px, 70px) scale(1.18); }
+    }
+    @keyframes bgDrift2 {
+      from { transform: translate(0,    0)    scale(1);    }
+      to   { transform: translate(-80px,-60px) scale(1.12); }
+    }
+    @keyframes bgDrift3 {
+      from { transform: translate(0,   0)   scale(1);    }
+      to   { transform: translate(-50px, 80px) scale(1.22); }
+    }
+    @keyframes bgDrift4 {
+      from { transform: translate(0,   0)   scale(1);    }
+      to   { transform: translate(65px,-45px) scale(1.14); }
+    }
 
     /* ============================================================
        LOADER
@@ -192,7 +254,7 @@
       position: absolute;
       bottom: 0; left: 0; right: 0;
       height: 260px;
-      background: linear-gradient(to bottom, transparent, var(--bg));
+      background: linear-gradient(to bottom, transparent, rgba(19,16,28,0.55));
       pointer-events: none;
     }
 
@@ -356,7 +418,9 @@
       flex-direction: column;
       align-items: center;
       gap: 1.4rem;
-      background: var(--bg2);
+      background: rgba(26,19,38,0.72);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
     }
@@ -420,7 +484,7 @@
     /* ============================================================
        SERVICES
     ============================================================ */
-    #services { padding: 7rem 5% 9rem; background: var(--bg); }
+    #services { padding: 7rem 5% 9rem; background: rgba(19,16,28,0.68); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
     .services-header { max-width: 1200px; margin: 0 auto; }
 
     .services-grid {
@@ -498,7 +562,9 @@
        TRUST / STATS
     ============================================================ */
     #trust {
-      background: var(--bg2);
+      background: rgba(26,19,38,0.74);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
       padding: 7rem 5%;
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
@@ -540,7 +606,7 @@
     /* ============================================================
        MISSION / COMPARISON
     ============================================================ */
-    #mission { padding: 9rem 5%; background: var(--bg); }
+    #mission { padding: 9rem 5%; background: rgba(19,16,28,0.65); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
     .mission-inner {
       max-width: 1100px;
       margin: 0 auto;
@@ -600,7 +666,7 @@
     /* ============================================================
        PROCESS
     ============================================================ */
-    #how { padding: 9rem 5%; background: var(--bg2); }
+    #how { padding: 9rem 5%; background: rgba(26,19,38,0.72); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
     .how-inner { max-width: 900px; margin: 0 auto; }
     .how-header { text-align: center; margin-bottom: 5rem; }
     .how-header .section-sub { margin: 0 auto; }
@@ -650,7 +716,7 @@
     /* ============================================================
        TESTIMONIALS
     ============================================================ */
-    #testimonials { padding: 9rem 5%; background: var(--bg); }
+    #testimonials { padding: 9rem 5%; background: rgba(19,16,28,0.65); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
     .testimonials-inner { max-width: 1100px; margin: 0 auto; }
     .testimonials-header { text-align: center; margin-bottom: 4rem; }
     .testi-grid {
@@ -681,7 +747,9 @@
     ============================================================ */
     #cta-final {
       padding: 11rem 5%;
-      background: var(--bg2);
+      background: rgba(26,19,38,0.74);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
       text-align: center;
       position: relative;
       overflow: hidden;
@@ -723,7 +791,9 @@
        FOOTER
     ============================================================ */
     footer {
-      background: var(--bg3);
+      background: rgba(16,8,40,0.88);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
       border-top: 1px solid var(--border);
       padding: 5rem 5% 2.5rem;
     }
@@ -794,6 +864,17 @@
   </style>
 </head>
 <body>
+
+  <!-- ============================================================
+       FIXED PARALLAX BACKGROUND
+  ============================================================ -->
+  <div id="page-bg" aria-hidden="true">
+    <div class="bg-orb bg-orb-1"></div>
+    <div class="bg-orb bg-orb-2"></div>
+    <div class="bg-orb bg-orb-3"></div>
+    <div class="bg-orb bg-orb-4"></div>
+  </div>
+
 
   <!-- ============================================================
        LOADER
