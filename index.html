@@ -192,7 +192,7 @@
       position: absolute;
       bottom: 0; left: 0; right: 0;
       height: 260px;
-      background: linear-gradient(to bottom, transparent, var(--bg));
+      background: linear-gradient(to bottom, transparent, #0D2420);
       pointer-events: none;
     }
 
@@ -356,9 +356,9 @@
       flex-direction: column;
       align-items: center;
       gap: 1.4rem;
-      background: var(--bg2);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
+      background: linear-gradient(160deg, #0D2420 0%, #111020 100%);
+      border-top: 1px solid rgba(38,182,186,0.18);
+      border-bottom: 1px solid rgba(38,182,186,0.18);
     }
     .brand-eyebrow {
       font-size: 0.7rem;
@@ -373,7 +373,10 @@
     /* ============================================================
        SCRUB TEXT
     ============================================================ */
-    .scrub-section { padding: 9rem 5%; }
+    .scrub-section {
+      padding: 9rem 5%;
+      background: linear-gradient(180deg, #0D2420 0%, #0B0D18 100%);
+    }
     .scrub-inner { max-width: 900px; margin: 0 auto; }
     .scrub-inner p {
       font-family: 'Poppins', sans-serif;
@@ -420,7 +423,11 @@
     /* ============================================================
        SERVICES
     ============================================================ */
-    #services { padding: 7rem 5% 9rem; background: var(--bg); }
+    #services {
+      padding: 7rem 5% 9rem;
+      background: linear-gradient(170deg, #0B0D18 0%, #0D2820 60%, #111020 100%);
+      border-bottom: 1px solid rgba(38,182,186,0.12);
+    }
     .services-header { max-width: 1200px; margin: 0 auto; }
 
     .services-grid {
@@ -498,10 +505,10 @@
        TRUST / STATS
     ============================================================ */
     #trust {
-      background: var(--bg2);
+      background: linear-gradient(160deg, #1A0A0A 0%, #2A0D0C 40%, #130820 100%);
       padding: 7rem 5%;
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
+      border-top: 1px solid rgba(93,19,16,0.35);
+      border-bottom: 1px solid rgba(93,19,16,0.35);
     }
     .trust-inner { max-width: 1100px; margin: 0 auto; }
     .trust-top { text-align: center; margin-bottom: 4rem; }
@@ -540,7 +547,11 @@
     /* ============================================================
        MISSION / COMPARISON
     ============================================================ */
-    #mission { padding: 9rem 5%; background: var(--bg); }
+    #mission {
+      padding: 9rem 5%;
+      background: linear-gradient(150deg, #130820 0%, #0D2420 50%, #0B1A10 100%);
+      border-bottom: 1px solid rgba(21,143,62,0.15);
+    }
     .mission-inner {
       max-width: 1100px;
       margin: 0 auto;
@@ -600,7 +611,11 @@
     /* ============================================================
        PROCESS
     ============================================================ */
-    #how { padding: 9rem 5%; background: var(--bg2); }
+    #how {
+      padding: 9rem 5%;
+      background: linear-gradient(165deg, #0B1A10 0%, #0A1A20 50%, #100828 100%);
+      border-bottom: 1px solid rgba(38,182,186,0.12);
+    }
     .how-inner { max-width: 900px; margin: 0 auto; }
     .how-header { text-align: center; margin-bottom: 5rem; }
     .how-header .section-sub { margin: 0 auto; }
@@ -650,7 +665,11 @@
     /* ============================================================
        TESTIMONIALS
     ============================================================ */
-    #testimonials { padding: 9rem 5%; background: var(--bg); }
+    #testimonials {
+      padding: 9rem 5%;
+      background: linear-gradient(160deg, #100828 0%, #1A0A0A 50%, #0D2420 100%);
+      border-bottom: 1px solid rgba(93,19,16,0.2);
+    }
     .testimonials-inner { max-width: 1100px; margin: 0 auto; }
     .testimonials-header { text-align: center; margin-bottom: 4rem; }
     .testi-grid {
@@ -681,10 +700,11 @@
     ============================================================ */
     #cta-final {
       padding: 11rem 5%;
-      background: var(--bg2);
+      background: linear-gradient(160deg, #0D2420 0%, #091A14 50%, #100828 100%);
       text-align: center;
       position: relative;
       overflow: hidden;
+      border-top: 1px solid rgba(38,182,186,0.18);
     }
     #cta-final::before {
       content: '';
@@ -723,8 +743,8 @@
        FOOTER
     ============================================================ */
     footer {
-      background: var(--bg3);
-      border-top: 1px solid var(--border);
+      background: linear-gradient(160deg, #070D0A 0%, #08060F 100%);
+      border-top: 1px solid rgba(38,182,186,0.15);
       padding: 5rem 5% 2.5rem;
     }
     .footer-top {
