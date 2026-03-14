@@ -43,10 +43,9 @@
        RESET
     ============================================================ */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    /* html holds the base dark colour — body is transparent so the fixed layer shows through */
-    html { scroll-behavior: auto; background: #0B0D18; }
+    html { scroll-behavior: auto; }
     body {
-      background: transparent;
+      background: var(--bg);
       color: var(--white);
       font-family: 'Poppins', Arial, sans-serif;
       font-size: 1rem;
@@ -58,48 +57,6 @@
     body::-webkit-scrollbar { display: none; }
     img { display: block; max-width: 100%; }
     a { color: inherit; }
-
-    /* ============================================================
-       FIXED PARALLAX BACKGROUND  (sits behind everything)
-    ============================================================ */
-    #page-bg {
-      position: fixed;
-      inset: 0;
-      z-index: 0;            /* above html bg, below all content */
-      background: #0B0D18;
-      overflow: hidden;
-    }
-    .bg-orb {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(120px);
-      pointer-events: none;
-      will-change: transform;
-    }
-    /* Teal — top left */
-    .bg-orb-1 {
-      width: 900px; height: 900px;
-      background: radial-gradient(circle, rgba(38,182,186,0.42), transparent 65%);
-      top: -20%; left: -18%;
-    }
-    /* Forest green — bottom right */
-    .bg-orb-2 {
-      width: 800px; height: 800px;
-      background: radial-gradient(circle, rgba(21,143,62,0.35), transparent 65%);
-      bottom: -22%; right: -16%;
-    }
-    /* Orange — mid right */
-    .bg-orb-3 {
-      width: 600px; height: 600px;
-      background: radial-gradient(circle, rgba(241,151,98,0.18), transparent 65%);
-      top: 35%; right: 3%;
-    }
-    /* Wine/dark red — bottom left */
-    .bg-orb-4 {
-      width: 500px; height: 500px;
-      background: radial-gradient(circle, rgba(93,19,16,0.32), transparent 65%);
-      bottom: 12%; left: 4%;
-    }
 
     /* ============================================================
        LOADER
@@ -210,7 +167,6 @@
     ============================================================ */
     #hero {
       position: relative;
-      z-index: 1;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
@@ -236,7 +192,7 @@
       position: absolute;
       bottom: 0; left: 0; right: 0;
       height: 260px;
-      background: linear-gradient(to bottom, transparent, rgba(11,13,24,0.6));
+      background: linear-gradient(to bottom, transparent, var(--bg));
       pointer-events: none;
     }
 
@@ -395,13 +351,12 @@
        BRAND MARK
     ============================================================ */
     #brand-mark {
-      position: relative; z-index: 1;
       padding: 5.5rem 5%;
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: 1.4rem;
-      background: rgba(26,19,38,0.78);
+      background: var(--bg2);
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
     }
@@ -418,7 +373,7 @@
     /* ============================================================
        SCRUB TEXT
     ============================================================ */
-    .scrub-section { position: relative; z-index: 1; padding: 9rem 5%; }
+    .scrub-section { padding: 9rem 5%; }
     .scrub-inner { max-width: 900px; margin: 0 auto; }
     .scrub-inner p {
       font-family: 'Poppins', sans-serif;
@@ -465,7 +420,7 @@
     /* ============================================================
        SERVICES
     ============================================================ */
-    #services { position: relative; z-index: 1; padding: 7rem 5% 9rem; background: rgba(19,16,28,0.75); }
+    #services { padding: 7rem 5% 9rem; background: var(--bg); }
     .services-header { max-width: 1200px; margin: 0 auto; }
 
     .services-grid {
@@ -543,8 +498,7 @@
        TRUST / STATS
     ============================================================ */
     #trust {
-      position: relative; z-index: 1;
-      background: rgba(26,19,38,0.78);
+      background: var(--bg2);
       padding: 7rem 5%;
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
@@ -586,7 +540,7 @@
     /* ============================================================
        MISSION / COMPARISON
     ============================================================ */
-    #mission { position: relative; z-index: 1; padding: 9rem 5%; background: rgba(19,16,28,0.72); }
+    #mission { padding: 9rem 5%; background: var(--bg); }
     .mission-inner {
       max-width: 1100px;
       margin: 0 auto;
@@ -646,7 +600,7 @@
     /* ============================================================
        PROCESS
     ============================================================ */
-    #how { position: relative; z-index: 1; padding: 9rem 5%; background: rgba(26,19,38,0.78); }
+    #how { padding: 9rem 5%; background: var(--bg2); }
     .how-inner { max-width: 900px; margin: 0 auto; }
     .how-header { text-align: center; margin-bottom: 5rem; }
     .how-header .section-sub { margin: 0 auto; }
@@ -696,7 +650,7 @@
     /* ============================================================
        TESTIMONIALS
     ============================================================ */
-    #testimonials { position: relative; z-index: 1; padding: 9rem 5%; background: rgba(19,16,28,0.72); }
+    #testimonials { padding: 9rem 5%; background: var(--bg); }
     .testimonials-inner { max-width: 1100px; margin: 0 auto; }
     .testimonials-header { text-align: center; margin-bottom: 4rem; }
     .testi-grid {
@@ -726,10 +680,10 @@
        CTA FINAL
     ============================================================ */
     #cta-final {
-      position: relative; z-index: 1;
       padding: 11rem 5%;
-      background: rgba(26,19,38,0.78);
+      background: var(--bg2);
       text-align: center;
+      position: relative;
       overflow: hidden;
     }
     #cta-final::before {
@@ -769,8 +723,7 @@
        FOOTER
     ============================================================ */
     footer {
-      position: relative; z-index: 1;
-      background: rgba(16,8,40,0.88);
+      background: var(--bg3);
       border-top: 1px solid var(--border);
       padding: 5rem 5% 2.5rem;
     }
@@ -841,17 +794,6 @@
   </style>
 </head>
 <body>
-
-  <!-- ============================================================
-       FIXED PARALLAX BACKGROUND
-  ============================================================ -->
-  <div id="page-bg" aria-hidden="true">
-    <div class="bg-orb bg-orb-1"></div>
-    <div class="bg-orb bg-orb-2"></div>
-    <div class="bg-orb bg-orb-3"></div>
-    <div class="bg-orb bg-orb-4"></div>
-  </div>
-
 
   <!-- ============================================================
        LOADER
@@ -1333,9 +1275,9 @@
       }, { passive: true });
     })();
 
-    /* ---- ORB MOUSE PARALLAX (hero orbs) ---- */
+    /* ---- ORB MOUSE PARALLAX ---- */
     (function () {
-      var orbs = document.querySelectorAll('#hero .orb');
+      var orbs = document.querySelectorAll('.orb');
       document.addEventListener('mousemove', function (e) {
         var cx = window.innerWidth  / 2;
         var cy = window.innerHeight / 2;
@@ -1346,44 +1288,6 @@
           orb.style.transform = 'translate(' + (dx * s) + 'px, ' + (dy * s) + 'px)';
         });
       }, { passive: true });
-    })();
-
-    /* ---- BACKGROUND PARALLAX (Option B — JS rAF loop) ---- */
-    (function () {
-      var bgOrbs   = document.querySelectorAll('#page-bg .bg-orb');
-      var heroInner = document.querySelector('.hero-inner');
-      var t0 = performance.now();
-
-      function loop (now) {
-        var t  = (now - t0) * 0.001;          /* seconds elapsed   */
-        var sy = window.scrollY;               /* scroll position   */
-
-        /* Each orb drifts via sin/cos (organic feel) AND shifts with scroll */
-        if (bgOrbs[0]) bgOrbs[0].style.transform =
-          'translate(' + (Math.sin(t / 11) * 55 + sy *  0.10) + 'px,' +
-                         (Math.cos(t / 13) * 45 + sy *  0.14) + 'px)';
-
-        if (bgOrbs[1]) bgOrbs[1].style.transform =
-          'translate(' + (Math.cos(t / 14) * 65 + sy * -0.08) + 'px,' +
-                         (Math.sin(t / 12) * 50 + sy * -0.11) + 'px)';
-
-        if (bgOrbs[2]) bgOrbs[2].style.transform =
-          'translate(' + (Math.sin(t /  8) * 40 + sy * -0.05) + 'px,' +
-                         (Math.cos(t /  9) * 35 + sy *  0.07) + 'px)';
-
-        if (bgOrbs[3]) bgOrbs[3].style.transform =
-          'translate(' + (Math.cos(t / 12) * 45 + sy *  0.06) + 'px,' +
-                         (Math.sin(t / 10) * 40 + sy * -0.09) + 'px)';
-
-        /* Hero content rises slightly slower than scroll → floats away */
-        if (heroInner && sy < window.innerHeight * 1.3) {
-          heroInner.style.transform = 'translateY(' + (sy * 0.25) + 'px)';
-        }
-
-        requestAnimationFrame(loop);
-      }
-
-      requestAnimationFrame(loop);
     })();
   </script>
 
