@@ -291,44 +291,63 @@
     }
 
     .btn-primary {
+      position: relative;
+      overflow: hidden;
       display: inline-flex;
       align-items: center;
-      gap: 0.45rem;
-      background: var(--teal);
-      color: #071a1a;
+      gap: 0.5rem;
+      background: linear-gradient(135deg, #2dcad0 0%, #26B6BA 50%, #1a9fa3 100%);
+      color: #ffffff;
       font-family: 'Poppins', sans-serif;
-      font-weight: 700;
+      font-weight: 600;
       font-size: 0.95rem;
-      padding: 0.9rem 2rem;
+      letter-spacing: 0.02em;
+      padding: 1rem 2.4rem;
       border-radius: 100px;
       text-decoration: none;
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      box-shadow: 0 4px 18px rgba(38,182,186,0.32), 0 1px 4px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
       white-space: nowrap;
     }
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 36px rgba(38,182,186,0.38);
+    /* shimmer sweep */
+    .btn-primary::after {
+      content: '';
+      position: absolute;
+      top: 0; left: -100%;
+      width: 55%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.28), transparent);
+      transform: skewX(-18deg);
+      transition: left 0.55s ease;
     }
+    .btn-primary:hover::after { left: 160%; }
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 18px 48px rgba(38,182,186,0.42), 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .btn-primary:active { transform: translateY(-1px); }
 
     .btn-ghost {
       display: inline-flex;
       align-items: center;
-      gap: 0.45rem;
-      color: var(--grey-light);
+      gap: 0.5rem;
+      color: var(--forest);
       font-family: 'Poppins', sans-serif;
       font-weight: 500;
       font-size: 0.95rem;
+      letter-spacing: 0.02em;
       text-decoration: none;
-      border: 1px solid var(--border);
-      padding: 0.9rem 1.85rem;
+      border: 1.5px solid rgba(38,182,186,0.35);
+      padding: 0.95rem 2rem;
       border-radius: 100px;
-      transition: border-color 0.25s, color 0.25s, background 0.25s;
+      transition: border-color 0.3s, color 0.3s, background 0.3s, transform 0.3s;
       white-space: nowrap;
     }
     .btn-ghost:hover {
-      border-color: rgba(38,182,186,0.4);
+      border-color: var(--teal);
       color: var(--teal);
-      background: rgba(38,182,186,0.05);
+      background: rgba(38,182,186,0.06);
+      transform: translateY(-2px);
     }
 
     .hero-scroll-cue {
@@ -969,7 +988,7 @@
       </div>
       <div class="trust-grid">
         <div class="trust-stat reveal">
-          <span class="num" data-target="200" data-suffix="+">0</span>
+          <span class="num" data-target="1000" data-suffix="+">0</span>
           <span class="label">Students Guided</span>
         </div>
         <div class="trust-stat reveal delay-1">
@@ -977,11 +996,11 @@
           <span class="label">Partner Universities</span>
         </div>
         <div class="trust-stat reveal delay-2">
-          <span class="num" data-target="8" data-suffix="">0</span>
+          <span class="num" data-target="3.5" data-suffix="">0</span>
           <span class="label">Years Experience</span>
         </div>
         <div class="trust-stat reveal delay-3">
-          <span class="num" data-target="95" data-suffix="%">0</span>
+          <span class="num" data-target="84" data-suffix="%">0</span>
           <span class="label">Visa Success Rate</span>
         </div>
       </div>
@@ -1091,7 +1110,7 @@
   <section id="testimonials">
     <div class="testimonials-inner">
       <div class="testimonials-header">
-        <span class="section-eyebrow reveal">Client Stories</span>
+        <span class="section-eyebrow reveal">Student Stories</span>
         <h2 class="section-headline reveal">Real people. Real moves.</h2>
       </div>
       <div class="testi-grid">
@@ -1259,7 +1278,7 @@
         var step    = target / 55;
         var timer   = setInterval(function () {
           current = Math.min(current + step, target);
-          el.textContent = Math.round(current) + suffix;
+          el.textContent = (target % 1 !== 0 ? current.toFixed(1) : Math.round(current)) + suffix;
           if (current >= target) clearInterval(timer);
         }, 22);
         countObs.unobserve(el);
