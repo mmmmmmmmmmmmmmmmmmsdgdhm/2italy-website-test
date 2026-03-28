@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>محتوى مجاني — 2italy</title>
+  <meta name="description" content="فيديوهات مجانية عن الدراسة والتأشيرات والحياة في إيطاليا، مختارة بعناية من فريق 2italy." />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- Google Fonts: Cairo (Arabic + Latin) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ============================================================
+       VARIABLES
+    ============================================================ */
+    :root {
+      --teal:       #26B6BA;
+      --forest:     #0D3A36;
+      --orange:     #F19762;
+      --wine:       #5D1310;
+      --blue:       #2888BA;
+      --gold:       #EDC013;
+      --green:      #158F3E;
+      --text-dark:  #0D3A36;
+      --text-body:  #1A3530;
+      --text-muted: #4A7A72;
+      --white:      #ffffff;
+      --card:       rgba(255,255,255,0.72);
+      --border:     rgba(38,182,186,0.18);
+      --grad-main:  linear-gradient(135deg, #26B6BA, #158F3E);
+    }
+
+    /* ============================================================
+       RESET
+    ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: linear-gradient(160deg,
+        #E6F9F8 0%,
+        #FFF8F0 30%,
+        #F0FAF2 60%,
+        #FFF3E8 100%
+      );
+      min-height: 100vh;
+      color: var(--text-body);
+      font-family: 'Cairo', Arial, sans-serif;
+      font-size: 1rem;
+      line-height: 1.75;
+      overflow-x: hidden;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+    body::-webkit-scrollbar { display: none; }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; }
+
+    /* ============================================================
+       NAV
+    ============================================================ */
+    #nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 900;
+      padding: 2rem 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: padding 0.4s ease, background 0.4s ease, border-color 0.4s ease;
+      border-bottom: 1px solid transparent;
+    }
+    #nav.scrolled {
+      padding: 1.1rem 5%;
+      background: rgba(255,255,255,0.82);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom-color: var(--border);
+      box-shadow: 0 2px 20px rgba(38,182,186,0.08);
+    }
+    .nav-logo img {
+      height: 34px;
+      width: auto;
+      transition: transform 0.4s ease;
+    }
+    #nav.scrolled .nav-logo img { transform: scale(0.88); }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2.25rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-body);
+      text-decoration: none;
+      letter-spacing: 0;
+      position: relative;
+      transition: color 0.2s;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px; right: 0; left: 0;
+      height: 1.5px;
+      background: var(--grad-main);
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.3s ease;
+    }
+    .nav-links a:hover { color: var(--forest); }
+    .nav-links a:hover::after { transform: scaleX(1); }
+    .nav-links a.active-page { color: var(--teal); }
+    .nav-links a.active-page::after { transform: scaleX(1); }
+    .nav-cta {
+      background: var(--teal) !important;
+      color: #071a1a !important;
+      padding: 0.55rem 1.35rem !important;
+      border-radius: 100px !important;
+      font-weight: 700 !important;
+      transition: opacity 0.2s, transform 0.2s !important;
+    }
+    .nav-cta::after { display: none !important; }
+    .nav-cta:hover { opacity: 0.88 !important; transform: scale(1.03) !important; }
+
+    /* ============================================================
+       HERO BANNER
+    ============================================================ */
+    #resources-hero {
+      position: relative;
+      padding: 10rem 5% 6rem;
+      text-align: center;
+      overflow: hidden;
+    }
+    #resources-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(38,182,186,0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(38,182,186,0.035) 1px, transparent 1px);
+      background-size: 80px 80px;
+      pointer-events: none;
+    }
+    .resources-hero-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .resources-eyebrow {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 1.2rem;
+    }
+    .resources-headline {
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+      color: var(--text-dark);
+      margin-bottom: 1.25rem;
+    }
+    .resources-headline .grad {
+      background: var(--grad-main);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .resources-sub {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      line-height: 1.85;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    /* ============================================================
+       FILTER TABS
+    ============================================================ */
+    .filter-bar {
+      display: flex;
+      justify-content: center;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      padding: 0 5% 3.5rem;
+    }
+    .filter-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-family: 'Cairo', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      background: var(--card);
+      border: 1.5px solid var(--border);
+      border-radius: 100px;
+      padding: 0.5rem 1.3rem;
+      cursor: pointer;
+      transition: color 0.2s, background 0.2s, border-color 0.2s, transform 0.2s;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+    .filter-btn:hover {
+      color: var(--forest);
+      border-color: rgba(38,182,186,0.4);
+      transform: translateY(-1px);
+    }
+    .filter-btn.active {
+      background: var(--grad-main);
+      color: #fff;
+      border-color: transparent;
+      box-shadow: 0 4px 14px rgba(38,182,186,0.3);
+    }
+    .filter-btn.active:hover { transform: translateY(-1px); opacity: 0.92; }
+
+    /* ============================================================
+       VIDEO GRID
+    ============================================================ */
+    #video-section {
+      padding: 0 5% 7rem;
+    }
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .video-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      overflow: hidden;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow: 0 4px 24px rgba(38,182,186,0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+    .video-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 48px rgba(38,182,186,0.16);
+      border-color: rgba(38,182,186,0.35);
+    }
+    .video-card.hidden { display: none; }
+
+    /* 16:9 responsive iframe wrapper */
+    .video-wrap {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%;
+      background: #0D3A36;
+    }
+    .video-wrap iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .card-body {
+      padding: 1.4rem 1.5rem 1.6rem;
+      text-align: right;
+    }
+    .category-tag {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      color: var(--teal);
+      background: rgba(38,182,186,0.1);
+      border-radius: 100px;
+      padding: 0.25rem 0.75rem;
+      margin-bottom: 0.8rem;
+    }
+    .card-body h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      line-height: 1.5;
+      margin-bottom: 0.5rem;
+    }
+    .card-body p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.75;
+    }
+
+    /* Empty state */
+    .no-results {
+      display: none;
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 4rem 2rem;
+      color: var(--text-muted);
+      font-size: 1rem;
+    }
+    .no-results.visible { display: block; }
+
+    /* ============================================================
+       BOTTOM CTA STRIP
+    ============================================================ */
+    #resources-cta {
+      text-align: center;
+      padding: 5rem 5% 6rem;
+      border-top: 1px solid var(--border);
+    }
+    #resources-cta .section-eyebrow {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--teal);
+      margin-bottom: 1rem;
+    }
+    #resources-cta h2 {
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      font-weight: 800;
+      line-height: 1.25;
+      letter-spacing: -0.01em;
+      color: var(--text-dark);
+      margin-bottom: 1rem;
+    }
+    #resources-cta p {
+      font-size: 1rem;
+      color: var(--text-muted);
+      max-width: 480px;
+      margin: 0 auto 2.2rem;
+      line-height: 1.85;
+    }
+
+    .btn-primary {
+      position: relative;
+      overflow: hidden;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: linear-gradient(135deg, #2dcad0 0%, #26B6BA 50%, #1a9fa3 100%);
+      color: #ffffff;
+      font-family: 'Cairo', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 1rem 2.4rem;
+      border-radius: 100px;
+      text-decoration: none;
+      box-shadow: 0 4px 18px rgba(38,182,186,0.32), 0 1px 4px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      white-space: nowrap;
+    }
+    .btn-primary::after {
+      content: '';
+      position: absolute;
+      top: 0; right: -100%;
+      width: 55%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.28), transparent);
+      transform: skewX(18deg);
+      transition: right 0.55s ease;
+    }
+    .btn-primary:hover::after { right: 160%; }
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 18px 48px rgba(38,182,186,0.42), 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    /* ============================================================
+       FOOTER
+    ============================================================ */
+    footer {
+      background: transparent;
+      border-top: 1px solid var(--border);
+      padding: 5rem 5% 2.5rem;
+    }
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 3.5rem;
+    }
+    .footer-brand img { height: 38px; margin-bottom: 1.2rem; }
+    .footer-brand p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.8; max-width: 240px; }
+    .footer-col h4 {
+      font-size: 0.75rem; font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--teal); margin-bottom: 1.3rem;
+    }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.8rem; }
+    .footer-col a { font-size: 0.9rem; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+    .footer-col a:hover { color: var(--forest); }
+    .footer-social {
+      display: flex;
+      gap: 0.75rem;
+      margin-top: 1.4rem;
+    }
+    .footer-social a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px; height: 38px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(38,182,186,0.25);
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: border-color 0.25s, color 0.25s, background 0.25s, transform 0.25s;
+    }
+    .footer-social a:hover {
+      border-color: var(--teal);
+      color: var(--teal);
+      background: rgba(38,182,186,0.07);
+      transform: translateY(-3px);
+    }
+    .footer-bottom {
+      display: flex; align-items: center; justify-content: space-between;
+      padding-top: 2rem; border-top: 1px solid var(--border);
+      font-size: 0.82rem; color: var(--text-muted);
+    }
+
+    /* ============================================================
+       SCROLL REVEAL
+    ============================================================ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.72s ease, transform 0.72s ease;
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+    .reveal.delay-1 { transition-delay: 0.14s; }
+    .reveal.delay-2 { transition-delay: 0.28s; }
+    .reveal.delay-3 { transition-delay: 0.42s; }
+
+    /* ============================================================
+       KEYFRAMES
+    ============================================================ */
+    @keyframes slideUp { from { opacity: 0; transform: translateY(32px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* ============================================================
+       RESPONSIVE
+    ============================================================ */
+    @media (max-width: 1024px) {
+      .video-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-top  { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 640px) {
+      .video-grid { grid-template-columns: 1fr; }
+      .footer-top  { grid-template-columns: 1fr; }
+      .nav-links li:not(:last-child) { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================================
+       NAV
+  ============================================================ -->
+  <nav id="nav" role="navigation" aria-label="القائمة الرئيسية">
+    <a href="index.html" class="nav-logo" aria-label="الصفحة الرئيسية - 2italy">
+      <img src="brand-assets/Asset 165000px.png" alt="2italy" />
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html#services">ما نقدمه</a></li>
+      <li><a href="index.html#how">آلية العمل</a></li>
+      <li><a href="index.html#mission">من نحن</a></li>
+      <li><a href="index.html#testimonials">قصص الطلاب</a></li>
+      <li><a href="resources.html" class="active-page">محتوى</a></li>
+      <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSfAlAgmBUgvDKE0wPM1Clqa6MuY9GyT9BKZH0qCapvmOYFWLQ/viewform?usp=header" target="_blank" rel="noopener" class="nav-cta">احجز مكالمة مجانية</a></li>
+    </ul>
+  </nav>
+
+
+  <!-- ============================================================
+       HERO BANNER
+  ============================================================ -->
+  <section id="resources-hero">
+    <div class="resources-hero-inner">
+      <span class="resources-eyebrow">محتوى مجاني</span>
+      <h1 class="resources-headline">
+        تعلّم قبل أن <span class="grad">تنتقل.</span>
+      </h1>
+      <p class="resources-sub">
+        فيديوهات مختارة تساعدك على فهم القبول الجامعي والتأشيرات والحياة في إيطاليا — من تجارب حقيقية لأناس عاشوها.
+      </p>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       FILTER TABS
+  ============================================================ -->
+  <div class="filter-bar" role="group" aria-label="تصفية الفيديوهات حسب الموضوع">
+    <button class="filter-btn active" data-filter="all">كل الفيديوهات</button>
+    <button class="filter-btn" data-filter="university">🎓 الجامعات</button>
+    <button class="filter-btn" data-filter="visa">📄 التأشيرة والإقامة</button>
+    <button class="filter-btn" data-filter="life">🏠 الحياة في إيطاليا</button>
+  </div>
+
+
+  <!-- ============================================================
+       VIDEO GRID
+  ============================================================ -->
+  <section id="video-section">
+    <div class="video-grid">
+
+      <!-- ── الجامعات ── -->
+
+      <div class="video-card reveal" data-category="university">
+        <div class="video-wrap">
+          <iframe
+            src="https://www.youtube.com/embed/o_aLPytETTo"
+            title="دليل الدراسة في إيطاليا"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+            loading="lazy">
+          </iframe>
+        </div>
+        <div class="card-body">
+          <span class="category-tag">جامعات</span>
+          <h3>دليل الدراسة في إيطاليا</h3>
+          <p>نظرة شاملة على الدراسة في الجامعات الإيطالية — ما الذي تتوقعه، وكيف يعمل النظام، وكيف تبدأ.</p>
+        </div>
+      </div>
+
+      <div class="video-card reveal delay-1" data-category="university">
+        <div class="video-wrap">
+          <iframe
+            src="https://www.youtube.com/embed/CSBFnA_Mc5I"
+            title="كيف تختار الجامعة الإيطالية المناسبة"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+            loading="lazy">
+          </iframe>
+        </div>
+        <div class="card-body">
+          <span class="category-tag">جامعات</span>
+          <h3>كيف تختار الجامعة الإيطالية المناسبة</h3>
+          <p>أبرز العوامل عند اختيار جامعة في إيطاليا — التصنيفات والمدن والبرامج ومدى ملاءمتها لأهدافك.</p>
+        </div>
+      </div>
+
+      <!-- رسالة "لا توجد نتائج" -->
+      <p class="no-results" id="no-results">لا توجد فيديوهات في هذا القسم بعد — تابعنا قريباً.</p>
+
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       BOTTOM CTA
+  ============================================================ -->
+  <section id="resources-cta">
+    <span class="section-eyebrow reveal">هل أنت مستعد للخطوة التالية؟</span>
+    <h2 class="reveal">احصل على توجيه شخصي،<br>لا مجرد فيديوهات.</h2>
+    <p class="reveal delay-1">احجز مكالمة مجانية مدتها 30 دقيقة واحصل على خارطة طريق واضحة ومخصصة لانتقالك إلى إيطاليا.</p>
+    <div class="reveal delay-2">
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSfAlAgmBUgvDKE0wPM1Clqa6MuY9GyT9BKZH0qCapvmOYFWLQ/viewform?usp=header" target="_blank" rel="noopener" class="btn-primary">
+        احجز مكالمتك المجانية
+      </a>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="brand-assets/Asset 165000px.png" alt="2italy" />
+        <p>نساعد الطموحين على بناء حياتهم في إيطاليا — من أول طلب قبول حتى أول يوم استقرار.</p>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/2italyCo" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://www.youtube.com/@2italyCo" target="_blank" rel="noopener" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          <a href="https://api.whatsapp.com/send/?phone=963990681443&text&type=phone_number&app_absent=0" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          <a href="https://www.facebook.com/2ItalyCo/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>الخدمات</h4>
+        <ul>
+          <li><a href="index.html#services">القبول الجامعي</a></li>
+          <li><a href="index.html#services">التوظيف المهني</a></li>
+          <li><a href="index.html#services">التأشيرة والإقامة</a></li>
+          <li><a href="index.html#services">الانتقال والاستقرار</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>الشركة</h4>
+        <ul>
+          <li><a href="index.html#mission">من نحن</a></li>
+          <li><a href="index.html#how">آلية العمل</a></li>
+          <li><a href="index.html#testimonials">قصص الطلاب</a></li>
+          <li><a href="resources.html">محتوى</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>تواصل معنا</h4>
+        <ul>
+          <li><a href="mailto:info@2italy.co">info@2italy.co</a></li>
+          <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSfAlAgmBUgvDKE0wPM1Clqa6MuY9GyT9BKZH0qCapvmOYFWLQ/viewform?usp=header" target="_blank" rel="noopener">احجز مكالمة</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&#169; 2italy 2026</span>
+      <span>القبول &nbsp;·&nbsp; المسار المهني &nbsp;·&nbsp; التأشيرات &nbsp;·&nbsp; الانتقال</span>
+    </div>
+  </footer>
+
+
+  <!-- ============================================================
+       JAVASCRIPT
+  ============================================================ -->
+  <script>
+    /* ---- NAV SCROLL ---- */
+    var nav = document.getElementById('nav');
+    window.addEventListener('scroll', function () {
+      nav.classList.toggle('scrolled', window.scrollY > 55);
+    }, { passive: true });
+
+    /* ---- SCROLL REVEAL ---- */
+    var revealObs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.14 });
+    document.querySelectorAll('.reveal').forEach(function (el) { revealObs.observe(el); });
+
+    /* ---- CATEGORY FILTER ---- */
+    var filterBtns = document.querySelectorAll('.filter-btn');
+    var videoCards = document.querySelectorAll('.video-card');
+    var noResults  = document.getElementById('no-results');
+
+    filterBtns.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var filter = btn.dataset.filter;
+        filterBtns.forEach(function (b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        var visible = 0;
+        videoCards.forEach(function (card) {
+          var match = filter === 'all' || card.dataset.category === filter;
+          card.classList.toggle('hidden', !match);
+          if (match) visible++;
+        });
+        noResults.classList.toggle('visible', visible === 0);
+      });
+    });
+  </script>
+
+</body>
+</html>
