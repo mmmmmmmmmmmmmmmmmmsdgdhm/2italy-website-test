@@ -7,37 +7,137 @@ export default function Home() {
     <main>
       <Navigation />
       <section className="hero">
-        <span className="page-hero-eyebrow">Study in Italy</span>
-        <h1>Your path to Italy, made simple.</h1>
-        <p>2italy helps students and young professionals plan their study journey in Italy, from university selection to visa preparation.</p>
-        <Link href="/consultation" className="cta-button">Book a free consultation</Link>
+        <div className="hero-inner">
+          <span className="hero-eyebrow">Consulting for Students & Young Professionals</span>
+          <h1 className="hero-headline">
+            <span className="line">Your Path to</span>
+            <span className="line"><span className="grad">Italy,</span></span>
+            <span className="line">Made Simple.</span>
+          </h1>
+          <p className="hero-sub">
+            We guide ambitious people through every step — university applications, visa filing, job search, and relocation — so you can focus on your future.
+          </p>
+          <div className="hero-cta-row">
+            <Link href="/consultation" className="btn-primary">Book a Free Consultation</Link>
+            <a href="#how" className="btn-ghost">See how it works</a>
+          </div>
+        </div>
       </section>
 
-      <section className="section-block">
-        <h2 className="section-title">What we do</h2>
-        <div className="grid-cards">
-          <article className="card">
-            <h2>University matching</h2>
-            <p>We help you find the right Italian programs and submit a strong application.</p>
+      <section className="brand-mark">
+        <span className="brand-eyebrow">Your Partner for Italy</span>
+        <div className="brand-logo-wrap">
+          <img src="/brand-assets/Asset 165000px.png" alt="2italy" className="brand-logo-img" />
+        </div>
+        <p className="brand-tagline-text">Admission · Careers · Visas · Relocation</p>
+      </section>
+
+      <section className="scrub-section">
+        <div className="scrub-inner">
+          <p>We exist to make Italy accessible. Whether you are applying to a top university, launching your career, or starting your life abroad — we remove the complexity so you can move with total confidence.</p>
+        </div>
+      </section>
+
+      <section className="section-block" id="services">
+        <span className="section-eyebrow">What We Do</span>
+        <h2 className="section-title">One partner. Every step.</h2>
+        <p className="section-sub">From your first idea to your first day in Italy, we handle the complexity so you do not have to.</p>
+        <div className="services-grid">
+          <article className="service-card">
+            <span className="service-num">01</span>
+            <h3 className="service-title">University Admission</h3>
+            <p className="service-tagline">From idea to enrollment</p>
+            <p className="service-desc">We manage your applications, documents, deadlines, and interviews with the strongest possible strategy.</p>
           </article>
-          <article className="card">
-            <h2>Visa support</h2>
-            <p>Get step-by-step help with documents, interviews, and student visa requirements.</p>
+          <article className="service-card">
+            <span className="service-num">02</span>
+            <h3 className="service-title">Career Placement</h3>
+            <p className="service-tagline">From ambition to employment</p>
+            <p className="service-desc">We connect you with job opportunities, coach your profile, and prepare you for the local Italian market.</p>
           </article>
-          <article className="card">
-            <h2>Subscriber tutorials</h2>
-            <p>Future-ready tutorials will guide you through each stage of your study plan.</p>
+          <article className="service-card">
+            <span className="service-num">03</span>
+            <h3 className="service-title">Visa & Permits</h3>
+            <p className="service-tagline">From application to approval</p>
+            <p className="service-desc">We help you choose the right visa type, prepare documents, and navigate embassy requirements.</p>
           </article>
-          <article className="card">
-            <h2>Personalized advice</h2>
-            <p>Receive tailored recommendations based on your profile and goals.</p>
+          <article className="service-card">
+            <span className="service-num">04</span>
+            <h3 className="service-title">Relocation</h3>
+            <p className="service-tagline">From landing to settled</p>
+            <p className="service-desc">We support your move, housing, banking, residency, and local life so you can arrive ready.</p>
           </article>
         </div>
       </section>
 
-      <section className="section-block">
-        <h2 className="section-title">How it works</h2>
-        <p className="section-sub">Switching from separate HTML pages to this structure means new pages are now driven by reusable components and shared styles, making future updates faster and cleaner.</p>
+      <section className="section-block" id="trust">
+        <span className="section-eyebrow">Proven Results</span>
+        <h2 className="section-title">Numbers that speak.</h2>
+        <div className="trust-grid">
+          <div className="trust-stat">
+            <span className="num">1000+</span>
+            <span className="label">Students Guided</span>
+          </div>
+          <div className="trust-stat">
+            <span className="num">15+</span>
+            <span className="label">Partner Universities</span>
+          </div>
+          <div className="trust-stat">
+            <span className="num">3.5</span>
+            <span className="label">Years Experience</span>
+          </div>
+          <div className="trust-stat">
+            <span className="num">84%</span>
+            <span className="label">Visa Success Rate</span>
+          </div>
+        </div>
+      </section>
+
+      <section className="mission-section" id="mission">
+        <div className="mission-inner">
+          <div>
+            <h2 className="section-title">Stop playing catch up. Enjoy peace of mind.</h2>
+            <p className="section-sub">Moving to Italy is overwhelming when you go it alone. We unify every layer so you move through the process without friction.</p>
+            <Link href="/consultation" className="btn-primary">Start your journey</Link>
+          </div>
+          <div className="comparison-grid">
+            <div className="cmp-header">Going alone</div>
+            <div className="cmp-header">With 2italy</div>
+            <div className="cmp-row"><span className="cmp-bad">Scattered information</span><span className="cmp-good">One clear roadmap</span></div>
+            <div className="cmp-row"><span className="cmp-bad">Missed deadlines</span><span className="cmp-good">Proactive reminders</span></div>
+            <div className="cmp-row"><span className="cmp-bad">Visa rejections</span><span className="cmp-good">Expert-reviewed files</span></div>
+            <div className="cmp-row"><span className="cmp-bad">No local network</span><span className="cmp-good">Warm introductions</span></div>
+            <div className="cmp-row"><span className="cmp-bad">Guessing the market</span><span className="cmp-good">Insider knowledge</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section className="how-section" id="how">
+        <span className="section-eyebrow">Our Process</span>
+        <h2 className="section-title">Four steps. Total clarity.</h2>
+        <p className="section-sub">From your first call to your first day in Italy — every detail is handled.</p>
+        <div className="steps-timeline">
+          <div className="step"><div className="step-num">01</div><div><h3>Free Consultation</h3><p>We start by understanding your goals, timeline, and background.</p></div></div>
+          <div className="step"><div className="step-num">02</div><div><h3>Custom Roadmap</h3><p>We build a personalised plan covering applications, visas, housing, and career.</p></div></div>
+          <div className="step"><div className="step-num">03</div><div><h3>Guided Execution</h3><p>We work alongside you through every task, from documents to appointments.</p></div></div>
+          <div className="step"><div className="step-num">04</div><div><h3>Settled in Italy</h3><p>You arrive prepared, connected, and ready to live your Italian life.</p></div></div>
+        </div>
+      </section>
+
+      <section className="testimonials-section" id="testimonials">
+        <span className="section-eyebrow">Student Stories</span>
+        <h2 className="section-title">Real people. Real moves.</h2>
+        <div className="testi-grid">
+          <article className="testi-card"><div className="testi-stars">★★★★★</div><p>“I had no idea where to start with the Italian university application process. 2italy mapped everything out and I got accepted to my first-choice program in Milan.”</p><p className="testi-author"><strong>Sara K.</strong> • MSc Student, Politecnico di Milano</p></article>
+          <article className="testi-card"><div className="testi-stars">★★★★★</div><p>“The visa process felt impossible until 2italy took it over. Zero stress, zero mistakes. I had my permit in hand before I even landed.”</p><p className="testi-author"><strong>James T.</strong> • Software Engineer, Rome</p></article>
+          <article className="testi-card"><div className="testi-stars">★★★★★</div><p>“From job applications to finding my apartment in Florence, they handled everything. I just showed up and started living my Italian life.”</p><p className="testi-author"><strong>Amara B.</strong> • UX Designer, Florence</p></article>
+        </div>
+      </section>
+
+      <section className="cta-final">
+        <h2 className="section-title">Your Italian chapter starts with one call.</h2>
+        <p className="section-sub">Book a free 30-minute consultation and get a clear picture of your path to Italy — no obligation, no pressure.</p>
+        <Link href="/consultation" className="btn-primary">Book Your Free Call</Link>
       </section>
 
       <Footer />
