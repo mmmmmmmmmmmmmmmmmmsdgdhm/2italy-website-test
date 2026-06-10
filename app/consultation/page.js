@@ -1,78 +1,203 @@
+'use client';
+
+import { useState } from 'react';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 
+// After deploying your Google Apps Script, paste the web app URL here
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyWAN2qlpU0CWHmLvPs3_YIjx6k0g-oFL66ijaDNKkp46aaSeNFE0z8v9hRNst-pdV8/exec';
+
+const initialForm = {
+  name: '',
+  email: '',
+  country: '',
+  city: '',
+  whatsapp: '',
+  level: '',
+  program: '',
+  grade: '',
+  englishCertificate: '',
+  funds: '',
+  goals: '',
+};
+
 export default function Consultation() {
+  const [form, setForm] = useState(initialForm);
+  const [status, setStatus] = useState('idle'); // idle | submitting | success | error
+
+  function handleChange(e) {
+    setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  }
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    setStatus('submitting');
+    try {
+      await fetch(APPS_SCRIPT_URL, {
+        method: 'POST',
+        body: JSON.stringify(form),
+      });
+      setStatus('success');
+      setForm(initialForm);
+    } catch {
+      setStatus('error');
+    }
+  }
+
   return (
     <main>
       <Navigation />
 
       <section className="page-hero">
         <span className="page-hero-eyebrow">Free consultation · 30 minutes</span>
-        {/* COPY: Outcome-focused headline — what they walk away with */}
+        {/* COPY: Outcome-focused headline */}
         <h1 className="hero-headline">Get your personal Italy roadmap — free.</h1>
-        {/* COPY: Sub that pre-sells the call outcome, removes sales-pitch fear */}
-        <p className="hero-sub">Tell us your goal and we will map the fastest, clearest path to Italy — university, career, or relocation. No obligation. No sales pitch.</p>
+        {/* COPY: Sub that pre-sells the call outcome */}
+        <p className="hero-sub">Tell us about your background and goals. We will review your profile and map the fastest, clearest path to Italy — no obligation, no sales pitch.</p>
         <div className="hero-meta">Free 30-min call · No commitment · We reply within 24 hours</div>
       </section>
 
-      {/* COPY: Mini testimonials near the form — social proof before asking for commitment */}
+      {/* Mini testimonials */}
       <div className="mini-testi-row">
         <div className="mini-testi">
           <div className="testi-stars">★★★★★</div>
-          {/* COPY: Testimonial 1 — sets expectation that it is a real planning session */}
+          {/* COPY */}
           <p>&ldquo;The consultation was eye-opening. In 30 minutes I had a clearer picture of my options than after weeks of research on my own.&rdquo;</p>
           <span className="testi-author"><strong>Layla M.</strong> · Bachelor applicant, Milan</span>
         </div>
         <div className="mini-testi">
           <div className="testi-stars">★★★★★</div>
-          {/* COPY: Testimonial 2 — overcomes "it's just a sales call" objection */}
+          {/* COPY */}
           <p>&ldquo;I expected a sales call. Instead I got a real plan. They told me exactly what documents I needed and which universities matched my profile.&rdquo;</p>
           <span className="testi-author"><strong>Omar S.</strong> · Master&apos;s student, Bologna</span>
         </div>
       </div>
 
-      <section className="section-block consultation-form">
-        <span className="section-eyebrow">Book your free call</span>
-        <h2 className="section-title">It takes under 2 minutes to book.</h2>
-        {/* COPY: Sets expectation — no docs needed yet */}
-        <p className="section-sub">Fill in the form and we will review your details and confirm your session within 24 hours.</p>
-        <form>
-          <div className="form-row">
-            <div className="form-group">
-              <label>Name</label>
-              <input type="text" placeholder="Your full name" />
-            </div>
-            <div className="form-group">
-              <label>Email</label>
-              <input type="email" placeholder="hello@example.com" />
-            </div>
-          </div>
-          <div className="form-row">
-            <div className="form-group">
-              <label>WhatsApp</label>
-              <input type="tel" placeholder="+966 ..." />
-            </div>
-            <div className="form-group">
-              <label>Your main goal</label>
-              {/* COPY: Replaces Country + Program — reduces fields from 6 to 4 */}
-              <select defaultValue="">
-                <option value="" disabled>Select your goal</option>
-                <option value="university">Study at an Italian university</option>
-                <option value="career">Work or launch a career in Italy</option>
-                <option value="relocate">Relocate to Italy</option>
-                <option value="visa">Visa or permit help</option>
-                <option value="other">Something else</option>
-              </select>
-            </div>
-          </div>
-          {/* COPY: Positive framing — no "eligibility check" rejection anxiety */}
-          <button type="submit" className="btn-primary">Book My Free 30-Min Call →</button>
-          {/* COPY: Micro-trust directly under button */}
-          <p className="form-trust">Free · No commitment · We reply within 24 hours</p>
-        </form>
-      </section>
+      {status === 'success' ? (
+        <section className="section-block" style={{ textAlign: 'center', padding: '3rem 2rem' }}>
+          {/* COPY: Success message */}
+          <h2 className="section-title">We received your application!</h2>
+          <p className="section-sub">Our team will review your profile and get back to you within 24 hours to confirm your consultation slot.</p>
+          <p style={{ color: 'var(--teal)', fontWeight: 700 }}>Check your WhatsApp and email.</p>
+        </section>
+      ) : (
+        <section className="section-block consultation-form">
+          <span className="section-eyebrow">Book your free call</span>
+          <h2 className="section-title">Tell us about yourself.</h2>
+          {/* COPY: Sets expectations */}
+          <p className="section-sub">Fill in as much as you can — the more we know, the more useful your consultation will be. Takes about 3 minutes.</p>
 
-      {/* COPY: "What happens next" flow — eliminates post-submit uncertainty */}
+          <form onSubmit={handleSubmit}>
+
+            {/* ── Personal info ── */}
+            <p className="form-section-label">Personal information</p>
+            <div className="form-row">
+              <div className="form-group">
+                <label>Full name *</label>
+                <input name="name" type="text" placeholder="Your full name" value={form.name} onChange={handleChange} required />
+              </div>
+              <div className="form-group">
+                <label>Email *</label>
+                <input name="email" type="email" placeholder="hello@example.com" value={form.email} onChange={handleChange} required />
+              </div>
+            </div>
+            <div className="form-row">
+              <div className="form-group">
+                <label>Country *</label>
+                <input name="country" type="text" placeholder="Your country" value={form.country} onChange={handleChange} required />
+              </div>
+              <div className="form-group">
+                <label>City</label>
+                <input name="city" type="text" placeholder="Your city" value={form.city} onChange={handleChange} />
+              </div>
+            </div>
+            <div className="form-row">
+              <div className="form-group">
+                <label>WhatsApp *</label>
+                <input name="whatsapp" type="tel" placeholder="+966 ..." value={form.whatsapp} onChange={handleChange} required />
+              </div>
+            </div>
+
+            {/* ── Academic profile ── */}
+            <p className="form-section-label">Academic profile</p>
+            <div className="form-row">
+              <div className="form-group">
+                <label>Academic level *</label>
+                <select name="level" value={form.level} onChange={handleChange} required>
+                  <option value="" disabled>Select level</option>
+                  <option value="Foundation Year">Foundation Year</option>
+                  <option value="Bachelor">Bachelor</option>
+                  <option value="Master">Master</option>
+                  <option value="PhD">PhD</option>
+                </select>
+              </div>
+              <div className="form-group">
+                <label>Desired program</label>
+                <input name="program" type="text" placeholder="e.g. Computer Science, Architecture" value={form.program} onChange={handleChange} />
+              </div>
+            </div>
+            <div className="form-row">
+              <div className="form-group">
+                <label>Current grade / GPA</label>
+                <select name="grade" value={form.grade} onChange={handleChange}>
+                  <option value="" disabled>Select your grade</option>
+                  <option value="Excellent (3.7+ / A)">Excellent (3.7+ / A)</option>
+                  <option value="Very Good (3.3–3.7 / B+)">Very Good (3.3–3.7 / B+)</option>
+                  <option value="Good (3.0–3.3 / B)">Good (3.0–3.3 / B)</option>
+                  <option value="Average (2.5–3.0 / C+)">Average (2.5–3.0 / C+)</option>
+                  <option value="Below Average (<2.5)">Below Average (&lt;2.5)</option>
+                </select>
+              </div>
+              <div className="form-group">
+                <label>English certificate</label>
+                <select name="englishCertificate" value={form.englishCertificate} onChange={handleChange}>
+                  <option value="" disabled>Select certificate</option>
+                  <option value="IELTS">IELTS</option>
+                  <option value="TOEFL">TOEFL</option>
+                  <option value="Duolingo">Duolingo</option>
+                  <option value="Other">Other</option>
+                  <option value="None yet">None yet</option>
+                </select>
+              </div>
+            </div>
+
+            {/* ── Situation ── */}
+            <p className="form-section-label">Your situation</p>
+            <div className="form-row">
+              <div className="form-group">
+                {/* COPY: €5500 is the Italian student visa minimum funds requirement */}
+                <label>Do you have proof of funds (€5,500 minimum for student visa)?</label>
+                <select name="funds" value={form.funds} onChange={handleChange}>
+                  <option value="" disabled>Select an option</option>
+                  <option value="Yes">Yes, I have it</option>
+                  <option value="Not yet">Not yet, but I can arrange it</option>
+                  <option value="Not sure">Not sure — I need guidance</option>
+                </select>
+              </div>
+            </div>
+            <div className="form-group">
+              <label>Your goals — what do you want to achieve in Italy?</label>
+              {/* COPY: Open-ended to capture intent */}
+              <textarea name="goals" rows={4} placeholder="e.g. I want to study engineering in Milan, then stay and work in Italy after graduation..." value={form.goals} onChange={handleChange} style={{ resize: 'vertical' }} />
+            </div>
+
+            <button type="submit" className="btn-primary" disabled={status === 'submitting'}>
+              {status === 'submitting' ? 'Sending...' : 'Book My Free 30-Min Call →'}
+            </button>
+            {/* COPY: Micro-trust under button */}
+            <p className="form-trust">Free · No commitment · We reply within 24 hours</p>
+
+            {status === 'error' && (
+              /* COPY: Error fallback */
+              <p style={{ color: '#a2352e', marginTop: '0.5rem', fontSize: '0.9rem' }}>
+                Something went wrong. Please message us directly on WhatsApp at +963 990 681 443.
+              </p>
+            )}
+          </form>
+        </section>
+      )}
+
+      {/* What happens next */}
       <section className="section-block">
         <span className="section-eyebrow">What happens next</span>
         <h2 className="section-title">Three steps to your Italy plan.</h2>
@@ -82,15 +207,15 @@ export default function Consultation() {
             <div>
               {/* COPY */}
               <h3>You submit the form</h3>
-              <p>Takes under 2 minutes. No documents or transcripts needed at this stage.</p>
+              <p>Takes about 3 minutes. No documents needed at this stage.</p>
             </div>
           </div>
           <div className="step">
             <div className="step-num">02</div>
             <div>
               {/* COPY */}
-              <h3>We review your details</h3>
-              <p>A senior consultant reviews your goals and prepares your session. We confirm your slot within 24 hours.</p>
+              <h3>We review your profile</h3>
+              <p>A senior consultant reviews your background and prepares your session. We confirm within 24 hours.</p>
             </div>
           </div>
           <div className="step">
