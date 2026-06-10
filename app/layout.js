@@ -3,6 +3,10 @@ import './globals.css';
 export const metadata = {
   title: '2italy — Your Path to Italy, Made Simple.',
   description: '2italy helps students and young professionals study and build their careers in Italy.',
+  icons: {
+    icon: '/brand-assets/Asset 165000px.png',
+    apple: '/brand-assets/Asset 165000px.png',
+  },
 };
 
 export default function RootLayout({ children }) {
