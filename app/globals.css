@@ -788,34 +788,170 @@ footer {
   color: var(--text-muted);
 }
 
+/* ---- Tablet (≤960px) ---- */
 @media (max-width: 960px) {
   .mission-inner,
   .cmp-row,
   .form-row {
     grid-template-columns: 1fr;
   }
-}
 
-@media (max-width: 720px) {
-  .site-nav {
-    flex-direction: column;
-    align-items: flex-start;
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 
+  .steps-timeline {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ---- Mobile (≤720px) ---- */
+@media (max-width: 720px) {
+  /* Navigation — show hamburger, hide desktop links */
+  .hamburger {
+    display: flex;
+  }
+
+  .site-links {
+    display: none;
+  }
+
+  .site-nav {
+    justify-content: flex-end;
+    padding: 1rem 0;
+  }
+
+  /* Hero — stack to single column */
   .hero {
     grid-template-columns: 1fr;
-    padding-top: 3rem;
+    padding-top: 2.5rem;
+    gap: 2rem;
   }
 
   .hero-image-wrap {
-    height: 300px;
+    height: 280px;
+    order: -1; /* image above text on mobile */
   }
 
+  /* Hero CTA — stack buttons full width */
+  .hero-cta-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-cta-row .btn-primary,
+  .hero-cta-row .btn-ghost {
+    width: 100%;
+    justify-content: center;
+    padding: 1rem;
+  }
+
+  /* Typography — tighter on small screens */
+  .hero-headline {
+    font-size: clamp(2rem, 8vw, 2.8rem);
+  }
+
+  .section-title {
+    font-size: clamp(1.5rem, 6vw, 2rem);
+  }
+
+  .hero-sub {
+    font-size: 1rem;
+  }
+
+  /* Sections — less padding on mobile */
+  .section-block {
+    padding: 1.25rem;
+    border-radius: 18px;
+    margin-bottom: 1.5rem;
+  }
+
+  .page-hero {
+    padding: 5rem 0 2rem;
+  }
+
+  /* Grids — single column on mobile */
+  .services-grid,
+  .steps-timeline,
+  .testi-grid,
+  .faq-grid,
+  .mini-testi-row {
+    grid-template-columns: 1fr;
+  }
+
+  /* Trust grid — 2×2 on mobile */
+  .trust-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Trust badges — tighter spacing */
+  .trust-badges {
+    gap: 0.5rem;
+  }
+
+  .trust-badge {
+    padding: 0.5rem 0.85rem;
+    min-width: 75px;
+  }
+
+  .badge-num {
+    font-size: 1.05rem;
+  }
+
+  /* Lead capture form — stack on mobile */
   .lead-form-row {
     flex-direction: column;
   }
 
-  .lead-input {
+  .lead-input,
+  .lead-form-row .btn-primary {
     width: 100%;
+  }
+
+  /* What's included — stack icon + text */
+  .wi-item {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  /* Footer */
+  footer {
+    padding: 1.5rem 0;
+  }
+
+  /* Buttons — larger touch target */
+  .btn-primary,
+  .btn-ghost {
+    padding: 0.9rem 1.5rem;
+    font-size: 0.95rem;
+  }
+
+  /* Mission comparison — hide on mobile to reduce clutter */
+  .comparison-grid {
+    display: none;
+  }
+
+  .mission-inner {
+    display: block;
+  }
+}
+
+/* ---- Small phones (≤420px) ---- */
+@media (max-width: 420px) {
+  main {
+    padding: 0 4%;
+  }
+
+  .trust-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+
+  .hero-image-wrap {
+    height: 240px;
+  }
+
+  .cta-final {
+    padding: 2rem 0;
   }
 }
