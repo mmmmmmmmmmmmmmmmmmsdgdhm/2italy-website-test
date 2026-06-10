@@ -19,11 +19,6 @@ export default function Navigation() {
   return (
     <>
       <nav className={`site-nav ${open ? 'menu-open' : ''}`}>
-        <div className="site-logo">
-          <img src="/brand-assets/Asset 165000px.png" alt="2italy logo" width="34" height="34" />
-          <span>2italy</span>
-        </div>
-
         <button
           type="button"
           className={`hamburger ${open ? 'open' : ''}`}

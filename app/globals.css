@@ -46,12 +46,11 @@ main {
   z-index: 10;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   gap: 1rem;
   padding: 1.2rem 0;
-  background: rgba(255,255,255,0.92);
-  border-bottom: 1px solid var(--border);
-  backdrop-filter: blur(12px);
+  background: transparent;
+  backdrop-filter: none;
 }
 
 .site-logo {
@@ -154,10 +153,90 @@ main {
 }
 
 .hero {
-  padding: 7rem 0 3.5rem;
+  padding: 5rem 0 3.5rem;
   display: grid;
-  gap: 2rem;
-  max-width: 900px;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+  max-width: none;
+}
+
+/* ---- Hero image (right column) ---- */
+.hero-image-wrap {
+  position: relative;
+  border-radius: 28px;
+  overflow: hidden;
+  height: 520px;
+  background: linear-gradient(135deg, rgba(38,182,186,0.15), rgba(21,143,62,0.15));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 28px;
+}
+
+.hero-img-placeholder {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  text-align: center;
+  padding: 2rem;
+  border: 2px dashed var(--border);
+  border-radius: 20px;
+  width: 80%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.hero-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 28px;
+}
+
+/* ---- Trust badges row (near CTA) ---- */
+.trust-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.trust-badge {
+  background: rgba(255,255,255,0.92);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 0.65rem 1.1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 90px;
+  box-shadow: 0 4px 12px rgba(38,182,186,0.08);
+}
+
+.badge-num {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--forest);
+  line-height: 1.1;
+}
+
+.badge-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-align: center;
+  margin-top: 0.2rem;
 }
 
 .page-hero {
@@ -237,10 +316,21 @@ main {
   background: rgba(255,255,255,0.92);
 }
 
-.btn-primary:hover,
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 28px rgba(38,182,186,0.45);
+  opacity: 1;
+}
+
 .btn-ghost:hover {
   transform: translateY(-2px);
-  opacity: 0.95;
+  opacity: 0.85;
+}
+
+.hero .btn-primary {
+  padding: 1rem 2.2rem;
+  font-size: 1.05rem;
+  box-shadow: 0 4px 18px rgba(38,182,186,0.28);
 }
 
 .section-eyebrow {
@@ -713,7 +803,12 @@ footer {
   }
 
   .hero {
-    padding-top: 5rem;
+    grid-template-columns: 1fr;
+    padding-top: 3rem;
+  }
+
+  .hero-image-wrap {
+    height: 300px;
   }
 
   .lead-form-row {

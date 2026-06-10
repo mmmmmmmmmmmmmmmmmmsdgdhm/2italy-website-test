@@ -16,21 +16,43 @@ export default function Home() {
             <span className="line"><span className="grad">University</span></span>
             <span className="line">Without the Guesswork.</span>
           </h1>
-          {/* COPY: Differentiator sub — done-for-you + hard proof numbers */}
+          {/* COPY: Differentiator sub — done-for-you */}
           <p className="hero-sub">
-            We handle every step — application, visa, housing, and relocation. 1,000+ students placed across Italy. 84% visa approval rate.
+            We handle every step — application, visa, housing, and relocation — so you can focus on your future in Italy.
           </p>
+
+          {/* Trust badges — proof numbers before the ask */}
+          <div className="trust-badges">
+            <div className="trust-badge">
+              <span className="badge-num">1,000+</span>
+              <span className="badge-label">Students Placed</span>
+            </div>
+            <div className="trust-badge">
+              <span className="badge-num">84%</span>
+              <span className="badge-label">Visa Approval Rate</span>
+            </div>
+            <div className="trust-badge">
+              <span className="badge-num">63+</span>
+              <span className="badge-label">Partner Universities</span>
+            </div>
+          </div>
+
           <div className="hero-cta-row">
-            {/* COPY: Single benefit-driven primary CTA above the fold */}
+            {/* COPY: Prominent teal primary CTA */}
             <Link href="/consultation" className="btn-primary">Book My Free Italy Consultation →</Link>
             <a href="#how" className="btn-ghost">See how it works</a>
           </div>
-          {/* COPY: Trust strip under CTA — reduces hesitation */}
+          {/* COPY: Reassurance strip under CTA */}
           <div className="trust-bar">
             <span>✓ Free 30-min call</span>
             <span>✓ No obligation</span>
-            <span>✓ 63+ partner universities</span>
+            <span>✓ Reply within 24 hours</span>
           </div>
+        </div>
+
+        {/* Hero image — right column. Add your photo to /public/hero-student.jpg */}
+        <div className="hero-image-wrap">
+          <img src="/hero-student.jpg" alt="Student in Rome, Italy" className="hero-img" />
         </div>
       </section>
 
