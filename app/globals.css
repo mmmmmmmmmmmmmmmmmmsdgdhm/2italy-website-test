@@ -643,6 +643,242 @@ button[type="submit"],
   font-family: inherit;
 }
 
+/* ── Universities table ── */
+
+.uni-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.uni-search {
+  flex: 1;
+  min-width: 200px;
+  padding: 0.75rem 1rem;
+  border: 1.5px solid var(--border);
+  border-radius: 12px;
+  background: rgba(255,255,255,0.95);
+  font-size: 0.95rem;
+  color: var(--text-body);
+  font-family: inherit;
+}
+
+.uni-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.filter-group {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.filter-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-right: 0.15rem;
+}
+
+.filter-btn {
+  padding: 0.35rem 0.8rem;
+  border-radius: 999px;
+  border: 1.5px solid var(--border);
+  background: rgba(255,255,255,0.8);
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  font-family: inherit;
+}
+
+.filter-btn:hover {
+  border-color: var(--teal);
+  color: var(--teal);
+}
+
+.filter-btn.active {
+  background: var(--teal);
+  border-color: var(--teal);
+  color: #071a1a;
+}
+
+.uni-count {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  margin-left: auto;
+  white-space: nowrap;
+}
+
+.uni-table-wrap {
+  overflow-x: auto;
+  padding: 0;
+}
+
+.uni-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+.uni-table thead {
+  background: var(--forest);
+  color: var(--white);
+}
+
+.uni-table th {
+  padding: 0.9rem 1rem;
+  text-align: left;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.uni-table th:first-child { border-radius: 0; }
+
+.uni-table td {
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid var(--border);
+  vertical-align: middle;
+}
+
+.uni-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.uni-table tbody tr:hover {
+  background: rgba(38,182,186,0.04);
+}
+
+.uni-name-cell {
+  min-width: 200px;
+}
+
+.uni-name {
+  display: block;
+  font-weight: 600;
+  color: var(--forest);
+}
+
+.uni-call {
+  display: inline-block;
+  margin-top: 0.2rem;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  background: rgba(38,182,186,0.1);
+  border-radius: 999px;
+  padding: 0.1rem 0.55rem;
+}
+
+.uni-fee {
+  font-weight: 600;
+  color: var(--text-body);
+}
+
+.uni-fee.free {
+  color: #158f3e;
+}
+
+.uni-eng {
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+}
+
+.uni-eng.proficiency {
+  background: rgba(38,182,186,0.12);
+  color: var(--teal);
+}
+
+.uni-eng.ielts {
+  background: rgba(241,151,98,0.15);
+  color: #c4622a;
+}
+
+.uni-date {
+  color: var(--text-muted);
+  white-space: nowrap;
+  font-size: 0.85rem;
+}
+
+.uni-cgpa {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.uni-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 0.25rem 0.7rem;
+  border-radius: 999px;
+}
+
+.uni-status::before {
+  content: '';
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  flex-shrink: 0;
+}
+
+.uni-status.open {
+  background: rgba(21,143,62,0.12);
+  color: #158f3e;
+}
+
+.uni-status.open::before { background: #158f3e; }
+
+.uni-status.closed {
+  background: rgba(162,53,46,0.1);
+  color: #a2352e;
+}
+
+.uni-status.closed::before { background: #a2352e; }
+
+.uni-status.unknown {
+  background: rgba(74,122,114,0.1);
+  color: var(--text-muted);
+}
+
+.uni-status.unknown::before { background: var(--text-muted); }
+
+.uni-empty {
+  text-align: center;
+  color: var(--text-muted);
+  padding: 2.5rem;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 720px) {
+  .uni-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .uni-count {
+    margin-left: 0;
+  }
+
+  .uni-filters {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+
 /* ── Tutorial page ── */
 
 .tut-hero {
