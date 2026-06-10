@@ -643,6 +643,166 @@ button[type="submit"],
   font-family: inherit;
 }
 
+/* ── Application form (consultation page) ── */
+.app-form-wrap {
+  margin-bottom: 3rem;
+}
+
+.app-form-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-bottom: 0;
+  background: var(--forest);
+  border-radius: 24px 24px 0 0;
+  padding: 2rem 2.5rem;
+}
+
+.app-form-header-left {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.app-form-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--teal);
+}
+
+.app-form-title {
+  margin: 0;
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  color: var(--white);
+  line-height: 1.1;
+}
+
+.app-form-desc {
+  margin: 0;
+  color: rgba(255,255,255,0.65);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  max-width: 500px;
+}
+
+.app-form-badge {
+  background: rgba(38,182,186,0.18);
+  border: 1px solid rgba(38,182,186,0.35);
+  color: var(--teal);
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 0.45rem 1rem;
+  border-radius: 999px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.app-form-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-top: none;
+  border-radius: 0 0 24px 24px;
+  padding: 2.5rem;
+  box-shadow: 0 16px 48px rgba(13,58,54,0.08);
+}
+
+.app-form-section {
+  padding-bottom: 2rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.app-form-section:last-of-type {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.app-form-section-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.app-form-section-num {
+  width: 32px;
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: rgba(38,182,186,0.12);
+  color: var(--teal);
+  font-size: 0.78rem;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+.app-form-section-title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--forest);
+}
+
+.app-form-submit {
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+  display: grid;
+  gap: 0.75rem;
+}
+
+.app-form-success-icon {
+  width: 64px;
+  height: 64px;
+  background: var(--teal);
+  color: #071a1a;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 0 auto 1.5rem;
+}
+
+.req {
+  color: var(--teal);
+}
+
+.form-label-hint {
+  font-weight: 400;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.form-error {
+  margin: 0;
+  font-size: 0.88rem;
+  color: #a2352e;
+}
+
+@media (max-width: 720px) {
+  .app-form-header {
+    flex-direction: column;
+    padding: 1.5rem;
+    border-radius: 18px 18px 0 0;
+  }
+
+  .app-form-card {
+    padding: 1.5rem;
+    border-radius: 0 0 18px 18px;
+  }
+
+  .app-form-badge {
+    align-self: flex-start;
+  }
+}
+
 footer {
   padding: 2.5rem 0;
   color: var(--text-muted);

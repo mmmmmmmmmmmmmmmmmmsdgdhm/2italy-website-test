@@ -74,127 +74,155 @@ export default function Consultation() {
       </div>
 
       {status === 'success' ? (
-        <section className="section-block" style={{ textAlign: 'center', padding: '3rem 2rem' }}>
-          {/* COPY: Success message */}
-          <h2 className="section-title">We received your application!</h2>
-          <p className="section-sub">Our team will review your profile and get back to you within 24 hours to confirm your consultation slot.</p>
-          <p style={{ color: 'var(--teal)', fontWeight: 700 }}>Check your WhatsApp and email.</p>
-        </section>
+        <div className="app-form-wrap">
+          <div className="app-form-card" style={{ textAlign: 'center', padding: '3rem 2rem' }}>
+            {/* COPY: Success state */}
+            <div className="app-form-success-icon">✓</div>
+            <h2 className="section-title">Application received!</h2>
+            <p className="section-sub">Our team will review your profile and contact you within 24 hours to confirm your consultation slot.</p>
+            <p style={{ color: 'var(--teal)', fontWeight: 700, marginTop: '1rem' }}>Check your WhatsApp and email.</p>
+          </div>
+        </div>
       ) : (
-        <section className="section-block consultation-form">
-          <span className="section-eyebrow">Book your free call</span>
-          <h2 className="section-title">Tell us about yourself.</h2>
-          {/* COPY: Sets expectations */}
-          <p className="section-sub">Fill in as much as you can — the more we know, the more useful your consultation will be. Takes about 3 minutes.</p>
+        <div className="app-form-wrap">
+          {/* Application form header */}
+          <div className="app-form-header">
+            <div className="app-form-header-left">
+              <span className="app-form-label">Free Consultation Application</span>
+              {/* COPY: Application framing — makes it feel official */}
+              <h2 className="app-form-title">Tell us about yourself.</h2>
+              <p className="app-form-desc">Fill in as much as you can — the more we know, the more useful your consultation will be. Takes about 3 minutes.</p>
+            </div>
+            <div className="app-form-header-right">
+              <span className="app-form-badge">Free · 30 min · No obligation</span>
+            </div>
+          </div>
 
-          <form onSubmit={handleSubmit}>
+          <div className="app-form-card">
+            <form onSubmit={handleSubmit}>
 
-            {/* ── Personal info ── */}
-            <p className="form-section-label">Personal information</p>
-            <div className="form-row">
-              <div className="form-group">
-                <label>Full name *</label>
-                <input name="name" type="text" placeholder="Your full name" value={form.name} onChange={handleChange} required />
+              {/* ── Personal info ── */}
+              <div className="app-form-section">
+                <div className="app-form-section-header">
+                  <span className="app-form-section-num">01</span>
+                  <span className="app-form-section-title">Personal Information</span>
+                </div>
+                <div className="form-row">
+                  <div className="form-group">
+                    <label>Full name <span className="req">*</span></label>
+                    <input name="name" type="text" placeholder="Your full name" value={form.name} onChange={handleChange} required />
+                  </div>
+                  <div className="form-group">
+                    <label>Email <span className="req">*</span></label>
+                    <input name="email" type="email" placeholder="hello@example.com" value={form.email} onChange={handleChange} required />
+                  </div>
+                </div>
+                <div className="form-row">
+                  <div className="form-group">
+                    <label>Country <span className="req">*</span></label>
+                    <input name="country" type="text" placeholder="Your country" value={form.country} onChange={handleChange} required />
+                  </div>
+                  <div className="form-group">
+                    <label>City</label>
+                    <input name="city" type="text" placeholder="Your city" value={form.city} onChange={handleChange} />
+                  </div>
+                </div>
+                <div className="form-row">
+                  <div className="form-group">
+                    <label>WhatsApp <span className="req">*</span></label>
+                    <input name="whatsapp" type="tel" placeholder="+966 ..." value={form.whatsapp} onChange={handleChange} required />
+                  </div>
+                </div>
               </div>
-              <div className="form-group">
-                <label>Email *</label>
-                <input name="email" type="email" placeholder="hello@example.com" value={form.email} onChange={handleChange} required />
-              </div>
-            </div>
-            <div className="form-row">
-              <div className="form-group">
-                <label>Country *</label>
-                <input name="country" type="text" placeholder="Your country" value={form.country} onChange={handleChange} required />
-              </div>
-              <div className="form-group">
-                <label>City</label>
-                <input name="city" type="text" placeholder="Your city" value={form.city} onChange={handleChange} />
-              </div>
-            </div>
-            <div className="form-row">
-              <div className="form-group">
-                <label>WhatsApp *</label>
-                <input name="whatsapp" type="tel" placeholder="+966 ..." value={form.whatsapp} onChange={handleChange} required />
-              </div>
-            </div>
 
-            {/* ── Academic profile ── */}
-            <p className="form-section-label">Academic profile</p>
-            <div className="form-row">
-              <div className="form-group">
-                <label>Academic level *</label>
-                <select name="level" value={form.level} onChange={handleChange} required>
-                  <option value="" disabled>Select level</option>
-                  <option value="Foundation Year">Foundation Year</option>
-                  <option value="Bachelor">Bachelor</option>
-                  <option value="Master">Master</option>
-                  <option value="PhD">PhD</option>
-                </select>
+              {/* ── Academic profile ── */}
+              <div className="app-form-section">
+                <div className="app-form-section-header">
+                  <span className="app-form-section-num">02</span>
+                  <span className="app-form-section-title">Academic Profile</span>
+                </div>
+                <div className="form-row">
+                  <div className="form-group">
+                    <label>Academic level <span className="req">*</span></label>
+                    <select name="level" value={form.level} onChange={handleChange} required>
+                      <option value="" disabled>Select level</option>
+                      <option value="Foundation Year">Foundation Year</option>
+                      <option value="Bachelor">Bachelor</option>
+                      <option value="Master">Master</option>
+                      <option value="PhD">PhD</option>
+                    </select>
+                  </div>
+                  <div className="form-group">
+                    <label>Desired program</label>
+                    <input name="program" type="text" placeholder="e.g. Computer Science, Architecture" value={form.program} onChange={handleChange} />
+                  </div>
+                </div>
+                <div className="form-row">
+                  <div className="form-group">
+                    <label>Current grade / GPA</label>
+                    <select name="grade" value={form.grade} onChange={handleChange}>
+                      <option value="" disabled>Select your grade</option>
+                      <option value="Excellent (3.7+ / A)">Excellent (3.7+ / A)</option>
+                      <option value="Very Good (3.3–3.7 / B+)">Very Good (3.3–3.7 / B+)</option>
+                      <option value="Good (3.0–3.3 / B)">Good (3.0–3.3 / B)</option>
+                      <option value="Average (2.5–3.0 / C+)">Average (2.5–3.0 / C+)</option>
+                      <option value="Below Average (<2.5)">Below Average (&lt;2.5)</option>
+                    </select>
+                  </div>
+                  <div className="form-group">
+                    <label>English certificate</label>
+                    <select name="englishCertificate" value={form.englishCertificate} onChange={handleChange}>
+                      <option value="" disabled>Select certificate</option>
+                      <option value="IELTS">IELTS</option>
+                      <option value="TOEFL">TOEFL</option>
+                      <option value="Duolingo">Duolingo</option>
+                      <option value="Other">Other</option>
+                      <option value="None yet">None yet</option>
+                    </select>
+                  </div>
+                </div>
               </div>
-              <div className="form-group">
-                <label>Desired program</label>
-                <input name="program" type="text" placeholder="e.g. Computer Science, Architecture" value={form.program} onChange={handleChange} />
-              </div>
-            </div>
-            <div className="form-row">
-              <div className="form-group">
-                <label>Current grade / GPA</label>
-                <select name="grade" value={form.grade} onChange={handleChange}>
-                  <option value="" disabled>Select your grade</option>
-                  <option value="Excellent (3.7+ / A)">Excellent (3.7+ / A)</option>
-                  <option value="Very Good (3.3–3.7 / B+)">Very Good (3.3–3.7 / B+)</option>
-                  <option value="Good (3.0–3.3 / B)">Good (3.0–3.3 / B)</option>
-                  <option value="Average (2.5–3.0 / C+)">Average (2.5–3.0 / C+)</option>
-                  <option value="Below Average (<2.5)">Below Average (&lt;2.5)</option>
-                </select>
-              </div>
-              <div className="form-group">
-                <label>English certificate</label>
-                <select name="englishCertificate" value={form.englishCertificate} onChange={handleChange}>
-                  <option value="" disabled>Select certificate</option>
-                  <option value="IELTS">IELTS</option>
-                  <option value="TOEFL">TOEFL</option>
-                  <option value="Duolingo">Duolingo</option>
-                  <option value="Other">Other</option>
-                  <option value="None yet">None yet</option>
-                </select>
-              </div>
-            </div>
 
-            {/* ── Situation ── */}
-            <p className="form-section-label">Your situation</p>
-            <div className="form-row">
-              <div className="form-group">
-                {/* COPY: €5500 is the Italian student visa minimum funds requirement */}
-                <label>Do you have proof of funds (€5,500 minimum for student visa)?</label>
-                <select name="funds" value={form.funds} onChange={handleChange}>
-                  <option value="" disabled>Select an option</option>
-                  <option value="Yes">Yes, I have it</option>
-                  <option value="Not yet">Not yet, but I can arrange it</option>
-                  <option value="Not sure">Not sure — I need guidance</option>
-                </select>
+              {/* ── Situation ── */}
+              <div className="app-form-section">
+                <div className="app-form-section-header">
+                  <span className="app-form-section-num">03</span>
+                  <span className="app-form-section-title">Your Situation</span>
+                </div>
+                <div className="form-row">
+                  <div className="form-group">
+                    {/* COPY: Updated to €10,000 as per requirement */}
+                    <label>Do you have proof of funds? <span className="form-label-hint">(€10,000 minimum for student visa)</span></label>
+                    <select name="funds" value={form.funds} onChange={handleChange}>
+                      <option value="" disabled>Select an option</option>
+                      <option value="Yes">Yes, I have it</option>
+                      <option value="Not yet">Not yet, but I can arrange it</option>
+                      <option value="Not sure">Not sure — I need guidance</option>
+                    </select>
+                  </div>
+                </div>
+                <div className="form-group">
+                  <label>Your goals — what do you want to achieve in Italy?</label>
+                  <textarea name="goals" rows={4} placeholder="e.g. I want to study engineering in Milan, then stay and work in Italy after graduation..." value={form.goals} onChange={handleChange} style={{ resize: 'vertical' }} />
+                </div>
               </div>
-            </div>
-            <div className="form-group">
-              <label>Your goals — what do you want to achieve in Italy?</label>
-              {/* COPY: Open-ended to capture intent */}
-              <textarea name="goals" rows={4} placeholder="e.g. I want to study engineering in Milan, then stay and work in Italy after graduation..." value={form.goals} onChange={handleChange} style={{ resize: 'vertical' }} />
-            </div>
 
-            <button type="submit" className="btn-primary" disabled={status === 'submitting'}>
-              {status === 'submitting' ? 'Sending...' : 'Book My Free 30-Min Call →'}
-            </button>
-            {/* COPY: Micro-trust under button */}
-            <p className="form-trust">Free · No commitment · We reply within 24 hours</p>
+              {/* Submit */}
+              <div className="app-form-submit">
+                <button type="submit" className="btn-primary" disabled={status === 'submitting'}>
+                  {status === 'submitting' ? 'Sending your application...' : 'Submit My Application →'}
+                </button>
+                <p className="form-trust">Free · No commitment · We reply within 24 hours</p>
+                {status === 'error' && (
+                  <p className="form-error">
+                    Something went wrong. Message us on WhatsApp: +963 990 681 443
+                  </p>
+                )}
+              </div>
 
-            {status === 'error' && (
-              /* COPY: Error fallback */
-              <p style={{ color: '#a2352e', marginTop: '0.5rem', fontSize: '0.9rem' }}>
-                Something went wrong. Please message us directly on WhatsApp at +963 990 681 443.
-              </p>
-            )}
-          </form>
-        </section>
+            </form>
+          </div>
+        </div>
       )}
 
       {/* What happens next */}
