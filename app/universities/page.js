@@ -1,4 +1,4 @@
-﻿import Link from 'next/link';
+import Link from 'next/link';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 
@@ -29,13 +29,15 @@ export default function Universities() {
       <section className="page-hero">
         <span className="page-hero-eyebrow">Universities</span>
         <h1 className="hero-headline">Italian public universities for global students</h1>
-        <p className="hero-sub">We help you identify the universities and programs that match your budget, language, and career goals.</p>
+        {/* COPY: Match-angle sub — personalised to GPA, budget, goals */}
+        <p className="hero-sub">We match you to the right program based on your GPA, budget, language level, and career goals — in one free call. No spreadsheets, no guesswork.</p>
       </section>
 
       <section className="section-block">
         <span className="section-eyebrow">University network</span>
         <h2 className="section-title">63+ universities with admission support</h2>
-        <p className="section-sub">Our team keeps the latest deadlines, fees, English requirements, and admission criteria for Italy’s top public institutions.</p>
+        {/* COPY: Emphasise live, maintained data — not a static list */}
+        <p className="section-sub">Our team tracks the latest deadlines, fees, English requirements, and admission criteria across Italy's top public institutions — updated every semester.</p>
 
         <div className="grid-cards">
           {universities.map((university) => (
@@ -46,8 +48,47 @@ export default function Universities() {
           ))}
         </div>
 
-        <div className="footer-cta">
-          <Link href="/consultation" className="btn-primary">Check your best fit</Link>
+        {/* Mid-section CTA — catches visitors who have seen enough */}
+        <div className="section-cta-center">
+          {/* COPY: Specific benefit-driven button */}
+          <Link href="/consultation" className="btn-primary">Find My Best University Match →</Link>
+        </div>
+      </section>
+
+      {/* COPY: "What's included" value section — answers "what do I actually get?" */}
+      <section className="section-block">
+        <span className="section-eyebrow">What you get</span>
+        <h2 className="section-title">We do the research. You make the decision.</h2>
+        <p className="section-sub">Your university match includes everything you need to apply with confidence.</p>
+        <div className="what-included-grid">
+          <div className="wi-item">
+            <span className="step-num">01</span>
+            <div>
+              {/* COPY */}
+              <h3>Shortlist of matched programs</h3>
+              <p>Based on your GPA, budget, language level, and career direction — not generic rankings.</p>
+            </div>
+          </div>
+          <div className="wi-item">
+            <span className="step-num">02</span>
+            <div>
+              {/* COPY */}
+              <h3>Deadlines &amp; requirements</h3>
+              <p>Application windows, document checklists, and language test thresholds for each program on your list.</p>
+            </div>
+          </div>
+          <div className="wi-item">
+            <span className="step-num">03</span>
+            <div>
+              {/* COPY */}
+              <h3>Honest admission read</h3>
+              <p>Where your profile is genuinely competitive, where you need to strengthen, and what strong fallback options exist.</p>
+            </div>
+          </div>
+        </div>
+        <div className="section-cta-center">
+          {/* COPY: Outcome-specific CTA */}
+          <Link href="/consultation" className="btn-primary">Get My University Shortlist — Free →</Link>
         </div>
       </section>
 

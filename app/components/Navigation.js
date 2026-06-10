@@ -58,8 +58,9 @@ export default function Navigation() {
           </Link>
         ))}
 
+        {/* COPY: More specific mobile nav CTA */}
         <Link href="/consultation" className="mobile-cta" onClick={() => setOpen(false)}>
-          Book a consultation
+          Book Free Consultation
         </Link>
       </div>
     </>

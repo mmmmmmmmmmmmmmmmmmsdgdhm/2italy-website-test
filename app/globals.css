@@ -539,6 +539,165 @@ footer {
   text-align: center;
 }
 
+/* ---- Trust bar (below hero CTA) ---- */
+.trust-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* ---- Centred mid-page CTA ---- */
+.section-cta-center {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+/* ---- FAQ grid ---- */
+.faq-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.25rem;
+  margin-top: 1rem;
+}
+
+.faq-item {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 1.5rem;
+}
+
+.faq-q {
+  margin: 0 0 0.6rem;
+  font-size: 1rem;
+  color: var(--forest);
+}
+
+.faq-a {
+  margin: 0;
+  color: var(--text-muted);
+  line-height: 1.75;
+  font-size: 0.95rem;
+}
+
+/* ---- Lead capture email form ---- */
+.lead-form {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.lead-form-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.lead-input {
+  flex: 1;
+  min-width: 200px;
+  padding: 0.9rem 1rem;
+  border: 1.5px solid var(--border);
+  border-radius: 14px;
+  background: rgba(255,255,255,0.95);
+  color: var(--text-body);
+  font-size: 0.95rem;
+}
+
+.lead-trust {
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* ---- Tutorial: inline lead capture block ---- */
+.lead-capture-inline {
+  margin-top: 2.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+}
+
+.lead-capture-title {
+  margin: 0 0 0.4rem;
+  color: var(--forest);
+}
+
+.lead-capture-sub {
+  margin: 0 0 1.25rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+/* ---- Universities: "What's included" grid ---- */
+.what-included-grid {
+  display: grid;
+  gap: 1.25rem;
+  margin: 1.5rem 0;
+}
+
+.wi-item {
+  display: flex;
+  gap: 1.25rem;
+  align-items: flex-start;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 1.5rem;
+}
+
+.wi-item h3 {
+  margin: 0 0 0.4rem;
+  font-size: 1rem;
+  color: var(--forest);
+}
+
+.wi-item p {
+  margin: 0;
+  color: var(--text-muted);
+  line-height: 1.7;
+  font-size: 0.95rem;
+}
+
+/* ---- Consultation: mini testimonials ---- */
+.mini-testi-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.mini-testi {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 1.5rem;
+  box-shadow: 0 10px 30px rgba(38,182,186,0.08);
+}
+
+.mini-testi p {
+  margin: 0.75rem 0;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+/* ---- Consultation: form and footer trust copy ---- */
+.form-trust {
+  margin: 0.75rem 0 0;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.footer-trust {
+  margin: 0.75rem 0 0;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
 @media (max-width: 960px) {
   .mission-inner,
   .cmp-row,
@@ -555,5 +714,13 @@ footer {
 
   .hero {
     padding-top: 5rem;
+  }
+
+  .lead-form-row {
+    flex-direction: column;
+  }
+
+  .lead-input {
+    width: 100%;
   }
 }
