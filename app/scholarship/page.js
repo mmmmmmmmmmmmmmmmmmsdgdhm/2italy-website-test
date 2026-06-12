@@ -4,6 +4,29 @@ import { useState } from 'react';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 
+const regionalScholarships = [
+  { region: 'Tuscany',              provider: 'DSU Toscana',                                    name: 'DSU Toscana Scholarship' },
+  { region: 'Lombardy',             provider: 'EDiSU Lombardia',                                name: 'EDiSU Lombardia Scholarship' },
+  { region: 'Lazio',                provider: 'LazioDisco',                                     name: 'LazioDisco Scholarship' },
+  { region: 'Piedmont',             provider: 'EDiSU Piemonte',                                 name: 'EDiSU Piemonte Scholarship' },
+  { region: 'Emilia-Romagna',       provider: 'ER.GO',                                          name: 'ER.GO Scholarship' },
+  { region: 'Sicily',               provider: 'ERSU Palermo, ERSU Catania',                     name: 'ERSU Sicilia Scholarship' },
+  { region: 'Veneto',               provider: 'ESU Veneto',                                     name: 'ESU Veneto Scholarship' },
+  { region: 'Campania',             provider: 'ADISU Campania',                                  name: 'ADISU Campania Scholarship' },
+  { region: 'Calabria',             provider: 'ARDIS Calabria',                                  name: 'ARDIS Calabria Scholarship' },
+  { region: 'Apulia (Puglia)',       provider: 'ADISU Puglia',                                   name: 'ADISU Puglia Scholarship' },
+  { region: 'Marche',               provider: 'ERDIS Marche',                                   name: 'ERDIS Marche Scholarship' },
+  { region: 'Abruzzo',              provider: 'A.D.S.U Abruzzo',                                name: 'ADSU Abruzzo Scholarship' },
+  { region: 'Liguria',              provider: 'ALiSEO Liguria',                                 name: 'ALiSEO Liguria Scholarship' },
+  { region: 'Friuli Venezia Giulia',provider: 'ARDIS Friuli Venezia Giulia',                   name: 'ARDIS FVG Scholarship' },
+  { region: 'Trentino-Alto Adige',  provider: 'Opera Universitaria Trento, Opera Universitaria Bolzano', name: 'Opera Universitaria Scholarship' },
+  { region: 'Umbria',               provider: 'A.Di.S.U Umbria',                                name: 'ADiSU Umbria Scholarship' },
+  { region: 'Molise',               provider: 'EDISU Molise',                                   name: 'EDISU Molise Scholarship' },
+  { region: 'Basilicata',           provider: 'ARDSU Basilicata',                               name: 'ARDSU Basilicata Scholarship' },
+  { region: 'Sardinia',             provider: 'ERSU Cagliari, ERSU Sassari',                    name: 'ERSU Sardinia Scholarship' },
+  { region: 'Aosta Valley',         provider: "Università della Valle d'Aosta",                 name: 'Regional Scholarship Aosta' },
+];
+
 export default function Scholarship() {
   const [submitted, setSubmitted] = useState(false);
   const [name, setName] = useState('');
@@ -78,6 +101,37 @@ export default function Scholarship() {
             </button>
           </form>
         )}
+      </section>
+
+      {/* REGIONAL SCHOLARSHIPS TABLE */}
+      <section className="regional-section">
+        <span className="section-eyebrow">Regional Scholarships in Italy</span>
+        <h2 className="section-title">Know What's Available</h2>
+        <p className="section-sub">
+          Italy's regional scholarship system covers tuition, housing, and living costs.
+          Each region has its own provider — here's the full list.
+        </p>
+
+        <div className="reg-table-wrap">
+          <table className="reg-table">
+            <thead>
+              <tr>
+                <th>Region</th>
+                <th>Scholarship Provider</th>
+                <th>Scholarship Name</th>
+              </tr>
+            </thead>
+            <tbody>
+              {regionalScholarships.map((row, i) => (
+                <tr key={i}>
+                  <td className="reg-region">{row.region}</td>
+                  <td>{row.provider}</td>
+                  <td className="reg-name">{row.name}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </section>
 
       {/* BRAND LINE */}
