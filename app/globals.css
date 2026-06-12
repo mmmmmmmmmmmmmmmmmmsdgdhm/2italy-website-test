@@ -370,16 +370,6 @@ main {
   margin-bottom: 3rem;
 }
 
-.footer-cta {
-  margin-top: 1.5rem;
-}
-
-.footer-meta {
-  padding-top: 1.5rem;
-  color: var(--text-muted);
-  font-size: 0.95rem;
-}
-
 .cta-button {
   display: inline-flex;
 }
@@ -1353,10 +1343,106 @@ button[type="submit"],
   }
 }
 
-footer {
-  padding: 2.5rem 0;
+/* ============================================================
+   FOOTER
+============================================================ */
+.site-footer {
+  margin-top: 4rem;
+  border-top: 1px solid var(--border);
+  padding: 5rem 5% 0;
+  background: transparent;
   color: var(--text-muted);
-  text-align: center;
+}
+
+.footer-inner {
+  display: grid;
+  grid-template-columns: 1.8fr 1fr 1fr 1fr;
+  gap: 3rem;
+  padding-bottom: 4rem;
+}
+
+.footer-logo {
+  height: 36px;
+  width: auto;
+  margin-bottom: 1.1rem;
+  display: block;
+}
+
+.footer-tagline {
+  font-size: 0.86rem;
+  line-height: 1.75;
+  max-width: 230px;
+  margin: 0 0 1.4rem;
+}
+
+.footer-socials {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.footer-social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1.5px solid var(--border);
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: border-color 0.22s, color 0.22s, background 0.22s, transform 0.22s;
+}
+
+.footer-social-link:hover {
+  border-color: var(--teal);
+  color: var(--teal);
+  background: rgba(38,182,186,0.07);
+  transform: translateY(-3px);
+}
+
+.footer-col-heading {
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin: 0 0 1.2rem;
+}
+
+.footer-col-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.footer-link {
+  font-size: 0.86rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-link:hover {
+  color: var(--forest);
+}
+
+.footer-bottom-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding: 1.8rem 0 2.5rem;
+  font-size: 0.78rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.footer-bottom-sep {
+  color: var(--text-muted);
+  opacity: 0.7;
 }
 
 /* ---- Trust bar (below hero CTA) ---- */
@@ -1645,8 +1731,30 @@ footer {
   }
 
   /* Footer */
-  footer {
-    padding: 1.5rem 0;
+  .footer-inner {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .footer-brand {
+    grid-column: 1 / -1;
+  }
+
+  .footer-tagline {
+    max-width: 100%;
+  }
+
+  .footer-bottom-bar {
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-inner {
+    grid-template-columns: 1fr;
   }
 
   /* Buttons — larger touch target */
