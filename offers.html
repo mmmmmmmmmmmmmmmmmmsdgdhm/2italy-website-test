@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Offers — 2italy</title>
+  <meta name="description" content="Three packages to get you to Italy — from admission essentials to full relocation. Book a free call to get started." />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="brand-assets/Asset 165000px.png" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ============================================================
+       VARIABLES
+    ============================================================ */
+    :root {
+      --teal:       #26B6BA;
+      --forest:     #0D3A36;
+      --orange:     #F19762;
+      --green:      #158F3E;
+      --text-dark:  #0D3A36;
+      --text-body:  #1A3530;
+      --text-muted: #4A7A72;
+      --white:      #ffffff;
+      --card:       rgba(255,255,255,0.72);
+      --border:     rgba(38,182,186,0.18);
+      --grad-main:  linear-gradient(135deg, #26B6BA, #158F3E);
+    }
+
+    /* ============================================================
+       RESET
+    ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: linear-gradient(160deg,
+        #E6F9F8 0%,
+        #FFF8F0 30%,
+        #F0FAF2 60%,
+        #FFF3E8 100%
+      );
+      min-height: 100vh;
+      color: var(--text-body);
+      font-family: 'Poppins', Arial, sans-serif;
+      font-size: 1rem;
+      line-height: 1.65;
+      overflow-x: hidden;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+    body::-webkit-scrollbar { display: none; }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; }
+
+    /* ============================================================
+       NAV
+    ============================================================ */
+    #nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 900;
+      padding: 2rem 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: padding 0.4s ease, background 0.4s ease, border-color 0.4s ease;
+      border-bottom: 1px solid transparent;
+    }
+    #nav.scrolled {
+      padding: 1.1rem 5%;
+      background: rgba(255,255,255,0.82);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom-color: var(--border);
+      box-shadow: 0 2px 20px rgba(38,182,186,0.08);
+    }
+    .nav-logo img {
+      height: 34px;
+      width: auto;
+      transition: transform 0.4s ease;
+    }
+    #nav.scrolled .nav-logo img { transform: scale(0.88); }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2.25rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 0.87rem;
+      font-weight: 500;
+      color: var(--text-body);
+      text-decoration: none;
+      letter-spacing: 0.01em;
+      position: relative;
+      transition: color 0.2s;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px; left: 0; right: 0;
+      height: 1.5px;
+      background: var(--grad-main);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+    .nav-links a:hover { color: var(--forest); }
+    .nav-links a:hover::after { transform: scaleX(1); }
+    .nav-links a.active-page { color: var(--teal); }
+    .nav-links a.active-page::after { transform: scaleX(1); }
+    .nav-cta {
+      background: var(--teal) !important;
+      color: #071a1a !important;
+      padding: 0.55rem 1.35rem !important;
+      border-radius: 100px !important;
+      font-weight: 700 !important;
+      transition: opacity 0.2s, transform 0.2s !important;
+    }
+    .nav-cta::after { display: none !important; }
+    .nav-cta:hover { opacity: 0.88 !important; transform: scale(1.03) !important; }
+
+    /* ============================================================
+       HAMBURGER + MOBILE MENU
+    ============================================================ */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 36px; height: 36px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+      z-index: 1001;
+    }
+    .hamburger span {
+      display: block;
+      height: 2px;
+      background: var(--forest);
+      border-radius: 2px;
+      transition: transform 0.3s ease, opacity 0.3s ease, width 0.3s ease;
+      width: 100%;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; width: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      z-index: 1000;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .mobile-menu a:hover,
+    .mobile-menu a.active-page { color: var(--teal); }
+    .mobile-menu .mobile-cta {
+      background: var(--teal);
+      color: #071a1a !important;
+      padding: 0.75rem 2.2rem;
+      border-radius: 100px;
+      font-weight: 700;
+      font-size: 1rem !important;
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none !important; }
+      .hamburger { display: flex; }
+    }
+
+    /* ============================================================
+       HERO
+    ============================================================ */
+    #hero {
+      position: relative;
+      padding: 14rem 5% 7rem;
+      text-align: center;
+      overflow: hidden;
+    }
+    #hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(38,182,186,0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(38,182,186,0.035) 1px, transparent 1px);
+      background-size: 80px 80px;
+      pointer-events: none;
+    }
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 780px;
+      margin: 0 auto;
+    }
+    .hero-eyebrow {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 1.4rem;
+      display: block;
+    }
+    .hero-headline {
+      font-size: clamp(2.8rem, 6vw, 5.2rem);
+      font-weight: 700;
+      line-height: 1.06;
+      letter-spacing: -0.025em;
+      color: var(--text-dark);
+      margin-bottom: 1.6rem;
+    }
+    .grad {
+      background: var(--grad-main);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-sub {
+      font-size: clamp(1rem, 1.6vw, 1.15rem);
+      color: var(--text-muted);
+      max-width: 520px;
+      margin: 0 auto;
+      line-height: 1.75;
+    }
+
+    /* ============================================================
+       BUTTONS
+    ============================================================ */
+    .btn-primary {
+      position: relative;
+      overflow: hidden;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: linear-gradient(135deg, #2dcad0 0%, #26B6BA 50%, #1a9fa3 100%);
+      color: #ffffff;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      font-size: 0.92rem;
+      letter-spacing: 0.02em;
+      padding: 0.9rem 2.1rem;
+      border-radius: 100px;
+      text-decoration: none;
+      box-shadow: 0 4px 18px rgba(38,182,186,0.32), 0 1px 4px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      white-space: nowrap;
+    }
+    .btn-primary::after {
+      content: '';
+      position: absolute;
+      top: 0; left: -100%;
+      width: 55%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.28), transparent);
+      transform: skewX(-18deg);
+      transition: left 0.55s ease;
+    }
+    .btn-primary:hover::after { left: 160%; }
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 18px 48px rgba(38,182,186,0.42), 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    /* ============================================================
+       PRICING SECTION
+    ============================================================ */
+    #pricing {
+      padding: 5rem 5% 9rem;
+    }
+    .pricing-grid {
+      max-width: 1140px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      align-items: start;
+    }
+
+    .tier-card {
+      background: rgba(255,255,255,0.78);
+      border: 1.5px solid rgba(38,182,186,0.18);
+      border-radius: 22px;
+      padding: 2.4rem 2rem 2.2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      box-shadow: 0 8px 32px rgba(38,182,186,0.08), 0 2px 8px rgba(0,0,0,0.04);
+      backdrop-filter: blur(10px);
+      position: relative;
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+    }
+    .tier-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 60px rgba(38,182,186,0.16), 0 4px 16px rgba(0,0,0,0.06);
+    }
+    .tier-card.popular {
+      border-color: var(--teal);
+      background: rgba(255,255,255,0.94);
+      box-shadow: 0 12px 48px rgba(38,182,186,0.22), 0 4px 12px rgba(0,0,0,0.07);
+      transform: translateY(-8px);
+    }
+    .tier-card.popular:hover {
+      transform: translateY(-14px);
+      box-shadow: 0 28px 72px rgba(38,182,186,0.28), 0 6px 20px rgba(0,0,0,0.09);
+    }
+
+    .popular-badge {
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--grad-main);
+      color: #fff;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 0.35rem 1.1rem;
+      border-radius: 100px;
+      white-space: nowrap;
+    }
+
+    .tier-name {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 0.6rem;
+    }
+    .tier-headline {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      line-height: 1.2;
+      margin-bottom: 0.4rem;
+    }
+    .tier-price {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--forest);
+      letter-spacing: -0.03em;
+      margin-bottom: 0.2rem;
+    }
+    .tier-price span {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      letter-spacing: 0;
+    }
+    .tier-desc {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 1.8rem;
+    }
+
+    .tier-divider {
+      height: 1px;
+      background: var(--border);
+      margin: 1.4rem 0;
+    }
+
+    .tier-features {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.82rem;
+      margin-bottom: 2rem;
+      flex: 1;
+    }
+    .tier-features li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.7rem;
+      font-size: 0.87rem;
+      color: var(--text-body);
+      line-height: 1.45;
+    }
+    .tier-features li .check {
+      flex-shrink: 0;
+      width: 18px; height: 18px;
+      border-radius: 50%;
+      background: rgba(38,182,186,0.12);
+      display: flex; align-items: center; justify-content: center;
+      margin-top: 1px;
+    }
+    .tier-features li .check i {
+      font-size: 0.6rem;
+      color: var(--teal);
+    }
+    .tier-features li .dash {
+      flex-shrink: 0;
+      width: 18px; height: 18px;
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(13,58,54,0.2);
+      font-size: 0.9rem;
+      margin-top: 1px;
+    }
+    .tier-features li.not-included {
+      color: var(--text-muted);
+      opacity: 0.6;
+    }
+
+    .tier-btn {
+      display: block;
+      text-align: center;
+      background: rgba(38,182,186,0.1);
+      color: var(--teal);
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 0.9rem 1.5rem;
+      border-radius: 100px;
+      text-decoration: none;
+      border: 1.5px solid rgba(38,182,186,0.3);
+      transition: background 0.3s, border-color 0.3s, color 0.3s, transform 0.3s;
+    }
+    .tier-btn:hover {
+      background: var(--teal);
+      color: #fff;
+      border-color: var(--teal);
+      transform: translateY(-2px);
+    }
+    .tier-card.popular .tier-btn {
+      background: var(--grad-main);
+      color: #fff;
+      border-color: transparent;
+      box-shadow: 0 4px 18px rgba(38,182,186,0.3);
+    }
+    .tier-card.popular .tier-btn:hover {
+      box-shadow: 0 10px 32px rgba(38,182,186,0.44);
+      transform: translateY(-3px);
+    }
+
+    /* ============================================================
+       TRUST STRIP
+    ============================================================ */
+    #trust {
+      padding: 3rem 5% 7rem;
+      text-align: center;
+    }
+    .trust-strip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0;
+      background: rgba(255,255,255,0.72);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 1.1rem 2.4rem;
+      box-shadow: 0 4px 20px rgba(38,182,186,0.08);
+      backdrop-filter: blur(10px);
+      flex-wrap: wrap;
+      justify-content: center;
+      row-gap: 0.5rem;
+    }
+    .trust-item {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      white-space: nowrap;
+    }
+    .trust-sep {
+      width: 4px; height: 4px;
+      border-radius: 50%;
+      background: var(--teal);
+      margin: 0 1.4rem;
+      flex-shrink: 0;
+    }
+
+    /* ============================================================
+       FOOTER
+    ============================================================ */
+    footer {
+      background: transparent;
+      border-top: 1px solid var(--border);
+      padding: 5rem 5% 2.5rem;
+    }
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 3.5rem;
+    }
+    .footer-brand img { height: 38px; margin-bottom: 1.2rem; }
+    .footer-brand p { font-size: 0.87rem; color: var(--text-muted); line-height: 1.72; max-width: 230px; }
+    .footer-col { text-align: center; }
+    .footer-col h4 {
+      font-size: 0.68rem; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--teal); margin-bottom: 1.3rem;
+    }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.8rem; align-items: center; }
+    .footer-col a { font-size: 0.87rem; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+    .footer-col a:hover { color: var(--forest); }
+    .footer-social {
+      display: flex;
+      gap: 0.75rem;
+      margin-top: 1.4rem;
+    }
+    .footer-social a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px; height: 38px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(38,182,186,0.25);
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: border-color 0.25s, color 0.25s, background 0.25s, transform 0.25s;
+    }
+    .footer-social a:hover {
+      border-color: var(--teal);
+      color: var(--teal);
+      background: rgba(38,182,186,0.07);
+      transform: translateY(-3px);
+    }
+    .footer-bottom {
+      display: flex; align-items: center; justify-content: space-between;
+      padding-top: 2rem; border-top: 1px solid var(--border);
+      font-size: 0.78rem; color: var(--text-muted);
+    }
+
+    /* ============================================================
+       SCROLL REVEAL
+    ============================================================ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.72s ease, transform 0.72s ease;
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+    .reveal.delay-1 { transition-delay: 0.14s; }
+    .reveal.delay-2 { transition-delay: 0.28s; }
+    .reveal.delay-3 { transition-delay: 0.42s; }
+
+    /* ============================================================
+       KEYFRAMES
+    ============================================================ */
+    @keyframes fadeIn  { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes slideUp { from { opacity: 0; transform: translateY(32px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* ============================================================
+       RESPONSIVE
+    ============================================================ */
+    @media (max-width: 900px) {
+      .pricing-grid { grid-template-columns: 1fr; max-width: 480px; }
+      .tier-card.popular { transform: none; }
+      .tier-card.popular:hover { transform: translateY(-6px); }
+      .footer-top { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 640px) {
+      .trust-strip { border-radius: 16px; padding: 1rem 1.4rem; }
+      .footer-top { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="nav" role="navigation" aria-label="Main">
+    <a href="index.html" class="nav-logo" aria-label="2italy home">
+      <img src="brand-assets/Asset 165000px.png" alt="2italy" />
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html#services">What We Do</a></li>
+      <li><a href="index.html#how">Our Process</a></li>
+      <li><a href="index.html#mission">About</a></li>
+      <li><a href="resources.html">Resources</a></li>
+      <li><a href="universities.html">Universities</a></li>
+      <li><a href="offers.html" class="active-page">Offers</a></li>
+      <li><a href="scholarship.html">Scholarship</a></li>
+      <li><a href="consultation.html" class="nav-cta">Book Free Call</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html#services" onclick="closeMenu()">What We Do</a>
+    <a href="index.html#how" onclick="closeMenu()">Our Process</a>
+    <a href="index.html#mission" onclick="closeMenu()">About</a>
+    <a href="resources.html" onclick="closeMenu()">Resources</a>
+    <a href="universities.html" onclick="closeMenu()">Universities</a>
+    <a href="offers.html" class="active-page" onclick="closeMenu()">Offers</a>
+    <a href="scholarship.html" onclick="closeMenu()">Scholarship</a>
+    <a href="consultation.html" class="mobile-cta" onclick="closeMenu()">Book Free Call</a>
+  </div>
+
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-inner">
+      <span class="hero-eyebrow" style="opacity:0;animation:slideUp 0.6s ease 0.3s forwards;">Our Packages</span>
+      <h1 class="hero-headline" style="opacity:0;animation:slideUp 0.7s cubic-bezier(.16,1,.3,1) 0.5s forwards;">
+        Choose Your Path<br>to <span class="grad">Italy</span>
+      </h1>
+      <p class="hero-sub" style="opacity:0;animation:slideUp 0.7s ease 0.7s forwards;">
+        Three packages. One goal &mdash; getting you there.
+      </p>
+    </div>
+  </section>
+
+
+  <!-- PRICING TABLE -->
+  <section id="pricing">
+    <div class="pricing-grid">
+
+      <!-- TIER 1: Admission Essentials -->
+      <div class="tier-card reveal">
+        <p class="tier-name">Tier 1</p>
+        <h2 class="tier-headline">Admission Essentials</h2>
+        <p class="tier-price">from &euro;1,000 <span>one-time</span></p>
+        <p class="tier-desc">Everything you need to secure your university place in Italy.</p>
+        <div class="tier-divider"></div>
+        <ul class="tier-features">
+          <li>
+            <span class="check"><i class="fas fa-check"></i></span>
+            Admission support &amp; document prep
+          </li>
+          <li>
+            <span class="check"><i class="fas fa-check"></i></span>
+            University shortlisting &amp; application
+          </li>
+          <li>
+            <span class="check"><i class="fas fa-check"></i></span>
+            Offer letter management
+          </li>
+          <li class="not-included">
+            <span class="dash">&mdash;</span>
+            Tutorial access
+          </li>
+          <li class="not-included">
+            <span class="dash">&mdash;</span>
+            Visa booking &amp; prep
+          </li>
+          <li class="not-included">
+            <span class="dash">&mdash;</span>
+            Hotel &amp; insurance setup
+          </li>
+          <li class="not-included">
+            <span class="dash">&mdash;</span>
+            Scholarship guidance
+          </li>
+          <li class="not-included">
+            <span class="dash">&mdash;</span>
+            Italy permit &amp; bank account
+          </li>
+          <li class="not-included">
+            <span class="dash">&mdash;</span>
+            Flight booking
+          </li>
+          <li class="not-included">
+            <span class="dash">&mdash;</span>
+            Airport pickup &amp; city transport
+          </li>
+        </ul>
+        <a href="consultation.html" class="tier-btn">Book a Free Call</a>
+      </div>
+
+      <!-- TIER 2: Visa Ready (POPULAR) -->
+      <div class="tier-card popular reveal delay-1">
+        <div class="popular-badge">Most Popular</div>
+        <p class="tier-name">Tier 2</p>
+        <h2 class="tier-headline">Visa Ready</h2>
+        <p class="tier-price">from &euro;2,000 <span>one-time</span></p>
+        <p class="tier-desc">Full admission support plus everything needed to land your visa.</p>
+        <div class="tier-divider"></div>
+        <ul class="tier-features">
+          <li>
+            <span class="check"><i class="fas fa-check"></i></span>
+            Admission support &amp; document prep
+          </li>
+          <li>
+            <span class="check"><i class="fas fa-check"></i></span>
+            Tutorial access
+          </li>
+          <li>
+            <span class="check"><i class="fas fa-check"></i></span>
+            Visa booking &amp; prep
+          </li>
+          <li>
+            <span class="check"><i class="fas fa-check"></i></span>
+            Hotel &amp; insurance setup
+          </li>
+          <li>
+            <span class="check"><i class="fas fa-check"></i></span>
+            Scholarship guidance
+          </li>
+          <li>
+            <span class="check"><i class="fas fa-check"></i></span>
+            Italy permit &amp; bank account
+          </li>
+          <li class="not-included">
+            <span class="dash">&mdash;</span>
+            Flight booking
+          </li>
+          <li class="not-included">
+            <span class="dash">&mdash;</span>
+            Airport pickup &amp; city transport
+          </li>
+        </ul>
+        <a href="consultation.html" class="tier-btn">Book a Free Call</a>
+      </div>
+
+      <!-- TIER 3: Full Relocation -->
+      <div class="tier-card reveal delay-2">
+        <p class="tier-name">Tier 3</p>
+        <h2 class="tier-headline">Full Relocation</h2>
+        <p class="tier-price">from &euro;3,000 <span>one-time</span></p>
+        <p class="tier-desc">The complete end-to-end journey — from application to arrival day.</p>
+        <div class="tier-divider"></div>
+        <ul class="tier-features">
+          <li>
+            <span class="check"><i class="fas fa-check"></i></span>
+            Admission support &amp; document prep
+          </li>
+          <li>
+            <span class="check"><i class="fas fa-check"></i></span>
+            Tutorial access
+          </li>
+          <li>
+            <span class="check"><i class="fas fa-check"></i></span>
+            Visa booking &amp; prep
+          </li>
+          <li>
+            <span class="check"><i class="fas fa-check"></i></span>
+            Hotel &amp; insurance setup
+          </li>
+          <li>
+            <span class="check"><i class="fas fa-check"></i></span>
+            Scholarship guidance
+          </li>
+          <li>
+            <span class="check"><i class="fas fa-check"></i></span>
+            Italy permit &amp; bank account
+          </li>
+          <li>
+            <span class="check"><i class="fas fa-check"></i></span>
+            Flight booking
+          </li>
+          <li>
+            <span class="check"><i class="fas fa-check"></i></span>
+            Airport pickup &amp; city transport
+          </li>
+        </ul>
+        <a href="consultation.html" class="tier-btn">Book a Free Call</a>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- TRUST STRIP -->
+  <section id="trust">
+    <div class="trust-strip reveal">
+      <span class="trust-item">1,000+ students placed</span>
+      <span class="trust-sep" aria-hidden="true"></span>
+      <span class="trust-item">84% visa approval</span>
+      <span class="trust-sep" aria-hidden="true"></span>
+      <span class="trust-item">63+ partner universities</span>
+    </div>
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="brand-assets/Asset 165000px.png" alt="2italy" />
+        <p>Helping ambitious people build their life in Italy &mdash; from the first application to the first day settled.</p>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/2italyCo" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://www.youtube.com/@2italyCo" target="_blank" rel="noopener" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          <a href="https://api.whatsapp.com/send/?phone=963990681443&text&type=phone_number&app_absent=0" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          <a href="https://www.facebook.com/2ItalyCo/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Packages</h4>
+        <ul>
+          <li><a href="offers.html">Admission Essentials</a></li>
+          <li><a href="offers.html">Visa Ready</a></li>
+          <li><a href="offers.html">Full Relocation</a></li>
+          <li><a href="scholarship.html">Scholarship</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="index.html#mission">About</a></li>
+          <li><a href="index.html#how">Process</a></li>
+          <li><a href="index.html#testimonials">Stories</a></li>
+          <li><a href="resources.html">Resources</a></li>
+          <li><a href="universities.html">Universities</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:info@2italy.co">info@2italy.co</a></li>
+          <li><a href="consultation.html">Book a Call</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&#169; 2italy 2026</span>
+      <span>Admission &nbsp;&#183;&nbsp; Visas &nbsp;&#183;&nbsp; Relocation</span>
+    </div>
+  </footer>
+
+
+  <script>
+    /* NAV SCROLL */
+    var nav = document.getElementById('nav');
+    window.addEventListener('scroll', function () {
+      nav.classList.toggle('scrolled', window.scrollY > 55);
+    }, { passive: true });
+
+    /* HAMBURGER */
+    var hamburger = document.getElementById('hamburger');
+    var mobileMenu = document.getElementById('mobileMenu');
+    function closeMenu() {
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+    hamburger.addEventListener('click', function () {
+      var isOpen = mobileMenu.classList.toggle('open');
+      hamburger.classList.toggle('open', isOpen);
+      hamburger.setAttribute('aria-expanded', isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+
+    /* SCROLL REVEAL */
+    var revealObs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(function (el) { revealObs.observe(el); });
+  </script>
+
+</body>
+</html>
