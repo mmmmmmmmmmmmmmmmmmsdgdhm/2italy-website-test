@@ -10,6 +10,7 @@ const navItems = [
   { href: '/universities', label: 'Universities' },
   { href: '/offers', label: 'Offers' },
   { href: '/scholarship', label: 'Scholarship' },
+  { href: '/blog', label: 'Blog' },
   { href: '/consultation', label: 'Consultation' },
   { href: '/tutorial', label: 'Tutorial' },
 ];
@@ -24,7 +25,7 @@ export default function Navigation() {
         <button
           type="button"
           className={`hamburger ${open ? 'open' : ''}`}
-          onClick={() => setOpen((current) => !current)}
+          onClick={() => setOpen((c) => !c)}
           aria-label="Toggle navigation menu"
         >
           <span />
@@ -54,8 +55,6 @@ export default function Navigation() {
             {item.label}
           </Link>
         ))}
-
-        {/* COPY: More specific mobile nav CTA */}
         <Link href="/consultation" className="mobile-cta" onClick={() => setOpen(false)}>
           Book Free Consultation
         </Link>
