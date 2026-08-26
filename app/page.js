@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Navigation from './components/Navigation';
 import Footer from './components/Footer';
+import JourneyTimeline from './components/JourneyTimeline';
 
 export default function Home() {
   return (
@@ -99,6 +100,11 @@ export default function Home() {
         </div>
 
       </section>
+
+      <div className="section-gap" />
+
+      {/* ── JOURNEY TIMELINE ─────────────────────────────────── */}
+      <JourneyTimeline />
 
       <div className="section-gap" />
 
