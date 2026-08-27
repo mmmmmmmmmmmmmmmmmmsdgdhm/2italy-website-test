@@ -70,7 +70,33 @@ export default function Home() {
           <h2 className="transform-headline pain-text">
             Lost.<br />Overwhelmed.<br />Scattered.
           </h2>
-          <div className="avatar-slot" aria-hidden="true" />
+          <div className="pain-illustration">
+            <div className="pain-icon-card">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M7 4h9l3 3v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1Z" opacity="0.4" />
+                <path d="M4 7h9l3 3v11a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1Z" />
+              </svg>
+              <strong>Scattered Info</strong>
+              <span>No clear path</span>
+            </div>
+            <div className="pain-icon-card">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+                <circle cx="12" cy="12" r="9" />
+                <path d="M12 7v5l3 2" />
+                <path d="M4 4l16 16" />
+              </svg>
+              <strong>Missed Deadlines</strong>
+              <span>Wrong documents</span>
+            </div>
+            <div className="pain-icon-card">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+                <rect x="3" y="5" width="18" height="14" rx="2" />
+                <path d="M9 10l6 4M15 10l-6 4" />
+              </svg>
+              <strong>Visa Rejected</strong>
+              <span>No local network</span>
+            </div>
+          </div>
           <ul className="phase-points">
             <li>Scattered information, no clear path</li>
             <li>Missed deadlines, wrong documents</li>
