@@ -2227,6 +2227,130 @@ button[type="submit"],
   }
 }
 
+/* Published blog cards */
+.blog-card-live {
+  text-decoration: none;
+  color: inherit;
+}
+
+.blog-card-ar {
+  text-align: right;
+  font-family: 'Cairo', 'Poppins', sans-serif;
+}
+
+.blog-read-link {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--teal);
+}
+
+/* Blog article page */
+.post {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 0;
+}
+
+.post-ar {
+  font-family: 'Cairo', 'Poppins', sans-serif;
+  text-align: right;
+}
+
+.post-topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.post-back,
+.post-lang-switch {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--teal);
+  text-decoration: none;
+}
+
+.post-lang-switch {
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.35rem 0.9rem;
+}
+
+.post-lang-switch:hover {
+  background: rgba(38,182,186,0.08);
+}
+
+.post-header {
+  display: grid;
+  gap: 0.9rem;
+  margin-bottom: 1.75rem;
+}
+
+.post-title {
+  margin: 0;
+  font-size: clamp(1.6rem, 4vw, 2.3rem);
+  line-height: 1.3;
+  color: var(--forest);
+  font-weight: 800;
+}
+
+.post-meta {
+  display: flex;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.post-intro {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--text-body);
+  margin: 0 0 2rem;
+}
+
+.post-section h2 {
+  font-size: 1.25rem;
+  color: var(--forest);
+  margin: 2rem 0 0.75rem;
+  line-height: 1.4;
+}
+
+.post-section p {
+  font-size: 1rem;
+  line-height: 1.85;
+  color: var(--text-body);
+  margin: 0 0 1rem;
+}
+
+.post-ar .post-intro,
+.post-ar .post-section p {
+  line-height: 2;
+}
+
+.post-cta {
+  margin-top: 3rem;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  padding: 2rem;
+  text-align: center;
+}
+
+.post-cta h2 {
+  margin: 0 0 0.75rem;
+  color: var(--forest);
+  font-size: 1.3rem;
+}
+
+.post-cta p {
+  color: var(--text-muted);
+  line-height: 1.8;
+  margin: 0 0 1.5rem;
+}
+
 .lead-trust {
   margin: 0;
   font-size: 0.8rem;

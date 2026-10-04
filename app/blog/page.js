@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
+import { posts } from './posts';
 
 export const metadata = {
   title: 'Blog | 2italy — Italian University, Visa & Relocation Guides',
@@ -36,7 +37,7 @@ const upcomingTopics = [
   },
   {
     tag: 'Student Life',
-    title: 'Best Cities in Italy for International Students in 2025',
+    title: 'Best Cities in Italy for International Students in 2026',
     desc: 'Milan, Rome, Bologna, Florence, Turin — we compare cost of living, university quality, job markets, and student communities.',
   },
   {
@@ -56,7 +57,7 @@ const upcomingTopics = [
   },
   {
     tag: 'Admissions',
-    title: 'Italian University Rankings 2025: Which Universities Accept International Students',
+    title: 'Italian University Rankings 2026: Which Universities Accept International Students',
     desc: 'A guide to Italy\'s top universities — Politecnico di Milano, Bologna, Sapienza, Bocconi — and how competitive they are for international applicants.',
   },
 ];
@@ -70,7 +71,7 @@ export default function Blog() {
       <section className="page-hero blog-hero">
         <div className="coming-soon-pill">
           <span className="cs-dot" aria-hidden="true" />
-          Coming Soon
+          New Articles
         </div>
 
         <h1 className="hero-headline blog-headline">
@@ -93,10 +94,37 @@ export default function Blog() {
         </div>
       </section>
 
+      {/* PUBLISHED */}
+      <section className="section-block blog-topics-section">
+        <span className="section-eyebrow">Latest Articles</span>
+        <h2 className="section-title">Read now.</h2>
+
+        <div className="blog-grid">
+          {posts.map((post) => (
+            <Link
+              key={post.slug}
+              href={`/blog/${post.slug}`}
+              className={`blog-card blog-card-live${post.lang === 'ar' ? ' blog-card-ar' : ''}`}
+              lang={post.lang}
+              dir={post.lang === 'ar' ? 'rtl' : 'ltr'}
+            >
+              <span className="blog-tag">{post.tag}</span>
+              <h3 className="blog-card-title">{post.title}</h3>
+              <p className="blog-card-desc">{post.description}</p>
+              <span className="blog-read-link">
+                {post.lang === 'ar' ? `${post.readTime} · اقرأ المقال ←` : `${post.readTime} · Read article →`}
+              </span>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      <div className="section-gap" />
+
       {/* WHAT'S COMING */}
       <section className="section-block blog-topics-section">
         <span className="section-eyebrow">What We Are Writing</span>
-        <h2 className="section-title">Guides launching soon.</h2>
+        <h2 className="section-title">More guides launching soon.</h2>
         <p className="section-sub">
           Every article is based on real student cases — not generic advice.
           Here is what is coming first.
