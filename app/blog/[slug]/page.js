@@ -22,6 +22,7 @@ export async function generateMetadata({ params }) {
   return {
     title: `${post.title} | 2italy`,
     description: post.description,
+    keywords: post.keywords?.join(', '),
     alternates: post.translation
       ? { languages: { [post.lang]: `/blog/${post.slug}`, [post.lang === 'en' ? 'ar' : 'en']: `/blog/${post.translation}` } }
       : undefined,
