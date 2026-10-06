@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 
@@ -19,11 +19,18 @@ const initialForm = {
   englishCertificate: '',
   funds: '',
   goals: '',
+  vipCode: '',
 };
 
 export default function Consultation() {
   const [form, setForm] = useState(initialForm);
   const [status, setStatus] = useState('idle'); // idle | submitting | success | error
+
+  // Agents can share links like /consultation?code=AGENT10 to pre-fill the VIP code
+  useEffect(() => {
+    const code = new URLSearchParams(window.location.search).get('code');
+    if (code) setForm((prev) => ({ ...prev, vipCode: code.trim().slice(0, 50) }));
+  }, []);
 
   function handleChange(e) {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -204,6 +211,12 @@ export default function Consultation() {
                 <div className="form-group">
                   <label>Your goals — what do you want to achieve in Italy?</label>
                   <textarea name="goals" rows={4} placeholder="e.g. I want to study engineering in Milan, then stay and work in Italy after graduation..." value={form.goals} onChange={handleChange} style={{ resize: 'vertical' }} />
+                </div>
+                <div className="form-row">
+                  <div className="form-group">
+                    <label>VIP code <span className="form-label-hint">(optional — if you received one from us or an agent)</span></label>
+                    <input name="vipCode" type="text" placeholder="e.g. VIP2026" maxLength={50} value={form.vipCode} onChange={handleChange} />
+                  </div>
                 </div>
               </div>
 
