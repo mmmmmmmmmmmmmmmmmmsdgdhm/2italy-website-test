@@ -1081,6 +1081,37 @@ button[type="submit"],
 
 .uni-status.unknown::before { background: var(--text-muted); }
 
+.uni-status.soon {
+  background: rgba(40,136,186,0.12);
+  color: #2888ba;
+}
+
+.uni-status.soon::before { background: #2888ba; }
+
+.uni-intake-note {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 1rem;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.uni-intake-badge {
+  background: var(--grad-main);
+  color: var(--white);
+  border-radius: 999px;
+  padding: 0.3rem 0.9rem;
+  font-weight: 700;
+}
+
+.uni-intake-hint {
+  flex-basis: 100%;
+  font-weight: 400;
+  font-size: 0.8rem;
+}
+
 .uni-empty {
   text-align: center;
   color: var(--text-muted);
