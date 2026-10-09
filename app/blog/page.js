@@ -26,11 +26,6 @@ const upcomingTopics = [
     desc: 'A step-by-step walkthrough of the Italian university application process — from choosing a program to submitting your Dichiarazione di Valore.',
   },
   {
-    tag: 'Scholarships',
-    title: 'DSU Scholarships Explained: Who Qualifies and How to Apply',
-    desc: 'Italy\'s regional DSU scholarships cover tuition, housing, and a monthly stipend. We break down eligibility, ISEE Parificato, and application deadlines.',
-  },
-  {
     tag: 'Visa',
     title: 'Italy Student Visa Guide: Documents, Timeline, and Common Mistakes',
     desc: 'Everything you need to know about the Type D student visa — what to prepare, how long it takes, and the errors that cause rejections.',
