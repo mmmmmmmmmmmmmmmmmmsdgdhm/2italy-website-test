@@ -118,7 +118,7 @@ export default function Scholarship() {
             </button>
             {status === 'error' && (
               <p className="form-error">
-                Something went wrong. Message us on WhatsApp: +963 990 681 443
+                Something went wrong. Message us on WhatsApp: +971 58 180 8979
               </p>
             )}
           </form>

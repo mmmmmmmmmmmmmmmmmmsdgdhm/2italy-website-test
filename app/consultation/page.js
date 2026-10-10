@@ -228,7 +228,7 @@ export default function Consultation() {
                 <p className="form-trust">Free · No commitment · We reply within 24 hours</p>
                 {status === 'error' && (
                   <p className="form-error">
-                    Something went wrong. Message us on WhatsApp: +963 990 681 443
+                    Something went wrong. Message us on WhatsApp: +971 58 180 8979
                   </p>
                 )}
               </div>
