@@ -46,7 +46,7 @@ main {
   z-index: 10;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   gap: 1rem;
   padding: 1.2rem 0;
   background: transparent;
@@ -99,6 +99,11 @@ main {
   font-weight: 700;
   font-size: 1rem;
   color: var(--forest);
+}
+
+.site-logo-img {
+  height: 44px;
+  width: auto;
 }
 
 .site-links {
@@ -2501,7 +2506,7 @@ button[type="submit"],
   }
 
   .site-nav {
-    justify-content: flex-end;
+    justify-content: space-between;
     padding: 1rem 0;
   }
 

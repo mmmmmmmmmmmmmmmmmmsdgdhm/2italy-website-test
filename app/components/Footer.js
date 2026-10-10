@@ -49,7 +49,7 @@ const services = [
 ];
 
 const company = [
-  { label: 'About', href: '/#mission' },
+  { label: 'About', href: '/#services' },
   { label: 'Our Process', href: '/#how' },
   { label: 'Resources', href: '/resources' },
   { label: 'Universities', href: '/universities' },

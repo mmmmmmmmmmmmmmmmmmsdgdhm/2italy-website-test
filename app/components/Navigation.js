@@ -22,6 +22,10 @@ export default function Navigation() {
   return (
     <>
       <nav className={`site-nav ${open ? 'menu-open' : ''}`}>
+        <Link href="/" className="site-logo" aria-label="2italy home" onClick={() => setOpen(false)}>
+          <img src="/brand-assets/Asset 165000px.png" alt="2italy" className="site-logo-img" />
+        </Link>
+
         <button
           type="button"
           className={`hamburger ${open ? 'open' : ''}`}
