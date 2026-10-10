@@ -1,4 +1,5 @@
 import './globals.css';
+import { Analytics } from '@vercel/analytics/next';
 import WhatsAppButton from './components/WhatsAppButton';
 import { SITE_URL, SITE_NAME, ogImage } from './seo';
 
@@ -42,6 +43,7 @@ export default function RootLayout({ children }) {
       <body>
         {children}
         <WhatsAppButton />
+        <Analytics />
       </body>
     </html>
   );
