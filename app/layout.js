@@ -1,4 +1,5 @@
 import './globals.css';
+import WhatsAppButton from './components/WhatsAppButton';
 
 export const metadata = {
   title: '2italy — Your Path to Italy, Made Simple.',
@@ -17,7 +18,10 @@ export default function RootLayout({ children }) {
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet" />
       </head>
-      <body>{children}</body>
+      <body>
+        {children}
+        <WhatsAppButton />
+      </body>
     </html>
   );
 }

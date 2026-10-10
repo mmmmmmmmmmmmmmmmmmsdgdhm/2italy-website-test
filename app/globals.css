@@ -3494,3 +3494,35 @@ button[type="submit"],
     flex-direction: column;
   }
 }
+
+/* ── Floating WhatsApp button ─────────────────────────── */
+.whatsapp-float {
+  position: fixed;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  z-index: 900; /* below .mobile-menu (999) so the open menu covers it */
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #25d366;
+  color: #fff;
+  box-shadow: 0 8px 24px rgba(13,58,54,0.25);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.08);
+  box-shadow: 0 12px 30px rgba(13,58,54,0.32);
+}
+
+@media (max-width: 768px) {
+  .whatsapp-float {
+    right: 1rem;
+    bottom: 1rem;
+    width: 52px;
+    height: 52px;
+  }
+}
