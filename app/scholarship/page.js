@@ -27,15 +27,32 @@ const regionalScholarships = [
   { region: 'Aosta Valley',         provider: "Università della Valle d'Aosta",                 name: 'Regional Scholarship Aosta' },
 ];
 
+// Same Apps Script as the consultation form — `type: 'scholarship'` routes the row to the "Scholarship" tab
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyWAN2qlpU0CWHmLvPs3_YIjx6k0g-oFL66ijaDNKkp46aaSeNFE0z8v9hRNst-pdV8/exec';
+
 export default function Scholarship() {
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState('idle'); // idle | submitting | success | error
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
     if (!name.trim() || !email.trim()) return;
-    setSubmitted(true);
+    setStatus('submitting');
+    try {
+      await fetch(APPS_SCRIPT_URL, {
+        method: 'POST',
+        body: JSON.stringify({
+          type: 'scholarship',
+          name: name.trim(),
+          email: email.trim(),
+          timestamp: new Date().toISOString(),
+        }),
+      });
+      setStatus('success');
+    } catch {
+      setStatus('error');
+    }
   }
 
   return (
@@ -69,7 +86,7 @@ export default function Scholarship() {
       <section className="waitlist-section">
         <span className="section-eyebrow">Join the Waitlist</span>
 
-        {submitted ? (
+        {status === 'success' ? (
           <div className="waitlist-success">
             <span className="success-icon">✓</span>
             <strong>You&rsquo;re on the list.</strong>
@@ -96,9 +113,14 @@ export default function Scholarship() {
               required
               className="waitlist-input"
             />
-            <button type="submit" className="btn-primary waitlist-btn">
-              Notify Me When It Opens
+            <button type="submit" className="btn-primary waitlist-btn" disabled={status === 'submitting'}>
+              {status === 'submitting' ? 'Joining...' : 'Notify Me When It Opens'}
             </button>
+            {status === 'error' && (
+              <p className="form-error">
+                Something went wrong. Message us on WhatsApp: +963 990 681 443
+              </p>
+            )}
           </form>
         )}
       </section>
