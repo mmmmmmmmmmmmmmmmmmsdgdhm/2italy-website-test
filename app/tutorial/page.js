@@ -1,6 +1,13 @@
 import Link from 'next/link';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
+import { pageMetadata } from '../seo';
+
+export const metadata = pageMetadata({
+  title: 'Italy Study Tutorial — 17 Video Lessons from Admission to Life in Italy',
+  description: 'A step-by-step video course covering pre-admission, DOV, ISEE, scholarships, the student visa, arriving in Italy, residence permit, finding a job and more.',
+  path: '/tutorial',
+});
 
 // COPY: 17 episodes mapped from the course roadmap
 const episodes = [

@@ -3,6 +3,10 @@ import Navigation from './components/Navigation';
 import Footer from './components/Footer';
 import JourneyTimeline from './components/JourneyTimeline';
 
+export const metadata = {
+  alternates: { canonical: '/' },
+};
+
 export default function Home() {
   return (
     <main>

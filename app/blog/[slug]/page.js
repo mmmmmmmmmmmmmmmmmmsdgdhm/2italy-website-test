@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import Navigation from '../../components/Navigation';
 import Footer from '../../components/Footer';
 import { posts, getPost } from '../posts';
+import { pageMetadata } from '../../seo';
 
 const labels = {
   en: { back: '← All articles', cta: 'Book a Free Consultation →', other: 'اقرأ بالعربية', ctaTitle: 'Ready to start your Italy journey?' },
@@ -19,19 +20,22 @@ export async function generateMetadata({ params }) {
   const { slug } = await params;
   const post = getPost(slug);
   if (!post) return {};
-  return {
-    title: `${post.title} | 2italy`,
+  const base = pageMetadata({
+    title: post.title,
     description: post.description,
+    path: `/blog/${post.slug}`,
+    locale: post.lang === 'ar' ? 'ar_AR' : 'en_US',
+    type: 'article',
+    extraOpenGraph: { title: post.title, publishedTime: post.date },
+  });
+  return {
+    ...base,
     keywords: post.keywords?.join(', '),
-    alternates: post.translation
-      ? { languages: { [post.lang]: `/blog/${post.slug}`, [post.lang === 'en' ? 'ar' : 'en']: `/blog/${post.translation}` } }
-      : undefined,
-    openGraph: {
-      title: post.title,
-      description: post.description,
-      type: 'article',
-      publishedTime: post.date,
-      locale: post.lang === 'ar' ? 'ar_AR' : 'en_US',
+    alternates: {
+      ...base.alternates,
+      ...(post.translation && {
+        languages: { [post.lang]: `/blog/${post.slug}`, [post.lang === 'en' ? 'ar' : 'en']: `/blog/${post.translation}` },
+      }),
     },
   };
 }

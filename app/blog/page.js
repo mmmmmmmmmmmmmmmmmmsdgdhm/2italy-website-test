@@ -2,11 +2,15 @@ import Link from 'next/link';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 import { posts } from './posts';
+import { pageMetadata } from '../seo';
 
 export const metadata = {
-  title: 'Blog | 2italy — Italian University, Visa & Relocation Guides',
-  description:
-    'Expert guides on studying in Italy, student visa applications, DSU scholarships, Italian university admissions, and relocating to Italy as an international student. Written by the 2italy team.',
+  ...pageMetadata({
+    title: { absolute: 'Blog | 2italy — Italian University, Visa & Relocation Guides' },
+    description:
+      'Expert guides on studying in Italy, student visa applications, DSU scholarships, Italian university admissions, and relocating to Italy as an international student. Written by the 2italy team.',
+    path: '/blog',
+  }),
   keywords: [
     'study in Italy',
     'Italian university admission',

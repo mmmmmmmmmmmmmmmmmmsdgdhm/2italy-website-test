@@ -1,11 +1,13 @@
 import Link from 'next/link';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
+import { pageMetadata } from '../seo';
 
-export const metadata = {
-  title: 'Offers — 2italy',
+export const metadata = pageMetadata({
+  title: 'Packages & Pricing — Admission, Visa and Relocation',
   description: 'Three packages to get you to Italy — from admission essentials to full relocation. Book a free call to get started.',
-};
+  path: '/offers',
+});
 
 const tiers = [
   {
