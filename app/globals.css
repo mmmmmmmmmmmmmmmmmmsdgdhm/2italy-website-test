@@ -3617,3 +3617,143 @@ button[type="submit"],
   color: var(--teal);
   text-decoration: underline;
 }
+
+/* ── Nav: Learn dropdown + consultation button ─────────── */
+.site-links {
+  align-items: center;
+}
+
+.nav-dropdown {
+  position: relative;
+}
+
+.nav-dropdown-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0;
+  border: none;
+  background: none;
+  font: inherit;
+  font-weight: 600;
+  color: var(--text-body);
+  cursor: pointer;
+}
+
+.nav-dropdown-toggle.active-page {
+  color: var(--teal);
+}
+
+.nav-dropdown-toggle svg {
+  transition: transform 0.2s ease;
+}
+
+.nav-dropdown.open .nav-dropdown-toggle svg {
+  transform: rotate(180deg);
+}
+
+/* padding-top bridges the gap so the menu stays open while the mouse moves down */
+.nav-dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding-top: 0.75rem;
+  z-index: 20;
+}
+
+.nav-dropdown.open .nav-dropdown-menu {
+  display: block;
+}
+
+.nav-dropdown-menu::before {
+  content: '';
+  position: absolute;
+  inset: 0.75rem 0 0;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: 0 12px 32px rgba(13,58,54,0.12);
+}
+
+.site-links .nav-dropdown-menu a {
+  position: relative;
+  display: grid;
+  gap: 0.1rem;
+  min-width: 220px;
+  padding: 0.7rem 1.1rem;
+}
+
+.site-links .nav-dropdown-menu a:first-child {
+  margin-top: 0.4rem;
+}
+
+.site-links .nav-dropdown-menu a:last-child {
+  margin-bottom: 0.4rem;
+}
+
+.site-links .nav-dropdown-menu a:hover {
+  background: rgba(38,182,186,0.08);
+}
+
+.nav-dropdown-label {
+  font-weight: 600;
+}
+
+.nav-dropdown-desc {
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: var(--text-muted);
+}
+
+.site-links a.nav-cta {
+  display: inline-flex;
+  padding: 0.6rem 1.2rem;
+  border-radius: 999px;
+  background: var(--grad-main);
+  color: #fff;
+  box-shadow: 0 6px 18px rgba(21,143,62,0.22);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.site-links a.nav-cta:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(21,143,62,0.3);
+}
+
+/* Mobile menu: keep the close (X) button above the overlay, allow scrolling */
+.site-nav.menu-open {
+  z-index: 1000;
+}
+
+.mobile-menu {
+  gap: 1.1rem;
+  overflow-y: auto;
+}
+
+.mobile-menu-heading {
+  margin-top: 0.4rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.mobile-menu a.mobile-sub {
+  padding-left: 1rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+/* Full nav needs ~900px — use the hamburger menu on tablets too */
+@media (max-width: 960px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .site-links {
+    display: none;
+  }
+}
