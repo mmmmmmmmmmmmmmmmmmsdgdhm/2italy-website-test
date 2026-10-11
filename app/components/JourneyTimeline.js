@@ -1,36 +1,37 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
 
-const months = ['Nov', 'Dec', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'];
+const content = {
+  en: {
+    months: ['Nov', 'Dec', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'],
+    phases: [
+      { id: 1, name: 'Admission', period: 'Nov → Apr · 6 months', desc: 'Programs, documents, applications, acceptance.', start: '0%', width: '54.5%' },
+      { id: 2, name: 'Scholarship', period: 'Mar → Jun · 4 months', desc: 'DSU application, ISEE, confirmation.', start: '36.4%', width: '36.4%' },
+      { id: 3, name: 'Visa', period: 'Jun → Sep · 4 months', desc: 'Embassy, documents, visa issued, travel ready.', start: '63.6%', width: '36.4%' },
+    ],
+    eyebrow: 'The Full Timeline',
+    title: 'Three phases. Ten months. One clear path.',
+    sub: 'From your first application to your visa in hand — here is how long each phase of the journey takes.',
+    totalLabel: 'Total duration',
+    totalValue: '~10 months · November → September',
+  },
+  ar: {
+    months: ['نوف', 'ديس', 'ينا', 'فبر', 'مار', 'أبر', 'ماي', 'يون', 'يول', 'أغس', 'سبت'],
+    phases: [
+      { id: 1, name: 'القبول', period: 'نوفمبر ← أبريل · 6 أشهر', desc: 'البرامج، الأوراق، التقديم، القبول.', start: '0%', width: '54.5%' },
+      { id: 2, name: 'المنحة', period: 'مارس ← يونيو · 4 أشهر', desc: 'طلب DSU، ISEE، التأكيد.', start: '36.4%', width: '36.4%' },
+      { id: 3, name: 'الفيزا', period: 'يونيو ← سبتمبر · 4 أشهر', desc: 'السفارة، الأوراق، صدور الفيزا، الاستعداد للسفر.', start: '63.6%', width: '36.4%' },
+    ],
+    eyebrow: 'الجدول الزمني الكامل',
+    title: 'ثلاث مراحل. عشرة أشهر. طريق واحد واضح.',
+    sub: 'من أول طلب تقديم حتى استلام الفيزا — هذه المدة التي تستغرقها كل مرحلة من الرحلة.',
+    totalLabel: 'المدة الإجمالية',
+    totalValue: 'حوالي 10 أشهر · من نوفمبر إلى سبتمبر',
+  },
+};
 
-const phases = [
-  {
-    id: 1,
-    name: 'Admission',
-    period: 'Nov → Apr · 6 months',
-    desc: 'Programs, documents, applications, acceptance.',
-    left: '0%',
-    width: '54.5%',
-  },
-  {
-    id: 2,
-    name: 'Scholarship',
-    period: 'Mar → Jun · 4 months',
-    desc: 'DSU application, ISEE, confirmation.',
-    left: '36.4%',
-    width: '36.4%',
-  },
-  {
-    id: 3,
-    name: 'Visa',
-    period: 'Jun → Sep · 4 months',
-    desc: 'Embassy, documents, visa issued, travel ready.',
-    left: '63.6%',
-    width: '36.4%',
-  },
-];
-
-export default function JourneyTimeline() {
+export default function JourneyTimeline({ lang = 'en' }) {
+  const { months, phases, ...t } = content[lang];
   const ref = useRef(null);
   const [visible, setVisible] = useState(false);
 
@@ -47,11 +48,9 @@ export default function JourneyTimeline() {
 
   return (
     <section ref={ref} className={`section-block journey-section${visible ? ' journey-visible' : ''}`}>
-      <span className="section-eyebrow">The Full Timeline</span>
-      <h2 className="section-title">Three phases. Ten months. One clear path.</h2>
-      <p className="section-sub">
-        From your first application to your visa in hand — here is how long each phase of the journey takes.
-      </p>
+      <span className="section-eyebrow">{t.eyebrow}</span>
+      <h2 className="section-title">{t.title}</h2>
+      <p className="section-sub">{t.sub}</p>
 
       {/* ── Desktop duration timeline ── */}
       <div className="journey-wrap">
@@ -80,7 +79,7 @@ export default function JourneyTimeline() {
               <div
                 className={`journey-bar bar-phase-${ph.id}`}
                 style={{
-                  left: ph.left,
+                  insetInlineStart: ph.start,
                   width: visible ? ph.width : '0%',
                   transitionDelay: visible ? `${i * 0.2 + 0.15}s` : '0s',
                 }}
@@ -92,8 +91,8 @@ export default function JourneyTimeline() {
         ))}
 
         <div className="journey-total">
-          <span className="journey-total-label">Total duration</span>
-          <span className="journey-total-value">~10 months · November → September</span>
+          <span className="journey-total-label">{t.totalLabel}</span>
+          <span className="journey-total-value">{t.totalValue}</span>
         </div>
       </div>
 

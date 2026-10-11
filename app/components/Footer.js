@@ -41,30 +41,70 @@ const socials = [
   },
 ];
 
-const services = [
-  { label: 'Admission Essentials', href: '/offers' },
-  { label: 'Visa Ready', href: '/offers' },
-  { label: 'Full Relocation', href: '/offers' },
-  { label: 'Scholarship', href: '/scholarship' },
-];
+const content = {
+  en: {
+    tagline: 'Helping ambitious people build their life in Italy — from the first application to the first day settled.',
+    servicesHeading: 'Services',
+    services: [
+      { label: 'Admission Essentials', href: '/offers' },
+      { label: 'Visa Ready', href: '/offers' },
+      { label: 'Full Relocation', href: '/offers' },
+      { label: 'Scholarship', href: '/scholarship' },
+    ],
+    companyHeading: 'Company',
+    company: [
+      { label: 'About', href: '/about' },
+      { label: 'FAQ', href: '/faq' },
+      { label: 'Our Process', href: '/#how' },
+      { label: 'Resources', href: '/resources' },
+      { label: 'Universities', href: '/universities' },
+      { label: 'Offers', href: '/offers' },
+    ],
+    contactHeading: 'Contact',
+    contact: [
+      { label: 'info@2italy.co', href: 'mailto:info@2italy.co' },
+      { label: 'Book a Free Call', href: '/consultation' },
+      { label: '@2ItalyCo on YouTube', href: 'https://www.youtube.com/@2ItalyCo', external: true },
+      { label: '@2italyCo on Instagram', href: 'https://www.instagram.com/2italyCo', external: true },
+    ],
+    strapline: <>Admission &nbsp;·&nbsp; Visas &nbsp;·&nbsp; Relocation</>,
+    privacy: 'Privacy',
+    terms: 'Terms',
+  },
+  ar: {
+    tagline: 'نساعد الطموحين على بناء حياتهم في إيطاليا — من أول طلب تقديم حتى أول يوم بعد الاستقرار.',
+    servicesHeading: 'خدماتنا',
+    services: [
+      { label: 'أساسيات القبول', href: '/ar/offers' },
+      { label: 'جاهز للفيزا', href: '/ar/offers' },
+      { label: 'الانتقال الكامل', href: '/ar/offers' },
+      { label: 'المنحة', href: '/scholarship' },
+    ],
+    companyHeading: 'الشركة',
+    company: [
+      { label: 'من نحن', href: '/about' },
+      { label: 'الأسئلة الشائعة', href: '/faq' },
+      { label: 'آلية العمل', href: '/ar#how' },
+      { label: 'الموارد', href: '/resources' },
+      { label: 'الجامعات', href: '/universities' },
+      { label: 'الباقات', href: '/ar/offers' },
+    ],
+    contactHeading: 'تواصل معنا',
+    contact: [
+      { label: 'info@2italy.co', href: 'mailto:info@2italy.co' },
+      { label: 'احجز مكالمة مجانية', href: '/ar/consultation' },
+      { label: '@2ItalyCo على يوتيوب', href: 'https://www.youtube.com/@2ItalyCo', external: true },
+      { label: '@2italyCo على إنستغرام', href: 'https://www.instagram.com/2italyCo', external: true },
+    ],
+    strapline: <>القبول &nbsp;·&nbsp; الفيزا &nbsp;·&nbsp; الانتقال</>,
+    privacy: 'الخصوصية',
+    terms: 'الشروط',
+  },
+};
 
-const company = [
-  { label: 'About', href: '/about' },
-  { label: 'FAQ', href: '/faq' },
-  { label: 'Our Process', href: '/#how' },
-  { label: 'Resources', href: '/resources' },
-  { label: 'Universities', href: '/universities' },
-  { label: 'Offers', href: '/offers' },
-];
+export default function Footer({ lang = 'en' }) {
+  const t = content[lang];
 
-const contact = [
-  { label: 'info@2italy.co', href: 'mailto:info@2italy.co' },
-  { label: 'Book a Free Call', href: '/consultation' },
-  { label: '@2ItalyCo on YouTube', href: 'https://www.youtube.com/@2ItalyCo', external: true },
-  { label: '@2italyCo on Instagram', href: 'https://www.instagram.com/2italyCo', external: true },
-];
-
-export default function Footer() {
   return (
     <footer className="site-footer">
       <div className="footer-inner">
@@ -72,9 +112,7 @@ export default function Footer() {
         {/* Brand column */}
         <div className="footer-brand">
           <img src="/brand-assets/Asset 165000px.png" alt="2italy" className="footer-logo" />
-          <p className="footer-tagline">
-            Helping ambitious people build their life in Italy — from the first application to the first day settled.
-          </p>
+          <p className="footer-tagline">{t.tagline}</p>
           <div className="footer-socials">
             {socials.map((s) => (
               <a
@@ -93,9 +131,9 @@ export default function Footer() {
 
         {/* Services */}
         <div className="footer-col">
-          <h4 className="footer-col-heading">Services</h4>
+          <h4 className="footer-col-heading">{t.servicesHeading}</h4>
           <ul className="footer-col-list">
-            {services.map((item) => (
+            {t.services.map((item) => (
               <li key={item.label}>
                 <Link href={item.href} className="footer-link">{item.label}</Link>
               </li>
@@ -105,9 +143,9 @@ export default function Footer() {
 
         {/* Company */}
         <div className="footer-col">
-          <h4 className="footer-col-heading">Company</h4>
+          <h4 className="footer-col-heading">{t.companyHeading}</h4>
           <ul className="footer-col-list">
-            {company.map((item) => (
+            {t.company.map((item) => (
               <li key={item.label}>
                 <Link href={item.href} className="footer-link">{item.label}</Link>
               </li>
@@ -117,9 +155,9 @@ export default function Footer() {
 
         {/* Contact */}
         <div className="footer-col">
-          <h4 className="footer-col-heading">Contact</h4>
+          <h4 className="footer-col-heading">{t.contactHeading}</h4>
           <ul className="footer-col-list">
-            {contact.map((item) => (
+            {t.contact.map((item) => (
               <li key={item.label}>
                 {item.external ? (
                   <a href={item.href} target="_blank" rel="noopener noreferrer" className="footer-link">{item.label}</a>
@@ -135,11 +173,11 @@ export default function Footer() {
 
       <div className="footer-bottom-bar">
         <span>© 2italy 2026</span>
-        <span className="footer-bottom-sep">Admission &nbsp;·&nbsp; Visas &nbsp;·&nbsp; Relocation</span>
+        <span className="footer-bottom-sep">{t.strapline}</span>
         <span>
-          <Link href="/privacy" className="footer-link">Privacy</Link>
+          <Link href="/privacy" className="footer-link">{t.privacy}</Link>
           &nbsp;·&nbsp;
-          <Link href="/terms" className="footer-link">Terms</Link>
+          <Link href="/terms" className="footer-link">{t.terms}</Link>
         </span>
       </div>
     </footer>

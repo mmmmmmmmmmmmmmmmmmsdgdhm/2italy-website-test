@@ -1,6 +1,7 @@
 import './globals.css';
 import { Analytics } from '@vercel/analytics/next';
 import WhatsAppButton from './components/WhatsAppButton';
+import LanguageSuggest from './components/LanguageSuggest';
 import { SITE_URL, SITE_NAME, ogImage } from './seo';
 
 const defaultDescription =
@@ -41,6 +42,7 @@ export default function RootLayout({ children }) {
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet" />
       </head>
       <body>
+        <LanguageSuggest />
         {children}
         <WhatsAppButton />
         <Analytics />

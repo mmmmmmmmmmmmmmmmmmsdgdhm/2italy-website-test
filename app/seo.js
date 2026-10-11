@@ -11,11 +11,11 @@ export const ogImage = {
   alt: '2italy — Study, visa and relocation to Italy',
 };
 
-export function pageMetadata({ title, description, path, locale = 'en_US', type = 'website', extraOpenGraph = {} }) {
+export function pageMetadata({ title, description, path, locale = 'en_US', type = 'website', languages, extraOpenGraph = {} }) {
   return {
     title,
     description,
-    alternates: { canonical: path },
+    alternates: { canonical: path, ...(languages && { languages }) },
     openGraph: {
       title: typeof title === 'string' ? `${title} | ${SITE_NAME}` : title?.absolute,
       description,

@@ -2025,7 +2025,7 @@ button[type="submit"],
 .phase-points li {
   font-size: 0.88rem;
   color: var(--text-muted);
-  padding-left: 1.2rem;
+  padding-inline-start: 1.2rem;
   position: relative;
   line-height: 1.5;
 }
@@ -2033,7 +2033,7 @@ button[type="submit"],
 .phase-pain .phase-points li::before {
   content: '✕';
   position: absolute;
-  left: 0;
+  inset-inline-start: 0;
   color: #c0392b;
   font-size: 0.7rem;
   top: 1px;
@@ -2042,7 +2042,7 @@ button[type="submit"],
 .phase-vision .phase-points li::before {
   content: '✓';
   position: absolute;
-  left: 0;
+  inset-inline-start: 0;
   color: var(--teal);
   font-size: 0.7rem;
   top: 1px;
@@ -3756,4 +3756,100 @@ button[type="submit"],
   .site-links {
     display: none;
   }
+}
+
+/* ── Language switch ───────────────────────────────────── */
+.lang-switch {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.3rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--forest);
+  text-decoration: none;
+}
+
+.lang-switch:hover {
+  background: rgba(38,182,186,0.08);
+}
+
+.site-links .lang-switch {
+  font-family: 'Cairo', 'Poppins', sans-serif;
+}
+
+/* Mobile/tablet: language switch sits next to the hamburger */
+.nav-mobile-actions {
+  display: none;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+@media (max-width: 960px) {
+  .nav-mobile-actions {
+    display: flex;
+  }
+}
+
+/* ── Arabic pages (/ar) ────────────────────────────────── */
+.lang-ar,
+.lang-ar button,
+.lang-ar input,
+.lang-ar select,
+.lang-ar textarea {
+  font-family: 'Cairo', 'Poppins', sans-serif;
+}
+
+.lang-ar .lang-switch {
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Arabic script needs more line height than Latin */
+.lang-ar p,
+.lang-ar li {
+  line-height: 1.9;
+}
+
+/* Latin-specific letter spacing breaks Arabic letter joining */
+.lang-ar .hero-eyebrow,
+.lang-ar .section-eyebrow,
+.lang-ar .page-hero-eyebrow,
+.lang-ar .phase-label,
+.lang-ar .bridge-eyebrow,
+.lang-ar .mobile-menu-heading,
+.lang-ar .app-form-label,
+.lang-ar .tier-label {
+  letter-spacing: 0;
+}
+
+.lang-suggest {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  padding: 0.6rem 1rem;
+  background: var(--forest);
+  color: #fff;
+  font-family: 'Cairo', 'Poppins', sans-serif;
+  font-size: 0.95rem;
+}
+
+.lang-suggest-btn {
+  padding: 0.25rem 0.9rem;
+  border-radius: 999px;
+  background: var(--teal);
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.lang-suggest-close {
+  border: none;
+  background: none;
+  color: rgba(255,255,255,0.75);
+  font-size: 1.4rem;
+  line-height: 1;
+  cursor: pointer;
 }
