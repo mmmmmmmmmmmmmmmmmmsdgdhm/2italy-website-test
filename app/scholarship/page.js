@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 
@@ -116,6 +117,9 @@ export default function Scholarship() {
             <button type="submit" className="btn-primary waitlist-btn" disabled={status === 'submitting'}>
               {status === 'submitting' ? 'Joining...' : 'Notify Me When It Opens'}
             </button>
+            <p className="form-consent">
+              We&rsquo;ll only email you about the scholarship. See our <Link href="/privacy">Privacy Policy</Link>.
+            </p>
             {status === 'error' && (
               <p className="form-error">
                 Something went wrong. Message us on WhatsApp: +971 58 180 8979

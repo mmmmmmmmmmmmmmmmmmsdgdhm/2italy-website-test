@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 
@@ -226,6 +227,9 @@ export default function Consultation() {
                   {status === 'submitting' ? 'Sending your application...' : 'Submit My Application →'}
                 </button>
                 <p className="form-trust">Free · No commitment · We reply within 24 hours</p>
+                <p className="form-consent">
+                  By submitting, you agree to our <Link href="/privacy">Privacy Policy</Link>.
+                </p>
                 {status === 'error' && (
                   <p className="form-error">
                     Something went wrong. Message us on WhatsApp: +971 58 180 8979

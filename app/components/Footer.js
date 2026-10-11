@@ -49,7 +49,8 @@ const services = [
 ];
 
 const company = [
-  { label: 'About', href: '/#services' },
+  { label: 'About', href: '/about' },
+  { label: 'FAQ', href: '/faq' },
   { label: 'Our Process', href: '/#how' },
   { label: 'Resources', href: '/resources' },
   { label: 'Universities', href: '/universities' },
@@ -135,7 +136,11 @@ export default function Footer() {
       <div className="footer-bottom-bar">
         <span>© 2italy 2026</span>
         <span className="footer-bottom-sep">Admission &nbsp;·&nbsp; Visas &nbsp;·&nbsp; Relocation</span>
-        <span>info@2italy.co</span>
+        <span>
+          <Link href="/privacy" className="footer-link">Privacy</Link>
+          &nbsp;·&nbsp;
+          <Link href="/terms" className="footer-link">Terms</Link>
+        </span>
       </div>
     </footer>
   );
