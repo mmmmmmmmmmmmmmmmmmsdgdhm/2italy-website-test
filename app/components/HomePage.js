@@ -74,6 +74,8 @@ const content = {
     testimonials: {
       eyebrow: '05 — Student Stories',
       title: 'Students who made the move.',
+      more: 'Read & write reviews →',
+      moreHref: '/reviews',
       items: [
         ['"I had no idea where to start with the Italian university application process. 2italy mapped everything out and I got accepted to my first-choice program in Milan."', 'Sara K.', 'MSc Student, Politecnico di Milano'],
         ['"The visa process felt impossible until 2italy took it over. Zero stress, zero mistakes. I had my permit in hand before I even landed."', 'James T.', 'Software Engineer, Rome'],
@@ -141,6 +143,8 @@ const content = {
     testimonials: {
       eyebrow: '05 — قصص طلابنا',
       title: 'طلاب انتقلوا إلى إيطاليا.',
+      more: 'اقرأ التقييمات أو اكتب تقييمك ←',
+      moreHref: '/ar/reviews',
       items: [
         ['"لم أكن أعرف من أين أبدأ بالتقديم على الجامعات الإيطالية. رسمت لي 2italy الطريق كاملاً، وحصلت على قبول في البرنامج الذي اخترته أولاً في ميلانو."', 'سارة ك.', 'طالبة ماجستير، Politecnico di Milano'],
         ['"كانت إجراءات الفيزا تبدو مستحيلة حتى تولّتها 2italy. دون توتر ودون أخطاء. استلمت إقامتي قبل أن أصل."', 'جيمس ت.', 'مهندس برمجيات، روما'],
@@ -304,6 +308,7 @@ export default function HomePage({ lang = 'en' }) {
             </article>
           ))}
         </div>
+        <Link href={t.testimonials.moreHref} className="btn-ghost testi-more">{t.testimonials.more}</Link>
       </section>
 
       <div className="section-gap" />

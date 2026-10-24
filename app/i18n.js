@@ -3,6 +3,7 @@ export const translatedPages = {
   '/': '/ar',
   '/consultation': '/ar/consultation',
   '/offers': '/ar/offers',
+  '/reviews': '/ar/reviews',
 };
 
 const toEnglish = Object.fromEntries(Object.entries(translatedPages).map(([en, ar]) => [ar, en]));

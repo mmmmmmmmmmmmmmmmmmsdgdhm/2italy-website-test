@@ -54,6 +54,7 @@ const content = {
     companyHeading: 'Company',
     company: [
       { label: 'About', href: '/about' },
+      { label: 'Reviews', href: '/reviews' },
       { label: 'FAQ', href: '/faq' },
       { label: 'Our Process', href: '/#how' },
       { label: 'Resources', href: '/resources' },
@@ -83,6 +84,7 @@ const content = {
     companyHeading: 'الشركة',
     company: [
       { label: 'من نحن', href: '/about' },
+      { label: 'التقييمات', href: '/ar/reviews' },
       { label: 'الأسئلة الشائعة', href: '/faq' },
       { label: 'آلية العمل', href: '/ar#how' },
       { label: 'الموارد', href: '/resources' },

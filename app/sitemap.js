@@ -13,6 +13,8 @@ const pages = [
   { path: '/ar', priority: 1, changeFrequency: 'weekly' },
   { path: '/ar/consultation', priority: 0.9, changeFrequency: 'monthly' },
   { path: '/ar/offers', priority: 0.8, changeFrequency: 'monthly' },
+  { path: '/reviews', priority: 0.7, changeFrequency: 'weekly' },
+  { path: '/ar/reviews', priority: 0.7, changeFrequency: 'weekly' },
   { path: '/faq', priority: 0.7, changeFrequency: 'monthly' },
   { path: '/about', priority: 0.6, changeFrequency: 'yearly' },
   { path: '/privacy', priority: 0.2, changeFrequency: 'yearly' },

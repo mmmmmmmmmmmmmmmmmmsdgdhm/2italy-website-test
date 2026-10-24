@@ -20,7 +20,10 @@ const content = {
       { href: '/tutorial', label: 'Tutorial', desc: '17 step-by-step lessons' },
       { href: '/faq', label: 'FAQ', desc: 'Quick answers' },
     ],
-    endItems: [{ href: '/about', label: 'About' }],
+    endItems: [
+      { href: '/reviews', label: 'Reviews' },
+      { href: '/about', label: 'About' },
+    ],
     cta: { href: '/consultation', label: 'Book Free Consultation' },
     home: '/',
     homeLabel: '2italy home',
@@ -42,7 +45,10 @@ const content = {
       { href: '/tutorial', label: 'الدورة التعليمية', desc: '17 درساً خطوة بخطوة' },
       { href: '/faq', label: 'الأسئلة الشائعة', desc: 'إجابات سريعة' },
     ],
-    endItems: [{ href: '/about', label: 'من نحن' }],
+    endItems: [
+      { href: '/ar/reviews', label: 'التقييمات' },
+      { href: '/about', label: 'من نحن' },
+    ],
     cta: { href: '/ar/consultation', label: 'احجز استشارة مجانية' },
     home: '/ar',
     homeLabel: 'الصفحة الرئيسية لـ 2italy',
