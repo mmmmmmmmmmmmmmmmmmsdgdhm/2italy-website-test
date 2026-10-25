@@ -3943,3 +3943,235 @@ button[type="submit"],
   display: inline-flex;
   margin-top: 1.5rem;
 }
+
+/* ── PATH TIMELINE (services + process, scroll-driven) ───────── */
+.path-section {
+  text-align: center;
+}
+
+.path-timeline {
+  --progress: 0;
+  --rail-x: 50%;
+  position: relative;
+  max-width: 1000px;
+  margin: 2.5rem auto 0;
+  text-align: start;
+  isolation: isolate;
+}
+
+.path-rail {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  inset-inline-start: var(--rail-x);
+  z-index: 0;
+  width: 4px;
+  margin-inline-start: -2px;
+  border-radius: 4px;
+  background: var(--border);
+  overflow: hidden;
+}
+
+.path-rail-fill {
+  width: 100%;
+  height: calc(var(--progress) * 100%);
+  background: linear-gradient(180deg, #26b6ba, #158f3e);
+}
+
+.path-timeline:not(.path-ready):not(.path-done) .path-rail-fill {
+  height: 100%;
+}
+
+.path-arrow {
+  position: absolute;
+  top: calc(var(--progress) * 100%);
+  inset-inline-start: var(--rail-x);
+  z-index: 4;
+  width: 42px;
+  height: 42px;
+  margin-top: -21px;
+  margin-inline-start: -21px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: var(--grad-main);
+  color: var(--white);
+  box-shadow: 0 8px 24px rgba(21,143,62,0.35), 0 0 0 6px rgba(38,182,186,0.15);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.path-ready .path-arrow {
+  opacity: 1;
+}
+
+.path-done .path-arrow {
+  opacity: 0;
+}
+
+.path-arrow svg {
+  width: 20px;
+  height: 20px;
+  animation: path-bob 1.4s ease-in-out infinite;
+}
+
+@keyframes path-bob {
+  0%, 100% { transform: translateY(-2px); }
+  50% { transform: translateY(3px); }
+}
+
+.path-steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 2.5rem;
+}
+
+.path-step {
+  display: grid;
+  grid-template-columns: 1fr 56px 1fr;
+  column-gap: 2rem;
+  align-items: center;
+}
+
+.path-step > * {
+  grid-row: 1;
+}
+
+.path-node {
+  grid-column: 2;
+  justify-self: center;
+  position: relative;
+  z-index: 3;
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background-color: #ffffff;
+  border: 2px solid #c9ecec;
+  /* white ring "cuts" the line so it stops at each circle */
+  box-shadow: 0 0 0 8px #ffffff;
+  color: var(--teal);
+  font-weight: 700;
+  transition: background 0.4s ease, color 0.4s ease, border-color 0.4s ease, transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.path-node svg {
+  width: 22px;
+  height: 22px;
+}
+
+.path-card {
+  grid-column: 1;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  padding: 1.5rem 1.75rem;
+  box-shadow: 0 10px 30px rgba(38,182,186,0.08);
+  transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.4s ease;
+}
+
+.path-step-alt .path-card {
+  grid-column: 3;
+}
+
+.path-card h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.2rem;
+  color: var(--forest);
+}
+
+.path-tagline {
+  margin: 0 0 0.35rem;
+  color: var(--teal);
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.path-desc {
+  margin: 0;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+/* Scroll states (only once JS is running, so content is never hidden without it) */
+.path-ready .path-card {
+  opacity: 0.35;
+  transform: translateY(20px);
+}
+
+.path-ready .is-active .path-card,
+.path-done .path-card {
+  opacity: 1;
+  transform: none;
+  box-shadow: 0 14px 36px rgba(38,182,186,0.16);
+}
+
+.path-step.is-active .path-node,
+.path-done .path-node {
+  background-color: var(--teal);
+  border-color: var(--teal);
+  color: var(--white);
+  transform: scale(1.08);
+  box-shadow: 0 0 0 8px #ffffff, 0 0 0 11px rgba(38,182,186,0.2);
+}
+
+.path-finish .path-card {
+  border-color: rgba(241,151,98,0.4);
+}
+
+.path-finish.is-active .path-node,
+.path-done .path-finish .path-node {
+  background-color: var(--orange);
+  border-color: var(--orange);
+  box-shadow: 0 0 0 8px #ffffff, 0 0 0 11px rgba(241,151,98,0.25);
+}
+
+.path-cta {
+  margin-top: 2.5rem;
+}
+
+@media (max-width: 720px) {
+  .path-timeline {
+    --rail-x: 24px;
+  }
+
+  .path-steps {
+    gap: 1.5rem;
+  }
+
+  .path-step {
+    grid-template-columns: 48px 1fr;
+    column-gap: 1rem;
+  }
+
+  .path-node {
+    grid-column: 1;
+    width: 44px;
+    height: 44px;
+    font-size: 0.9rem;
+  }
+
+  .path-card,
+  .path-step-alt .path-card {
+    grid-column: 2;
+    padding: 1.25rem;
+  }
+
+  .path-arrow {
+    width: 36px;
+    height: 36px;
+    margin-top: -18px;
+    margin-inline-start: -18px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .path-arrow svg { animation: none; }
+  .path-card, .path-node { transition: none; }
+}

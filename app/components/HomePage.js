@@ -2,6 +2,7 @@ import Link from 'next/link';
 import Navigation from './Navigation';
 import Footer from './Footer';
 import JourneyTimeline from './JourneyTimeline';
+import PathTimeline from './PathTimeline';
 
 const painIcons = [
   <svg key="docs" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
@@ -49,30 +50,8 @@ const content = {
       headline: ['Settled.', 'Thriving.', 'In Italy.'],
       points: ['One clear roadmap, proactive support', 'Expert-reviewed files, visa approved', 'Warm introductions, insider knowledge'],
     },
-    services: {
-      eyebrow: '03 — What We Do',
-      title: 'Everything you need. In one place.',
-      sub: 'Admission, visa, career, relocation — handled by one team so nothing falls through the cracks.',
-      items: [
-        ['University Admission', 'From idea to enrollment', 'We manage your applications, documents, deadlines, and interviews with the strongest possible strategy.'],
-        ['Career Placement', 'From ambition to employment', 'We connect you with job opportunities, coach your profile, and prepare you for the local Italian market.'],
-        ['Visa & Permits', 'From application to approval', 'We help you choose the right visa type, prepare documents, and navigate embassy requirements.'],
-        ['Relocation', 'From landing to settled', 'We support your move, housing, banking, residency, and local life so you can arrive ready.'],
-      ],
-    },
-    how: {
-      eyebrow: '04 — How It Works',
-      title: 'Your path to Italy, step by step.',
-      sub: 'One call is all it takes to start. We handle everything that comes after.',
-      steps: [
-        ['Free Consultation', 'We start by understanding your goals, timeline, and background.'],
-        ['Custom Roadmap', 'We build a personalised plan covering applications, visas, housing, and career.'],
-        ['Guided Execution', 'We work alongside you through every task, from documents to appointments.'],
-        ['Settled in Italy', 'You arrive prepared, connected, and ready to live your Italian life.'],
-      ],
-    },
     testimonials: {
-      eyebrow: '05 — Student Stories',
+      eyebrow: '04 — Student Stories',
       title: 'Students who made the move.',
       more: 'Read & write reviews →',
       moreHref: '/reviews',
@@ -118,30 +97,8 @@ const content = {
       headline: ['مستقر.', 'ناجح.', 'في إيطاليا.'],
       points: ['خطة واحدة واضحة ودعم مستمر', 'ملفات يراجعها خبراء وفيزا مقبولة', 'تعارف مفيد ومعرفة من الداخل'],
     },
-    services: {
-      eyebrow: '03 — ماذا نقدّم',
-      title: 'كل ما تحتاجه. في مكان واحد.',
-      sub: 'القبول، الفيزا، العمل، الانتقال — يتولاها فريق واحد حتى لا يفوتك أي شيء.',
-      items: [
-        ['القبول الجامعي', 'من الفكرة إلى التسجيل', 'ندير طلباتك وأوراقك ومواعيدك ومقابلاتك بأقوى استراتيجية ممكنة.'],
-        ['التوظيف', 'من الطموح إلى الوظيفة', 'نربطك بفرص العمل، ونطوّر ملفك المهني، ونجهّزك لسوق العمل الإيطالي.'],
-        ['الفيزا والإقامة', 'من التقديم إلى الموافقة', 'نساعدك في اختيار نوع الفيزا المناسب، وتجهيز الأوراق، والتعامل مع متطلبات السفارة.'],
-        ['الانتقال', 'من الوصول إلى الاستقرار', 'ندعمك في السفر والسكن والحساب البنكي والإقامة والحياة اليومية لتصل جاهزاً.'],
-      ],
-    },
-    how: {
-      eyebrow: '04 — كيف نعمل',
-      title: 'طريقك إلى إيطاليا، خطوة بخطوة.',
-      sub: 'كل ما يلزم للبدء مكالمة واحدة. ونحن نتولّى كل ما بعدها.',
-      steps: [
-        ['استشارة مجانية', 'نبدأ بفهم أهدافك وجدولك الزمني وخلفيتك الدراسية.'],
-        ['خطة مخصّصة', 'نضع لك خطة شخصية تشمل التقديم والفيزا والسكن والعمل.'],
-        ['تنفيذ بإشرافنا', 'نعمل معك في كل مهمة، من الأوراق إلى المواعيد.'],
-        ['الاستقرار في إيطاليا', 'تصل مستعداً، وعلى تواصل، وجاهزاً لبدء حياتك الجديدة.'],
-      ],
-    },
     testimonials: {
-      eyebrow: '05 — قصص طلابنا',
+      eyebrow: '04 — قصص طلابنا',
       title: 'طلاب انتقلوا إلى إيطاليا.',
       more: 'اقرأ التقييمات أو اكتب تقييمك ←',
       moreHref: '/ar/reviews',
@@ -256,46 +213,12 @@ export default function HomePage({ lang = 'en' }) {
 
       <div className="section-gap" />
 
-      {/* ── CHAPTER 2 — WHAT WE DO ───────────────────────────── */}
-      <section className="section-block" id="services">
-        <span className="section-eyebrow">{t.services.eyebrow}</span>
-        <h2 className="section-title">{t.services.title}</h2>
-        <p className="section-sub">{t.services.sub}</p>
-        <div className="services-grid">
-          {t.services.items.map(([title, tagline, desc], i) => (
-            <article key={title} className="service-card">
-              <span className="service-num">{String(i + 1).padStart(2, '0')}</span>
-              <h3 className="service-title">{title}</h3>
-              <p className="service-tagline">{tagline}</p>
-              <p className="service-desc">{desc}</p>
-            </article>
-          ))}
-        </div>
-      </section>
+      {/* ── CHAPTER 2 — YOUR PATH (services + process) ───────── */}
+      <PathTimeline lang={lang} />
 
       <div className="section-gap" />
 
-      {/* ── CHAPTER 3 — OUR PROCESS ──────────────────────────── */}
-      <section className="how-section" id="how">
-        <span className="section-eyebrow">{t.how.eyebrow}</span>
-        <h2 className="section-title">{t.how.title}</h2>
-        <p className="section-sub">{t.how.sub}</p>
-        <div className="steps-timeline">
-          {t.how.steps.map(([title, desc], i) => (
-            <div key={title} className="step">
-              <div className="step-num">{String(i + 1).padStart(2, '0')}</div>
-              <div>
-                <h3>{title}</h3>
-                <p>{desc}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <div className="section-gap" />
-
-      {/* ── CHAPTER 4 — STUDENT STORIES ──────────────────────── */}
+      {/* ── CHAPTER 3 — STUDENT STORIES ──────────────────────── */}
       <section className="testimonials-section" id="testimonials">
         <span className="section-eyebrow">{t.testimonials.eyebrow}</span>
         <h2 className="section-title">{t.testimonials.title}</h2>
