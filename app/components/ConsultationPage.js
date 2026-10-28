@@ -45,6 +45,7 @@ const content = {
       title: 'Application received!',
       sub: 'Our team will review your profile and contact you within 24 hours to confirm your consultation slot.',
       note: 'Check your WhatsApp and email.',
+      serial: 'Your reference number:',
     },
     header: {
       label: 'Free Consultation Application',
@@ -104,6 +105,7 @@ const content = {
       title: 'تم استلام طلبك!',
       sub: 'سيراجع فريقنا ملفك ويتواصل معك خلال 24 ساعة لتأكيد موعد استشارتك.',
       note: 'تابع رسائل واتساب وبريدك الإلكتروني.',
+      serial: 'رقم طلبك المرجعي:',
     },
     header: {
       label: 'طلب استشارة مجانية',
@@ -163,6 +165,7 @@ export default function ConsultationPage({ lang = 'en' }) {
   const f = t.fields;
   const [form, setForm] = useState(initialForm);
   const [status, setStatus] = useState('idle'); // idle | submitting | success | error
+  const [serial, setSerial] = useState('');
 
   // Agents can share links like /consultation?code=AGENT10 to pre-fill the VIP code
   useEffect(() => {
@@ -178,10 +181,15 @@ export default function ConsultationPage({ lang = 'en' }) {
     e.preventDefault();
     setStatus('submitting');
     try {
-      await fetch(APPS_SCRIPT_URL, {
+      const res = await fetch(APPS_SCRIPT_URL, {
         method: 'POST',
         body: JSON.stringify({ ...form, language: lang }),
       });
+      // The sheet assigns the serial; if the reply can't be read, still show success
+      try {
+        const reply = await res.json();
+        if (reply.serial) setSerial(reply.serial);
+      } catch {}
       setStatus('success');
       setForm(initialForm);
     } catch {
@@ -219,6 +227,11 @@ export default function ConsultationPage({ lang = 'en' }) {
             <div className="app-form-success-icon">✓</div>
             <h2 className="section-title">{t.success.title}</h2>
             <p className="section-sub">{t.success.sub}</p>
+            {serial && (
+              <p style={{ fontWeight: 600, marginTop: '1rem' }}>
+                {t.success.serial} <strong style={{ color: 'var(--forest)', fontSize: '1.2rem' }} dir="ltr">{serial}</strong>
+              </p>
+            )}
             <p style={{ color: 'var(--teal)', fontWeight: 700, marginTop: '1rem' }}>{t.success.note}</p>
           </div>
         </div>
