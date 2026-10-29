@@ -4,6 +4,323 @@
 
 export const posts = [
   {
+    slug: 'cost-of-living-italy-students',
+    lang: 'en',
+    translation: 'cost-of-living-italy-students-ar',
+    tag: 'Student Life',
+    title: 'Cost of Living in Italy for International Students: Expenses, Budgets and Lifestyle (2026 Guide)',
+    description:
+      'A detailed 2026 guide to the real cost of living in Italy for international students — rent by city, groceries, transport, health insurance, residence permit fees, sample monthly budgets, part-time work and what daily student life is really like.',
+    keywords: [
+      'cost of living Italy students', 'cost of living in Italy 2026', 'student budget Italy',
+      'how much does it cost to study in Italy', 'rent in Italy for students', 'living expenses Milan students',
+      'living expenses Rome students', 'cost of living Bologna', 'cost of living Turin', 'student life in Italy',
+      'part-time work Italy international students', 'SSN health insurance students Italy',
+      'permesso di soggiorno cost', 'cheapest cities to study in Italy', 'study in Italy on a budget',
+    ],
+    date: '2026-10-29',
+    readTime: '15 min read',
+    intro:
+      'One of the first questions every student asks before moving to Italy is simple: how much will it actually cost? The honest answer is that it depends — on the city you choose, how you live, and whether you win a scholarship. But it is completely possible to plan with confidence. In this guide we break down every real expense, from rent and groceries to health insurance and residence permits, show sample monthly budgets for different cities, and explain what everyday life as a student in Italy actually looks like. All figures are realistic 2026 estimates for students, not tourists.',
+    sections: [
+      {
+        heading: 'The short answer: how much do you need per month?',
+        body: [
+          'Most international students in Italy spend between €700 and €1,300 per month on living costs, not including tuition. Where you fall in that range depends mostly on one thing: rent. A student sharing an apartment in Palermo or Bari can live well on €650–800, while the same lifestyle in Milan easily costs €1,200 or more.',
+          'For your visa, the Italian authorities ask you to prove a minimum amount of funds for each month of the academic year. The figure is updated every year and is currently a little over €500 per month — roughly €6,500–7,000 for a full year. Treat this as the legal minimum, not a realistic budget: in most university cities you will need more.',
+          'A useful rule of thumb: rent will be about 40–55% of your monthly spending, food 20–25%, and everything else — transport, phone, social life and personal items — the remaining 25–35%.',
+        ],
+      },
+      {
+        heading: 'Rent: your biggest expense',
+        body: [
+          'Most students live in a single room in a shared apartment (stanza singola) with two to four flatmates. A shared double room (stanza doppia), where you split a bedroom with another student, is cheaper and still very common in expensive cities. Studio apartments (monolocale) exist but cost much more, and a room in a student residence is the cheapest option of all if you win one through the DSU scholarship.',
+          'Typical monthly prices for a single room in a shared apartment, with bills sometimes excluded: Milan €600–900; Rome €450–700; Bologna €450–650; Florence €450–700; Venice and Padua €380–550; Turin €350–500; Pisa, Pavia and Siena €350–500; Naples, Bari, Palermo and Catania €250–400. A bed in a shared double room is usually 30–40% cheaper.',
+          'Upfront costs: landlords normally ask for a deposit of one to three months\' rent, plus the first month in advance. If you go through an agency, expect a fee that is often equal to one month\'s rent. That means you should budget €1,500–3,000 just to move in, depending on the city.',
+          'Contracts matter: always ask for a registered contract (contratto registrato). It protects you legally, it is needed for your residence permit and residency registration, and for DSU it is often the condition for receiving the higher "fuori sede" grant. Common student contracts are the "contratto per studenti universitari" (6 to 36 months) and the longer "4+4" or "3+2" contracts.',
+          'Avoid scams: never pay a deposit before you have seen the room — in person or in a live video call — and checked the landlord\'s identity and the contract. Rental scams targeting international students are common, especially in August and September.',
+          'Where to search: your university\'s housing office, Facebook groups for students in each city, and sites like Idealista, Immobiliare.it, Subito.it, Spotahome, HousingAnywhere and Uniplaces. Start looking at least two to three months before you arrive — in Bologna, Milan and Florence the market at the start of the academic year is extremely competitive.',
+        ],
+      },
+      {
+        heading: 'Utilities, internet and phone',
+        body: [
+          'If bills are not included in your rent, expect around €50–120 per person per month for electricity, gas, water and waste tax, shared between flatmates. Winter is the expensive season: many older Italian buildings are poorly insulated, and heating can double your bill between November and March. Ask the landlord for last year\'s bills before you sign.',
+          'Home Wi-Fi costs around €25–30 per month for the whole apartment, so usually €6–10 each. Many students skip it entirely because mobile data in Italy is cheap: providers like Iliad, ho. Mobile, Very Mobile and Kena offer plans with 100–200 GB for €6–10 per month. You will need your passport and codice fiscale to buy a SIM card.',
+        ],
+      },
+      {
+        heading: 'Food and groceries',
+        body: [
+          'Italy is one of the best countries in Europe for eating well on a budget — as long as you cook. A student who cooks most meals typically spends €150–250 per month on groceries.',
+          'Supermarkets: discount chains like Lidl, Eurospin, MD, Penny and Aldi are the cheapest. Conad, Coop, Carrefour and Esselunga cost a little more but have a wider selection. Local open-air markets are excellent for fruit and vegetables, especially close to closing time.',
+          'Some real prices: a 500 g pack of pasta €0.80–1.50; a kilo of rice €1.50–2.50; a litre of milk €1.20–1.60; a dozen eggs €2.50–3.50; a kilo of chicken breast €8–11; a kilo of seasonal fruit €1.50–3; fresh bread €2–4; a 1.5 L bottle of water €0.30–0.60.',
+          'University canteens (mensa) are a huge saving: a full meal usually costs €3–7, and DSU winners often eat for free or at a heavily reduced price.',
+          'Eating out: an espresso at the bar costs €1.20–1.50 and a cappuccino €1.50–2. A pizza margherita in a normal pizzeria is €6–10, a pasta dish in a trattoria €10–15, and a kebab or panino €5–8. Aperitivo — a drink served with snacks or a small buffet, usually between 6 and 9 pm — costs €8–12 and is one of the most popular ways students socialise. Many restaurants add a small "coperto" (cover charge) of €1–3 per person, and tipping is not expected.',
+          'Halal food: in big cities like Milan, Rome, Turin, Bologna and Florence, halal butchers, Middle Eastern and North African grocery shops and restaurants are easy to find, often at very reasonable prices. In smaller towns the choice is more limited, so many students buy in bulk and freeze. Larger cities also have mosques and Islamic cultural centres, and some universities provide prayer or multi-faith rooms.',
+        ],
+      },
+      {
+        heading: 'Getting around',
+        body: [
+          'Most Italian university cities are compact, so many students walk or cycle almost everywhere. Public transport is affordable, especially with student and youth passes.',
+          'Student passes: most cities offer heavily discounted monthly or annual passes for students and young people — often €20–40 per month, and in some cities and regions an annual student pass costs only a few hundred euros or less. A single ticket is usually €1.50–2.20, so a pass pays for itself quickly.',
+          'Bikes and scooters: a second-hand bike costs €50–120, and bike-sharing and e-scooter services are available in most big cities. Always use a strong lock — bike theft is very common.',
+          'Travelling around Italy: regional trains (regionale) are cheap and have fixed prices. High-speed trains — Trenitalia\'s Frecciarossa and Italo — connect the main cities in a few hours; booked weeks in advance, tickets can cost €20–40, while last-minute prices can triple. Both companies have youth discount programs. FlixBus and low-cost airlines are good for longer trips and weekends abroad.',
+        ],
+      },
+      {
+        heading: 'Health insurance and healthcare',
+        body: [
+          'To get your visa and residence permit, you must have health coverage in Italy. You have two main options.',
+          'Private insurance: a policy valid in Italy that covers hospital care and emergencies. It is often needed for the visa application and your first period in Italy. Prices vary a lot depending on the coverage, so read what is included before you buy.',
+          'National Health Service (SSN): non-EU students can register voluntarily with the Italian public health system by paying an annual fee — currently €700 per year for students. Registration gives you a family doctor (medico di base) and access to specialists and hospitals on the same terms as Italian residents, usually with small co-payments called "ticket". Many students choose this option after arriving because it is so comprehensive.',
+          'Pharmacies — look for the green cross — are everywhere, and pharmacists are very helpful for minor problems. At night and on Sundays, one pharmacy in each area stays open on rotation (farmacia di turno).',
+        ],
+      },
+      {
+        heading: 'Bureaucracy costs nobody tells you about',
+        body: [
+          'Codice fiscale (tax code): free. You can request it at the Italian embassy or consulate before you leave, or at the Agenzia delle Entrate in Italy. You will need it for almost everything — your phone, rent contract, bank account and university.',
+          'Residence permit (permesso di soggiorno): within 8 days of arriving you must apply at the post office using the official "kit". The total — postal fee, revenue stamp, electronic card and permit fee — is usually around €100–130 for a one-year permit. You will also need passport photos and copies of your documents.',
+          'Revenue stamps (marca da bollo): €16 each. You will be surprised how many official applications require one.',
+          'Translations and legalisations: if you apply for DSU or need to have your diploma recognised, official translations in Italy can cost €20–50 per page, and legalisation in your home country has its own fees.',
+          'Bank account: many Italian banks offer free or low-cost accounts for under-30s, and Poste Italiane is another option. Online banks are popular too, but check that your IBAN is accepted by your scholarship agency, university and landlord.',
+        ],
+      },
+      {
+        heading: 'Tuition fees',
+        body: [
+          'Public universities in Italy are among the most affordable in Europe. Fees are usually calculated according to family income, and for many non-EU students they are set according to their country of origin. In practice, most international students at public universities pay roughly €500 to €4,000 per year, and some pay only the regional tax and a small minimum fee. Private universities such as Bocconi, LUISS or Cattolica cost significantly more — often €10,000–15,000 per year or above — although they also offer their own scholarships.',
+          'If you win the DSU scholarship, you are usually exempt from tuition and the regional tax completely. Our complete guide to the DSU scholarship explains exactly how it works.',
+        ],
+      },
+      {
+        heading: 'Sample monthly budgets by city',
+        body: [
+          'These budgets assume a single room in a shared apartment, cooking most meals, a student transport pass and a normal social life. They do not include tuition or one-off arrival costs.',
+          'Milan: rent €700, bills €80, groceries €220, transport €25, phone €10, eating out and social life €150, personal and other expenses €100 — about €1,285 per month.',
+          'Rome: rent €550, bills €80, groceries €200, transport €25, phone €10, social life €130, other €90 — about €1,085 per month.',
+          'Bologna or Florence: rent €520, bills €70, groceries €200, transport €25, phone €10, social life €120, other €80 — about €1,025 per month.',
+          'Turin, Padua or Pisa: rent €420, bills €70, groceries €190, transport €25, phone €10, social life €100, other €70 — about €885 per month.',
+          'Naples, Bari, Palermo or Catania: rent €320, bills €60, groceries €180, transport €25, phone €10, social life €90, other €60 — about €745 per month.',
+          'With a DSU room in a student residence and free canteen meals, these numbers can drop dramatically — some students cover most of their living costs with the grant alone.',
+        ],
+      },
+      {
+        heading: 'One-off costs in your first month',
+        body: [
+          'Your first month will cost much more than a normal month. A realistic list: deposit and first month\'s rent (€1,000–2,500); a possible agency fee (€300–700); the residence permit (€100–130); SSN registration (€700 per year) or private insurance; basic household items such as bedding, kitchen tools and things for your room (€100–250); a SIM card and transport pass (€30–60); and books and stationery (€50–150, although many courses rely on library copies and digital materials).',
+          'Plan to arrive with at least €2,500–4,000 available on top of your regular monthly budget, so the first weeks are about settling in — not worrying about money.',
+        ],
+      },
+      {
+        heading: 'Working while you study',
+        body: [
+          'Non-EU students with a student residence permit are allowed to work part-time, up to 20 hours per week and 1,040 hours per year. Typical student jobs include cafés, restaurants and shops, food delivery, babysitting, tutoring, and teaching your native language — Arabic and English lessons are in demand in larger cities. Pay is usually around €7–10 per hour, so a part-time job can realistically add €300–600 per month.',
+          'Universities also offer "collaborazioni 150 ore": paid part-time positions in libraries, offices and departments for enrolled students, usually paid around €8–10 per hour. They fit around your timetable and look good on your CV.',
+          'Be realistic: Italian is needed for most jobs outside tourism and tutoring, and your studies should come first — especially if you must reach DSU credit requirements. Never count on a future job to cover the funds required for your visa.',
+        ],
+      },
+      {
+        heading: 'Daily life: what living in Italy is really like',
+        body: [
+          'The rhythm of the day: Italians eat lunch around 1 pm and dinner around 8–9 pm, even later in the south. In smaller cities many shops close in the early afternoon and reopen around 4 pm, and on Sundays many shops are closed or have shorter hours. Supermarkets in big cities are usually open seven days a week.',
+          'Coffee culture: coffee is drunk standing at the bar, quickly and cheaply. Cappuccino is traditionally a morning drink, and breakfast is light — usually a coffee and a cornetto.',
+          'Social life: student life revolves around piazzas, aperitivo, dinners at home with flatmates and university associations. Most universities have international student associations, ESN (Erasmus Student Network) sections and buddy programs that organise trips and events at student prices — the fastest way to make friends in your first weeks.',
+          'Sport: university sports centres (CUS) offer gyms, football, basketball, swimming and more at reduced prices. A normal private gym costs around €30–50 per month.',
+          'Culture for less: state museums are free on the first Sunday of every month, and many museums, cinemas and theatres offer student discounts — always carry your student card. Towns across Italy also host free festivals, concerts and food fairs (sagre), especially in summer.',
+          'Payments: cards and contactless payments are accepted almost everywhere, but keep a little cash for small cafés, markets and smaller towns.',
+          'Bureaucracy and patience: offices can be slow, and the same rule may be applied differently from one office to another. Bring copies of every document, arrive early, and do not take delays personally — every international student goes through it.',
+        ],
+      },
+      {
+        heading: 'Why learning Italian saves you money',
+        body: [
+          'Many degree programs are taught in English, and you can get by in big cities without Italian. But even basic Italian makes life easier and cheaper: you will find better rooms (many listings are only in Italian), understand your contracts, have more job options and make Italian friends more easily. Most universities offer free or very cheap Italian courses through their language centres (CLA). Start learning the basics before you arrive.',
+        ],
+      },
+      {
+        heading: 'Weather and what to pack',
+        body: [
+          'Italy is not always sunny. Northern cities like Milan, Turin and Bologna have cold, foggy winters around 0–5 °C and hot, humid summers above 30 °C, while the south and the islands are much milder in winter. Bring a proper winter coat if you are moving north, and remember that many apartments are cold inside — warm clothes and slippers at home will save you money on heating. Italy uses type F and L plugs at 230 V.',
+        ],
+      },
+      {
+        heading: '15 tips to spend less in Italy',
+        body: [
+          '1. Apply for DSU — it can cover tuition, housing and meals. 2. Choose your city wisely: living in Turin or Padua can cost half as much as in Milan. 3. Share a double room in your first year if your budget is tight. 4. Cook at home and batch-cook with flatmates. 5. Shop at discount supermarkets and local markets. 6. Eat at the university mensa. 7. Use apps like Too Good To Go for discounted food at the end of the day. 8. Buy furniture, bikes and household items second-hand on Subito.it and Facebook Marketplace. 9. Get your student transport pass in your first week. 10. Book trains early and use youth discount programs. 11. Use a cheap mobile data plan instead of home Wi-Fi where possible. 12. Always ask for student discounts. 13. Visit museums on free first Sundays. 14. Send money from home with low-fee transfer services instead of traditional bank transfers. 15. Track your spending for the first three months — most students overspend at the start without realising it.',
+        ],
+      },
+      {
+        heading: 'So, is Italy affordable for international students?',
+        body: [
+          'Yes. Compared with the UK, Ireland or the Netherlands, and with big cities like Paris or Munich, Italy is one of the most affordable countries in Western Europe to study in — especially when you combine low public tuition, the DSU scholarship, cheap and excellent food, and student discounts. The key is to build your budget around your city, prepare for the higher costs of the first month, and know exactly which benefits you are entitled to.',
+        ],
+      },
+    ],
+    conclusion:
+      'Every student\'s budget is different, and choosing the right city, university and scholarship strategy can save you thousands of euros every year. At 2italy we help students pick a city that fits their budget, apply for DSU, plan their accommodation and prepare everything for the visa and arrival. Book a free consultation and we will help you build a realistic budget for your case.',
+  },
+  {
+    slug: 'cost-of-living-italy-students-ar',
+    lang: 'ar',
+    translation: 'cost-of-living-italy-students',
+    tag: 'حياة الطالب',
+    title: 'تكاليف المعيشة في إيطاليا للطلاب الدوليين: المصاريف والميزانية ونمط الحياة (دليل 2026)',
+    description:
+      'دليل مفصّل لعام 2026 عن التكلفة الحقيقية للمعيشة في إيطاليا للطلاب الدوليين — الإيجار حسب المدينة، الطعام، المواصلات، التأمين الصحي، رسوم الإقامة، ميزانيات شهرية جاهزة، العمل الجزئي، وكيف تبدو حياة الطالب اليومية فعلاً.',
+    keywords: [
+      'تكاليف المعيشة في إيطاليا', 'تكاليف الدراسة في إيطاليا', 'مصاريف الطالب في إيطاليا', 'الإيجار في إيطاليا للطلاب',
+      'المعيشة في ميلانو', 'المعيشة في روما', 'المعيشة في بولونيا', 'الحياة الطلابية في إيطاليا',
+      'العمل أثناء الدراسة في إيطاليا', 'التأمين الصحي للطلاب في إيطاليا', 'رسوم الإقامة في إيطاليا',
+      'أرخص المدن للدراسة في إيطاليا', 'الدراسة في إيطاليا', 'cost of living Italy students',
+    ],
+    date: '2026-10-29',
+    readTime: '15 دقيقة قراءة',
+    intro:
+      'من أول الأسئلة التي يطرحها كل طالب قبل السفر إلى إيطاليا سؤال بسيط: كم سيكلّفني ذلك فعلاً؟ الجواب الصريح أن الأمر يعتمد على المدينة التي تختارها، وطريقة عيشك، وهل ستحصل على منحة أم لا. لكن التخطيط بثقة ممكن تماماً. في هذا الدليل نشرح كل المصاريف الحقيقية، من الإيجار والطعام إلى التأمين الصحي وتصريح الإقامة، ونعرض ميزانيات شهرية لمدن مختلفة، ونوضح كيف تبدو الحياة اليومية للطالب في إيطاليا. كل الأرقام تقديرات واقعية لعام 2026 للطلاب، وليست أسعار سياح.',
+    sections: [
+      {
+        heading: 'الجواب المختصر: كم تحتاج شهرياً؟',
+        body: [
+          'معظم الطلاب الدوليين في إيطاليا ينفقون بين 700 و1,300 يورو شهرياً على المعيشة، دون احتساب الرسوم الدراسية. ومكانك في هذا النطاق يعتمد بشكل أساسي على شيء واحد: الإيجار. الطالب الذي يشارك شقة في باليرمو أو باري يمكنه العيش بشكل جيد بـ650 إلى 800 يورو، بينما نفس نمط الحياة في ميلانو يكلّف بسهولة 1,200 يورو أو أكثر.',
+          'للحصول على الفيزا، تطلب السلطات الإيطالية إثبات مبلغ أدنى من المال عن كل شهر من السنة الدراسية. يتم تحديث هذا المبلغ كل عام، وهو حالياً أكثر بقليل من 500 يورو شهرياً — أي حوالي 6,500 إلى 7,000 يورو للسنة كاملة. اعتبر هذا الرقم الحد الأدنى القانوني وليس ميزانية واقعية: في معظم المدن الجامعية ستحتاج أكثر من ذلك.',
+          'قاعدة مفيدة: الإيجار سيكون حوالي 40 إلى 55% من مصاريفك الشهرية، والطعام 20 إلى 25%، وكل الباقي — المواصلات والهاتف والحياة الاجتماعية والأغراض الشخصية — يشكّل 25 إلى 35%.',
+        ],
+      },
+      {
+        heading: 'الإيجار: أكبر مصاريفك',
+        body: [
+          'معظم الطلاب يسكنون في غرفة مفردة داخل شقة مشتركة (stanza singola) مع شخصين إلى أربعة أشخاص. والغرفة المزدوجة (stanza doppia)، حيث تتشارك غرفة النوم مع طالب آخر، أرخص وما زالت شائعة جداً في المدن الغالية. الشقق الصغيرة المستقلة (monolocale) موجودة لكنها أغلى بكثير، أما غرفة السكن الجامعي فهي الخيار الأرخص على الإطلاق إذا حصلت عليها عبر منحة DSU.',
+          'الأسعار الشهرية المعتادة لغرفة مفردة في شقة مشتركة، وأحياناً بدون الفواتير: ميلانو 600–900 يورو؛ روما 450–700؛ بولونيا 450–650؛ فلورنسا 450–700؛ البندقية وبادوفا 380–550؛ تورينو 350–500؛ بيزا وبافيا وسيينا 350–500؛ نابولي وباري وباليرمو وكاتانيا 250–400. والسرير في غرفة مزدوجة أرخص عادةً بـ30 إلى 40%.',
+          'التكاليف المسبقة: يطلب المالك عادةً تأميناً يعادل إيجار شهر إلى ثلاثة أشهر، إضافة إلى إيجار الشهر الأول مقدماً. وإذا استأجرت عبر مكتب عقاري، فتوقّع عمولة تعادل غالباً إيجار شهر. أي أنك تحتاج إلى 1,500 إلى 3,000 يورو فقط لتدخل السكن، حسب المدينة.',
+          'العقد مهم جداً: اطلب دائماً عقداً مسجلاً رسمياً (contratto registrato). فهو يحميك قانونياً، وتحتاجه لتصريح الإقامة وتسجيل السكن، وفي منحة DSU يكون غالباً شرطاً للحصول على المبلغ الأعلى لفئة "fuori sede". أشهر عقود الطلاب هي "contratto per studenti universitari" (من 6 إلى 36 شهراً) والعقود الأطول مثل "4+4" أو "3+2".',
+          'احذر من الاحتيال: لا تدفع أي تأمين قبل أن ترى الغرفة — شخصياً أو عبر مكالمة فيديو مباشرة — وتتأكد من هوية المالك ومن العقد. عمليات الاحتيال في الإيجار التي تستهدف الطلاب الدوليين شائعة، خصوصاً في أغسطس وسبتمبر.',
+          'أين تبحث: مكتب السكن في جامعتك، ومجموعات فيسبوك للطلاب في كل مدينة، ومواقع مثل Idealista وImmobiliare.it وSubito.it وSpotahome وHousingAnywhere وUniplaces. ابدأ البحث قبل وصولك بشهرين إلى ثلاثة على الأقل — ففي بولونيا وميلانو وفلورنسا تكون المنافسة شديدة جداً في بداية السنة الدراسية.',
+        ],
+      },
+      {
+        heading: 'الفواتير والإنترنت والهاتف',
+        body: [
+          'إذا لم تكن الفواتير مشمولة في الإيجار، فتوقّع حوالي 50 إلى 120 يورو للشخص شهرياً للكهرباء والغاز والماء وضريبة النفايات، مقسّمة بين سكان الشقة. الشتاء هو الموسم الأغلى: كثير من المباني الإيطالية القديمة عزلها ضعيف، والتدفئة قد تضاعف فاتورتك بين نوفمبر ومارس. اطلب من المالك فواتير السنة الماضية قبل التوقيع.',
+          'إنترنت المنزل يكلّف حوالي 25 إلى 30 يورو شهرياً للشقة كلها، أي غالباً 6 إلى 10 يورو للشخص. وكثير من الطلاب يستغنون عنه تماماً لأن باقات الهاتف في إيطاليا رخيصة: شركات مثل Iliad وho. Mobile وVery Mobile وKena تقدم باقات من 100 إلى 200 جيجابايت بـ6 إلى 10 يورو شهرياً. ستحتاج جواز سفرك والرقم الضريبي (codice fiscale) لشراء شريحة.',
+        ],
+      },
+      {
+        heading: 'الطعام والتسوق',
+        body: [
+          'إيطاليا من أفضل دول أوروبا لتأكل جيداً بميزانية محدودة — بشرط أن تطبخ. الطالب الذي يطبخ معظم وجباته ينفق عادةً 150 إلى 250 يورو شهرياً على مشتريات الطعام.',
+          'السوبرماركت: سلاسل التخفيضات مثل Lidl وEurospin وMD وPenny وAldi هي الأرخص. أما Conad وCoop وCarrefour وEsselunga فأغلى قليلاً لكن تشكيلتها أوسع. والأسواق الشعبية المفتوحة ممتازة للخضار والفواكه، خصوصاً قرب وقت الإغلاق.',
+          'أسعار حقيقية: علبة معكرونة 500 غرام بـ0.80–1.50 يورو؛ كيلو أرز 1.50–2.50؛ لتر حليب 1.20–1.60؛ 12 بيضة 2.50–3.50؛ كيلو صدر دجاج 8–11؛ كيلو فاكهة موسمية 1.50–3؛ خبز طازج 2–4؛ زجاجة ماء 1.5 لتر 0.30–0.60 يورو.',
+          'مطاعم الجامعة (mensa) توفير كبير: الوجبة الكاملة تكلّف عادةً 3 إلى 7 يورو، والحاصلون على منحة DSU يأكلون غالباً مجاناً أو بسعر مخفض جداً.',
+          'الأكل في الخارج: الإسبريسو في البار يكلّف 1.20–1.50 يورو والكابتشينو 1.50–2. بيتزا مارغريتا في مطعم بيتزا عادي 6–10 يورو، وطبق معكرونة في مطعم شعبي (trattoria) 10–15، والكباب أو الساندويتش 5–8 يورو. أما "الأبيريتيفو" — مشروب يُقدَّم مع مقبلات أو بوفيه صغير، عادةً بين السادسة والتاسعة مساءً — فيكلّف 8–12 يورو، وهو من أشهر طرق تجمّع الطلاب. كثير من المطاعم تضيف رسماً صغيراً يسمى "coperto" بين 1 و3 يورو للشخص، والبقشيش غير مطلوب.',
+          'الطعام الحلال: في المدن الكبيرة مثل ميلانو وروما وتورينو وبولونيا وفلورنسا، من السهل إيجاد ملاحم حلال ومحلات بقالة ومطاعم عربية وشمال أفريقية، وغالباً بأسعار مناسبة جداً. في المدن الصغيرة الخيارات أقل، لذلك يشتري كثير من الطلاب كميات كبيرة ويجمّدونها. وفي المدن الكبرى توجد مساجد ومراكز ثقافية إسلامية، وبعض الجامعات توفر غرفاً للصلاة.',
+        ],
+      },
+      {
+        heading: 'التنقل والمواصلات',
+        body: [
+          'معظم المدن الجامعية في إيطاليا صغيرة نسبياً، لذلك يتنقل كثير من الطلاب مشياً أو بالدراجة إلى كل مكان تقريباً. والمواصلات العامة أسعارها معقولة، خصوصاً مع اشتراكات الطلاب والشباب.',
+          'اشتراكات الطلاب: معظم المدن تقدم اشتراكات شهرية أو سنوية مخفضة جداً للطلاب والشباب — غالباً 20 إلى 40 يورو شهرياً، وفي بعض المدن والأقاليم يكلّف الاشتراك السنوي للطلاب بضع مئات من اليوروهات أو أقل. التذكرة الواحدة عادةً بين 1.50 و2.20 يورو، لذلك الاشتراك يوفّر عليك بسرعة.',
+          'الدراجات والسكوترات: الدراجة المستعملة تكلّف 50 إلى 120 يورو، وخدمات مشاركة الدراجات والسكوترات الكهربائية متوفرة في معظم المدن الكبيرة. استخدم دائماً قفلاً قوياً — سرقة الدراجات منتشرة جداً.',
+          'السفر داخل إيطاليا: القطارات الإقليمية (regionale) رخيصة وأسعارها ثابتة. أما القطارات السريعة — Frecciarossa من Trenitalia وItalo — فتربط المدن الرئيسية في ساعات قليلة؛ إذا حجزت قبل أسابيع قد تكلّف التذكرة 20 إلى 40 يورو، بينما الحجز في آخر لحظة قد يضاعف السعر ثلاث مرات. ولدى الشركتين برامج خصم للشباب. وFlixBus وشركات الطيران منخفضة التكلفة مناسبة للرحلات الأطول وعطلات نهاية الأسبوع خارج إيطاليا.',
+        ],
+      },
+      {
+        heading: 'التأمين الصحي والرعاية الصحية',
+        body: [
+          'للحصول على الفيزا وتصريح الإقامة، يجب أن يكون لديك تغطية صحية في إيطاليا. وأمامك خياران رئيسيان.',
+          'التأمين الخاص: بوليصة صالحة في إيطاليا تغطي العلاج في المستشفى والطوارئ. غالباً تحتاجها لطلب الفيزا وللفترة الأولى في إيطاليا. أسعارها تختلف كثيراً حسب التغطية، فاقرأ ما تشمله قبل الشراء.',
+          'الخدمة الصحية الوطنية (SSN): يمكن للطلاب من خارج الاتحاد الأوروبي التسجيل طوعياً في النظام الصحي الإيطالي العام مقابل رسم سنوي — حالياً 700 يورو سنوياً للطلاب. يمنحك التسجيل طبيب عائلة (medico di base) والوصول إلى الأطباء المختصين والمستشفيات بنفس شروط المقيمين الإيطاليين، مع مساهمات بسيطة تسمى "ticket". ويختار كثير من الطلاب هذا الخيار بعد الوصول لأنه شامل جداً.',
+          'الصيدليات — ابحث عن الصليب الأخضر — موجودة في كل مكان، والصيادلة متعاونون جداً في المشاكل البسيطة. وفي الليل وأيام الأحد تبقى صيدلية واحدة مفتوحة في كل منطقة بالتناوب (farmacia di turno).',
+        ],
+      },
+      {
+        heading: 'تكاليف الأوراق الرسمية التي لا يخبرك بها أحد',
+        body: [
+          'الرقم الضريبي (codice fiscale): مجاني. يمكنك طلبه من السفارة أو القنصلية الإيطالية قبل السفر، أو من مكتب Agenzia delle Entrate في إيطاليا. ستحتاجه في كل شيء تقريباً — الهاتف وعقد الإيجار والحساب البنكي والجامعة.',
+          'تصريح الإقامة (permesso di soggiorno): خلال 8 أيام من وصولك يجب أن تقدّم الطلب في مكتب البريد باستخدام "الكيت" الرسمي. المجموع — رسوم البريد والطابع والبطاقة الإلكترونية ورسم التصريح — يكون عادةً حوالي 100 إلى 130 يورو لتصريح مدته سنة. وستحتاج أيضاً صوراً شخصية ونسخاً من أوراقك.',
+          'الطوابع الرسمية (marca da bollo): 16 يورو للطابع. ستتفاجأ بعدد الطلبات الرسمية التي تحتاج طابعاً.',
+          'الترجمة والتصديق: إذا قدّمت على منحة DSU أو احتجت إلى معادلة شهادتك، فالترجمة الرسمية في إيطاليا قد تكلّف 20 إلى 50 يورو للصفحة، وللتصديق في بلدك رسوم خاصة به.',
+          'الحساب البنكي: كثير من البنوك الإيطالية تقدم حسابات مجانية أو منخفضة التكلفة لمن هم دون الثلاثين، وPoste Italiane خيار آخر. البنوك الإلكترونية منتشرة أيضاً، لكن تأكد أن رقم IBAN الخاص بك مقبول لدى وكالة المنحة والجامعة والمالك.',
+        ],
+      },
+      {
+        heading: 'الرسوم الدراسية',
+        body: [
+          'الجامعات الحكومية في إيطاليا من الأرخص في أوروبا. تُحسب الرسوم عادةً حسب دخل العائلة، ولكثير من الطلاب من خارج الاتحاد الأوروبي تُحدَّد حسب بلدهم الأصلي. عملياً، يدفع معظم الطلاب الدوليين في الجامعات الحكومية تقريباً بين 500 و4,000 يورو سنوياً، وبعضهم يدفع فقط الضريبة الإقليمية ورسماً بسيطاً. أما الجامعات الخاصة مثل Bocconi وLUISS وCattolica فتكلفتها أعلى بكثير — غالباً 10,000 إلى 15,000 يورو سنوياً أو أكثر — مع أنها تقدم منحاً خاصة بها.',
+          'إذا حصلت على منحة DSU، تُعفى عادةً من الرسوم الدراسية والضريبة الإقليمية بالكامل. ودليلنا الشامل عن منحة DSU يشرح بالتفصيل كيف تعمل.',
+        ],
+      },
+      {
+        heading: 'ميزانيات شهرية حسب المدينة',
+        body: [
+          'هذه الميزانيات تفترض غرفة مفردة في شقة مشتركة، وطبخ معظم الوجبات، واشتراك مواصلات للطلاب، وحياة اجتماعية عادية. ولا تشمل الرسوم الدراسية أو تكاليف الوصول لمرة واحدة.',
+          'ميلانو: إيجار 700 يورو، فواتير 80، طعام 220، مواصلات 25، هاتف 10، أكل في الخارج وحياة اجتماعية 150، مصاريف شخصية وأخرى 100 — حوالي 1,285 يورو شهرياً.',
+          'روما: إيجار 550، فواتير 80، طعام 200، مواصلات 25، هاتف 10، حياة اجتماعية 130، أخرى 90 — حوالي 1,085 يورو شهرياً.',
+          'بولونيا أو فلورنسا: إيجار 520، فواتير 70، طعام 200، مواصلات 25، هاتف 10، حياة اجتماعية 120، أخرى 80 — حوالي 1,025 يورو شهرياً.',
+          'تورينو أو بادوفا أو بيزا: إيجار 420، فواتير 70، طعام 190، مواصلات 25، هاتف 10، حياة اجتماعية 100، أخرى 70 — حوالي 885 يورو شهرياً.',
+          'نابولي أو باري أو باليرمو أو كاتانيا: إيجار 320، فواتير 60، طعام 180، مواصلات 25، هاتف 10، حياة اجتماعية 90، أخرى 60 — حوالي 745 يورو شهرياً.',
+          'مع غرفة في السكن الجامعي عبر منحة DSU ووجبات مجانية في مطعم الجامعة، يمكن أن تنخفض هذه الأرقام بشكل كبير — وبعض الطلاب يغطّون معظم تكاليف معيشتهم من المنحة وحدها.',
+        ],
+      },
+      {
+        heading: 'تكاليف الشهر الأول',
+        body: [
+          'شهرك الأول سيكلّف أكثر بكثير من أي شهر عادي. قائمة واقعية: التأمين وإيجار الشهر الأول (1,000–2,500 يورو)؛ عمولة مكتب عقاري محتملة (300–700)؛ تصريح الإقامة (100–130)؛ التسجيل في SSN (700 يورو سنوياً) أو تأمين خاص؛ أغراض منزلية أساسية مثل أغطية السرير وأدوات المطبخ وأغراض غرفتك (100–250)؛ شريحة هاتف واشتراك مواصلات (30–60)؛ وكتب وقرطاسية (50–150، مع أن كثيراً من المواد تعتمد على نسخ المكتبة والمواد الإلكترونية).',
+          'خطّط لأن تصل ومعك 2,500 إلى 4,000 يورو على الأقل فوق ميزانيتك الشهرية العادية، حتى تكون أسابيعك الأولى للاستقرار — وليس للقلق بشأن المال.',
+        ],
+      },
+      {
+        heading: 'العمل أثناء الدراسة',
+        body: [
+          'يُسمح للطلاب من خارج الاتحاد الأوروبي الذين لديهم تصريح إقامة دراسي بالعمل الجزئي، حتى 20 ساعة أسبوعياً و1,040 ساعة سنوياً. من أشهر أعمال الطلاب: المقاهي والمطاعم والمحلات، وتوصيل الطعام، ورعاية الأطفال، والدروس الخصوصية، وتعليم لغتك الأم — ودروس العربية والإنجليزية مطلوبة في المدن الكبيرة. الأجر عادةً حوالي 7 إلى 10 يورو في الساعة، أي أن العمل الجزئي قد يضيف واقعياً 300 إلى 600 يورو شهرياً.',
+          'وتقدم الجامعات أيضاً "collaborazioni 150 ore": وظائف جزئية مدفوعة في المكتبات والمكاتب والأقسام للطلاب المسجلين، بأجر حوالي 8 إلى 10 يورو في الساعة. تتناسب مع جدولك الدراسي وتضيف قيمة لسيرتك الذاتية.',
+          'كن واقعياً: اللغة الإيطالية مطلوبة في معظم الأعمال خارج السياحة والدروس الخصوصية، ودراستك يجب أن تأتي أولاً — خصوصاً إذا كان عليك تحقيق ساعات معتمدة لمنحة DSU. ولا تعتمد أبداً على عمل مستقبلي لتغطية المبلغ المطلوب للفيزا.',
+        ],
+      },
+      {
+        heading: 'الحياة اليومية: كيف تبدو الحياة في إيطاليا فعلاً',
+        body: [
+          'إيقاع اليوم: يتناول الإيطاليون الغداء حوالي الساعة الواحدة ظهراً والعشاء بين الثامنة والتاسعة مساءً، وأحياناً أكثر تأخراً في الجنوب. في المدن الصغيرة تغلق كثير من المحلات بعد الظهر وتفتح مجدداً حوالي الرابعة، وأيام الأحد تكون كثير من المحلات مغلقة أو بساعات أقل. أما السوبرماركت في المدن الكبيرة فيفتح عادةً سبعة أيام في الأسبوع.',
+          'ثقافة القهوة: تُشرب القهوة وقوفاً في البار، بسرعة وبسعر رخيص. والكابتشينو مشروب صباحي في التقاليد الإيطالية، والفطور خفيف — عادةً قهوة مع كرواسون (cornetto).',
+          'الحياة الاجتماعية: تدور حياة الطلاب حول الساحات (piazza) والأبيريتيفو وعشاء البيت مع سكان الشقة والجمعيات الجامعية. معظم الجامعات لديها جمعيات للطلاب الدوليين وفروع لشبكة ESN (Erasmus Student Network) وبرامج "buddy" تنظم رحلات وفعاليات بأسعار طلابية — وهي أسرع طريقة لتكوين صداقات في أسابيعك الأولى.',
+          'الرياضة: المراكز الرياضية الجامعية (CUS) تقدم صالات رياضية وكرة قدم وكرة سلة وسباحة وغيرها بأسعار مخفضة. والصالة الرياضية الخاصة العادية تكلّف حوالي 30 إلى 50 يورو شهرياً.',
+          'الثقافة بتكلفة أقل: المتاحف الحكومية مجانية في أول يوم أحد من كل شهر، وكثير من المتاحف ودور السينما والمسارح تقدم خصومات للطلاب — احمل بطاقتك الجامعية دائماً. كما تقيم المدن في كل أنحاء إيطاليا مهرجانات وحفلات ومعارض طعام مجانية (sagre)، خصوصاً في الصيف.',
+          'الدفع: البطاقات والدفع اللاتلامسي مقبولة في كل مكان تقريباً، لكن احتفظ ببعض النقود للمقاهي الصغيرة والأسواق والمدن الصغيرة.',
+          'البيروقراطية والصبر: المكاتب الحكومية قد تكون بطيئة، ونفس القاعدة قد تُطبَّق بشكل مختلف من مكتب لآخر. احمل نسخاً من كل أوراقك، واذهب مبكراً، ولا تأخذ التأخير بشكل شخصي — كل طالب دولي يمر بذلك.',
+        ],
+      },
+      {
+        heading: 'لماذا يوفّر عليك تعلم الإيطالية المال؟',
+        body: [
+          'كثير من البرامج الدراسية تُدرَّس بالإنجليزية، ويمكنك التدبّر في المدن الكبيرة بدون الإيطالية. لكن حتى الإيطالية الأساسية تجعل الحياة أسهل وأرخص: ستجد غرفاً أفضل (كثير من الإعلانات بالإيطالية فقط)، وتفهم عقودك، وتحصل على فرص عمل أكثر، وتكوّن صداقات مع الإيطاليين بسهولة أكبر. معظم الجامعات تقدم دورات إيطالية مجانية أو رخيصة جداً عبر مراكز اللغات (CLA). ابدأ بتعلم الأساسيات قبل وصولك.',
+        ],
+      },
+      {
+        heading: 'الطقس وماذا تحمل معك',
+        body: [
+          'إيطاليا ليست مشمسة دائماً. المدن الشمالية مثل ميلانو وتورينو وبولونيا شتاؤها بارد وضبابي بين 0 و5 درجات، وصيفها حار ورطب فوق 30 درجة، بينما الجنوب والجزر أدفأ بكثير في الشتاء. أحضر معطفاً شتوياً جيداً إذا كنت ذاهباً إلى الشمال، وتذكّر أن كثيراً من الشقق باردة من الداخل — الملابس الدافئة والشبشب في البيت سيوفّران عليك من تكلفة التدفئة. وتستخدم إيطاليا مقابس كهرباء من نوع F وL بجهد 230 فولت.',
+        ],
+      },
+      {
+        heading: '15 نصيحة لتنفق أقل في إيطاليا',
+        body: [
+          '1. قدّم على منحة DSU — قد تغطي الرسوم والسكن والطعام. 2. اختر مدينتك بذكاء: المعيشة في تورينو أو بادوفا قد تكلّف نصف تكلفة ميلانو. 3. شارك غرفة مزدوجة في سنتك الأولى إذا كانت ميزانيتك محدودة. 4. اطبخ في البيت، واطبخ كميات كبيرة مع سكان الشقة. 5. تسوّق من سوبرماركت التخفيضات والأسواق الشعبية. 6. كُل في مطعم الجامعة (mensa). 7. استخدم تطبيقات مثل Too Good To Go لطعام مخفض في نهاية اليوم. 8. اشترِ الأثاث والدراجات والأغراض المنزلية مستعملة من Subito.it وFacebook Marketplace. 9. احصل على اشتراك المواصلات الطلابي في أسبوعك الأول. 10. احجز القطارات مبكراً واستخدم برامج خصم الشباب. 11. استخدم باقة إنترنت رخيصة على الهاتف بدلاً من إنترنت المنزل إن أمكن. 12. اسأل دائماً عن خصم الطلاب. 13. زُر المتاحف في أول أحد من الشهر مجاناً. 14. حوّل المال من بلدك عبر خدمات تحويل برسوم منخفضة بدلاً من التحويلات البنكية التقليدية. 15. تابع مصاريفك في الأشهر الثلاثة الأولى — معظم الطلاب ينفقون أكثر من اللازم في البداية دون أن ينتبهوا.',
+        ],
+      },
+      {
+        heading: 'إذاً، هل إيطاليا مناسبة مادياً للطلاب الدوليين؟',
+        body: [
+          'نعم. مقارنةً ببريطانيا وأيرلندا وهولندا، وبمدن كبيرة مثل باريس أو ميونخ، تُعد إيطاليا من أرخص دول أوروبا الغربية للدراسة — خصوصاً عندما تجمع بين الرسوم الحكومية المنخفضة ومنحة DSU والطعام الرخيص والممتاز وخصومات الطلاب. السر هو أن تبني ميزانيتك حسب مدينتك، وتستعد لتكاليف الشهر الأول المرتفعة، وتعرف بالضبط ما هي المزايا التي يحق لك الحصول عليها.',
+        ],
+      },
+    ],
+    conclusion:
+      'ميزانية كل طالب مختلفة، واختيار المدينة والجامعة واستراتيجية المنحة المناسبة قد يوفّر عليك آلاف اليوروهات كل عام. في 2italy نساعد الطلاب على اختيار مدينة تناسب ميزانيتهم، والتقديم على منحة DSU، والتخطيط للسكن، وتجهيز كل شيء للفيزا والوصول. احجز استشارة مجانية وسنساعدك على بناء ميزانية واقعية لحالتك.',
+  },
+  {
     slug: 'dsu-scholarship-italy-guide',
     lang: 'en',
     translation: 'dsu-scholarship-italy-guide-ar',
