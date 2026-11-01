@@ -1577,6 +1577,198 @@ button[type="submit"],
   margin: 0 auto 1.5rem;
 }
 
+/* Gift popup shown after a consultation application */
+.gift-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: rgba(7,26,26,0.55);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  animation: gift-fade 0.25s ease;
+}
+
+.gift-modal {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  max-height: calc(100vh - 32px);
+  overflow-y: auto;
+  background: #fff;
+  border-radius: 28px;
+  padding: 2.6rem 2rem 2rem;
+  text-align: center;
+  box-shadow: 0 30px 80px rgba(7,26,26,0.35);
+  animation: gift-pop 0.35s cubic-bezier(0.2, 0.9, 0.3, 1.2);
+}
+
+.gift-close {
+  position: absolute;
+  top: 16px;
+  inset-inline-end: 16px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1.5px solid var(--border);
+  background: #fff;
+  color: var(--forest);
+  font-size: 1.3rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.gift-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 1.2rem;
+  border-radius: 50%;
+  background: var(--grad-main);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 24px rgba(38,182,186,0.35);
+}
+
+.gift-title {
+  font-size: clamp(1.5rem, 4.5vw, 2rem);
+  font-weight: 800;
+  line-height: 1.2;
+  color: var(--forest);
+  margin: 0 0 0.8rem;
+}
+
+.gift-hl {
+  background: var(--grad-main);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.gift-sub {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+  margin: 0 auto 1.6rem;
+  max-width: 400px;
+}
+
+.gift-ticket {
+  position: relative;
+  border-radius: 18px;
+  background: rgba(38,182,186,0.07);
+  border: 1.5px solid rgba(38,182,186,0.25);
+  margin-bottom: 1.6rem;
+}
+
+.gift-ticket-top {
+  padding: 0.85rem 1rem;
+  font-size: 0.86rem;
+  color: var(--forest);
+  border-bottom: 1.5px dashed rgba(38,182,186,0.35);
+}
+
+.gift-ticket-top strong {
+  color: var(--teal);
+}
+
+.gift-ticket-check {
+  color: var(--teal);
+  font-weight: 700;
+  margin-inline-end: 0.4rem;
+}
+
+.gift-ticket-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.gift-ticket-cell {
+  padding: 1.2rem 0.8rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.gift-ticket-cell + .gift-ticket-cell {
+  border-inline-start: 1.5px dashed rgba(38,182,186,0.35);
+}
+
+.gift-price {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  direction: ltr;
+}
+
+.gift-price s {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  text-decoration-color: #e0533d;
+  text-decoration-thickness: 2px;
+}
+
+.gift-price span {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--forest);
+}
+
+.gift-off {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #e0533d;
+}
+
+.gift-off-sub {
+  font-size: 0.74rem;
+  color: var(--text-muted);
+  margin-top: 0.2rem;
+}
+
+.gift-claim {
+  display: block;
+  width: 100%;
+  padding: 1rem 1.2rem;
+  border-radius: 999px;
+  background: #25D366;
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.98rem;
+  box-shadow: 0 6px 20px rgba(37,211,102,0.35);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.gift-claim:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(37,211,102,0.45);
+}
+
+.gift-later {
+  margin-top: 0.9rem;
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+@keyframes gift-fade {
+  from { opacity: 0; }
+}
+
+@keyframes gift-pop {
+  from { opacity: 0; transform: scale(0.9) translateY(12px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gift-overlay, .gift-modal { animation: none; }
+}
+
 .req {
   color: var(--teal);
 }

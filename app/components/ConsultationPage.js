@@ -7,6 +7,7 @@ import Footer from './Footer';
 
 // After deploying your Google Apps Script, paste the web app URL here
 const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyWAN2qlpU0CWHmLvPs3_YIjx6k0g-oFL66ijaDNKkp46aaSeNFE0z8v9hRNst-pdV8/exec';
+const WHATSAPP_NUMBER = '971581808979';
 
 const initialForm = {
   name: '',
@@ -46,6 +47,18 @@ const content = {
       sub: 'Our team will review your profile and contact you within 24 hours to confirm your consultation slot.',
       note: 'Check your WhatsApp and email.',
       serial: 'Your reference number:',
+    },
+    gift: {
+      title: <>Congratulations! Your consultation is <span className="gift-hl">100% free</span></>,
+      sub: 'As a thank-you for applying, we have waived the €35 consultation fee. Your 30-minute call with a senior consultant is on us.',
+      applied: 'Gift applied to application',
+      appliedNoRef: 'Your gift is applied',
+      off: '100% OFF',
+      offSub: 'Consultation fee waived',
+      claim: 'Claim instant booking on WhatsApp',
+      later: 'Maybe later',
+      close: 'Close',
+      waMsg: (ref) => `Hi 2italy! I just applied for a consultation${ref ? ` (ref ${ref})` : ''} and I'd like to claim my free call and book my slot.`,
     },
     header: {
       label: 'Free Consultation Application',
@@ -107,6 +120,18 @@ const content = {
       note: 'تابع رسائل واتساب وبريدك الإلكتروني.',
       serial: 'رقم طلبك المرجعي:',
     },
+    gift: {
+      title: <>مبروك! استشارتك أصبحت <span className="gift-hl">مجانية 100%</span></>,
+      sub: 'شكراً لتقديمك الطلب — لقد ألغينا رسوم الاستشارة البالغة €35. مكالمتك لمدة 30 دقيقة مع مستشار خبير علينا.',
+      applied: 'تم تفعيل الهدية على الطلب',
+      appliedNoRef: 'تم تفعيل هديتك',
+      off: 'خصم 100%',
+      offSub: 'تم إلغاء رسوم الاستشارة',
+      claim: 'احجز موعدك فوراً عبر واتساب',
+      later: 'لاحقاً',
+      close: 'إغلاق',
+      waMsg: (ref) => `مرحباً 2italy! قدّمت للتو طلب استشارة${ref ? ` (رقم الطلب ${ref})` : ''} وأريد الحصول على مكالمتي المجانية وحجز موعدي.`,
+    },
     header: {
       label: 'طلب استشارة مجانية',
       title: 'أخبرنا عن نفسك.',
@@ -160,12 +185,57 @@ function Options({ values, labels, placeholder }) {
   );
 }
 
+function GiftPopup({ g, serial, waLink, onClose }) {
+  useEffect(() => {
+    const onKey = (e) => { if (e.key === 'Escape') onClose(); };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [onClose]);
+
+  return (
+    <div className="gift-overlay" onClick={onClose}>
+      <div className="gift-modal" role="dialog" aria-modal="true" aria-labelledby="gift-title" onClick={(e) => e.stopPropagation()}>
+        <button type="button" className="gift-close" onClick={onClose} aria-label={g.close}>×</button>
+        <div className="gift-icon" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <rect x="3" y="8" width="18" height="4" rx="1" /><path d="M12 8v13" /><path d="M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7" />
+            <path d="M7.5 8a2.5 2.5 0 0 1 0-5C10 3 12 8 12 8s2-5 4.5-5a2.5 2.5 0 0 1 0 5" />
+          </svg>
+        </div>
+        <h2 id="gift-title" className="gift-title">{g.title}</h2>
+        <p className="gift-sub">{g.sub}</p>
+
+        <div className="gift-ticket">
+          <div className="gift-ticket-top">
+            <span className="gift-ticket-check">✓</span>
+            {serial ? <>{g.applied} <strong dir="ltr">{serial}</strong></> : g.appliedNoRef}
+          </div>
+          <div className="gift-ticket-body">
+            <div className="gift-ticket-cell">
+              <div className="gift-price"><s>€35</s> <span>€0</span></div>
+            </div>
+            <div className="gift-ticket-cell">
+              <div className="gift-off">{g.off}</div>
+              <div className="gift-off-sub">{g.offSub}</div>
+            </div>
+          </div>
+        </div>
+
+        <a href={waLink} target="_blank" rel="noopener noreferrer" className="gift-claim">{g.claim}</a>
+        <button type="button" className="gift-later" onClick={onClose}>{g.later}</button>
+      </div>
+    </div>
+  );
+}
+
 export default function ConsultationPage({ lang = 'en' }) {
   const t = content[lang];
   const f = t.fields;
   const [form, setForm] = useState(initialForm);
   const [status, setStatus] = useState('idle'); // idle | submitting | success | error
   const [serial, setSerial] = useState('');
+  const [showGift, setShowGift] = useState(false);
+  const waLink = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(t.gift.waMsg(serial))}`;
 
   // Agents can share links like /consultation?code=AGENT10 to pre-fill the VIP code
   useEffect(() => {
@@ -191,6 +261,7 @@ export default function ConsultationPage({ lang = 'en' }) {
         if (reply.serial) setSerial(reply.serial);
       } catch {}
       setStatus('success');
+      setShowGift(true);
       setForm(initialForm);
     } catch {
       setStatus('error');
@@ -233,7 +304,11 @@ export default function ConsultationPage({ lang = 'en' }) {
               </p>
             )}
             <p style={{ color: 'var(--teal)', fontWeight: 700, marginTop: '1rem' }}>{t.success.note}</p>
+            <a href={waLink} target="_blank" rel="noopener noreferrer" className="gift-claim" style={{ display: 'inline-block', width: 'auto', marginTop: '1.2rem' }}>
+              {t.gift.claim}
+            </a>
           </div>
+          {showGift && <GiftPopup g={t.gift} serial={serial} waLink={waLink} onClose={() => setShowGift(false)} />}
         </div>
       ) : (
         <div className="app-form-wrap">
