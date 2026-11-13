@@ -4,7 +4,8 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Navigation from './Navigation';
 import Footer from './Footer';
-import { countries, dialCodes } from './countries';
+import { dialCodes } from './countries';
+import CountrySelect from './CountrySelect';
 
 // After deploying your Google Apps Script, paste the web app URL here
 const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyWAN2qlpU0CWHmLvPs3_YIjx6k0g-oFL66ijaDNKkp46aaSeNFE0z8v9hRNst-pdV8/exec';
@@ -82,7 +83,7 @@ const content = {
       goals: ['Your goals — what do you want to achieve in Italy?', 'e.g. I want to study engineering in Milan, then stay and work in Italy after graduation...'],
       vipCode: ['VIP code', 'e.g. VIP2026'],
     },
-    countryInvalid: 'Please choose your country from the list.',
+    countryNoMatch: 'No country found',
     fundsHint: '(€10,000 minimum for student visa)',
     vipHint: '(optional — if you received one from us or an agent)',
     levelLabels: levelValues,
@@ -155,7 +156,7 @@ const content = {
       goals: ['أهدافك — ماذا تريد أن تحقق في إيطاليا؟', 'مثال: أريد دراسة الهندسة في ميلانو، ثم البقاء والعمل في إيطاليا بعد التخرج...'],
       vipCode: ['رمز VIP', 'مثال: VIP2026'],
     },
-    countryInvalid: 'يرجى اختيار دولتك من القائمة.',
+    countryNoMatch: 'No country found',
     fundsHint: '(الحد الأدنى €10,000 لفيزا الدراسة)',
     vipHint: '(اختياري — إذا حصلت عليه منا أو من أحد الوكلاء)',
     levelLabels: ['سنة تحضيرية', 'بكالوريوس', 'ماجستير', 'دكتوراه'],
@@ -250,12 +251,10 @@ export default function ConsultationPage({ lang = 'en' }) {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   }
 
-  // Only names from the list are accepted; picking one puts its dialling code in the WhatsApp field,
-  // swapping out the previous country's code but leaving any number the user already typed after it
-  function handleCountryChange(e) {
-    const country = e.target.value;
+  // Picking a country puts its dialling code in the WhatsApp field, swapping out the
+  // previous country's code but leaving any number the user already typed after it
+  function handleCountrySelect(country) {
     const code = dialCodes[country];
-    e.target.setCustomValidity(code ? '' : t.countryInvalid);
     setForm((prev) => {
       const prevCode = dialCodes[prev.country];
       let whatsapp = prev.whatsapp;
@@ -269,6 +268,7 @@ export default function ConsultationPage({ lang = 'en' }) {
 
   async function handleSubmit(e) {
     e.preventDefault();
+    if (!dialCodes[form.country]) return;
     setStatus('submitting');
     try {
       const res = await fetch(APPS_SCRIPT_URL, {
@@ -366,15 +366,7 @@ export default function ConsultationPage({ lang = 'en' }) {
                 <div className="form-row">
                   <div className="form-group">
                     <label>{f.country[0]} {req}</label>
-                    <input
-                      name="country" type="text" list="country-list" dir="ltr" autoComplete="off"
-                      placeholder={f.country[1]} value={form.country} onChange={handleCountryChange}
-                      onInvalid={(e) => e.target.setCustomValidity(dialCodes[e.target.value] ? '' : t.countryInvalid)}
-                      required
-                    />
-                    <datalist id="country-list">
-                      {countries.map(([name]) => <option key={name} value={name} />)}
-                    </datalist>
+                    <CountrySelect value={form.country} onSelect={handleCountrySelect} placeholder={f.country[1]} noMatch={t.countryNoMatch} />
                   </div>
                   <div className="form-group">
                     <label>{f.city[0]}</label>

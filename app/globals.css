@@ -848,6 +848,64 @@ main {
   font-size: 0.95rem;
 }
 
+.country-select {
+  position: relative;
+}
+
+.form-group .country-select input {
+  padding-right: 2.4rem;
+  cursor: pointer;
+}
+
+.country-select-arrow {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+  pointer-events: none;
+}
+
+.country-select-list {
+  position: absolute;
+  z-index: 50;
+  top: calc(100% + 6px);
+  left: 0;
+  right: 0;
+  max-height: 260px;
+  overflow-y: auto;
+  margin: 0;
+  padding: 0.35rem;
+  list-style: none;
+  background: #fff;
+  border: 1.5px solid var(--border);
+  border-radius: 14px;
+  box-shadow: 0 14px 36px rgba(13,58,54,0.14);
+  text-align: left;
+}
+
+.country-select-list li {
+  padding: 0.6rem 0.8rem;
+  border-radius: 10px;
+  font-size: 0.92rem;
+  color: var(--text-body);
+  cursor: pointer;
+}
+
+.country-select-list li.is-active {
+  background: rgba(38,182,186,0.1);
+}
+
+.country-select-list li.is-selected {
+  color: var(--teal);
+  font-weight: 700;
+}
+
+.country-select-list li.country-select-empty {
+  color: var(--text-muted);
+  cursor: default;
+}
+
 button[type="submit"],
 .btn-book {
   width: fit-content;
