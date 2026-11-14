@@ -39,6 +39,7 @@ const content = {
       title: 'Get your personal Italy roadmap — free.',
       sub: 'Tell us about your background and goals. We will review your profile and map the fastest, clearest path to Italy — no obligation, no sales pitch.',
       meta: 'Free 30-min call · No commitment · We reply within 24 hours',
+      price: ['FREE', '30-minute consultation'],
     },
     testimonials: [
       ['The consultation was eye-opening. In 30 minutes I had a clearer picture of my options than after weeks of research on my own.', 'Layla M.', 'Bachelor applicant, Milan'],
@@ -66,7 +67,7 @@ const content = {
       label: 'Free Consultation Application',
       title: 'Tell us about yourself.',
       desc: 'Fill in as much as you can — the more we know, the more useful your consultation will be. Takes about 3 minutes.',
-      badge: 'Free · 30 min · No obligation',
+      badge: <><s>€35</s> Free · 30 min · No obligation</>,
     },
     sections: ['Personal Information', 'Academic Profile', 'Your Situation'],
     fields: {
@@ -112,6 +113,7 @@ const content = {
       title: 'احصل على خطتك الشخصية للدراسة في إيطاليا — مجاناً.',
       sub: 'أخبرنا عن خلفيتك وأهدافك. سنراجع ملفك ونرسم لك أسرع وأوضح طريق إلى إيطاليا — دون أي التزام ودون محاولات بيع.',
       meta: 'مكالمة مجانية 30 دقيقة · دون التزام · نرد خلال 24 ساعة',
+      price: ['مجاناً', 'استشارة لمدة 30 دقيقة'],
     },
     testimonials: [
       ['كانت الاستشارة مفيدة جداً. خلال 30 دقيقة أصبحت خياراتي أوضح مما كانت بعد أسابيع من البحث وحدي.', 'ليلى م.', 'متقدّمة لمرحلة البكالوريوس، ميلانو'],
@@ -139,7 +141,7 @@ const content = {
       label: 'طلب استشارة مجانية',
       title: 'أخبرنا عن نفسك.',
       desc: 'املأ أكبر قدر ممكن من المعلومات — كلما عرفنا أكثر، كانت استشارتك أكثر فائدة. يستغرق الأمر حوالي 3 دقائق.',
-      badge: 'مجاناً · 30 دقيقة · دون التزام',
+      badge: <><s dir="ltr">€35</s> مجاناً · 30 دقيقة · دون التزام</>,
     },
     sections: ['المعلومات الشخصية', 'الملف الأكاديمي', 'وضعك الحالي'],
     fields: {
@@ -299,6 +301,11 @@ export default function ConsultationPage({ lang = 'en' }) {
         <h1 className="hero-headline">{t.hero.title}</h1>
         <p className="hero-sub">{t.hero.sub}</p>
         <div className="hero-meta">{t.hero.meta}</div>
+        <div className="consult-price">
+          <s dir="ltr">€35</s>
+          <strong>{t.hero.price[0]}</strong>
+          <span>{t.hero.price[1]}</span>
+        </div>
       </section>
 
       {/* Mini testimonials */}

@@ -1635,6 +1635,50 @@ button[type="submit"],
   margin: 0 auto 1.5rem;
 }
 
+/* Waived consultation fee, shown in the consultation hero */
+.consult-price {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-top: 1.3rem;
+  padding: 0.55rem 1.3rem;
+  border-radius: 999px;
+  background: #fff;
+  border: 1.5px solid rgba(38,182,186,0.35);
+  box-shadow: 0 6px 22px rgba(38,182,186,0.14);
+}
+
+.consult-price s {
+  font-size: 1rem;
+  color: var(--text-muted);
+  text-decoration-color: #e0533d;
+  text-decoration-thickness: 2px;
+}
+
+.consult-price strong {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #fff;
+  background: #e0533d;
+  padding: 0.1rem 0.75rem;
+  border-radius: 999px;
+}
+
+.consult-price span {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--forest);
+}
+
+.app-form-badge s {
+  opacity: 0.6;
+  text-decoration-color: #e0533d;
+  text-decoration-thickness: 2px;
+  margin-inline-end: 0.3rem;
+}
+
 /* Gift popup shown after a consultation application */
 .gift-overlay {
   position: fixed;
