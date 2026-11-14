@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Navigation from './Navigation';
 import Footer from './Footer';
@@ -69,7 +69,10 @@ const content = {
       desc: 'Fill in as much as you can — the more we know, the more useful your consultation will be. Takes about 3 minutes.',
       badge: <><s>€35</s> Free · 30 min · No obligation</>,
     },
-    sections: ['Personal Information', 'Academic Profile', 'Your Situation'],
+    sections: ['Your Studies', 'Your Situation', 'Where should we send your roadmap?'],
+    stepOf: (n) => `Step ${n} of 3`,
+    continueLabel: 'Continue →',
+    back: '← Back',
     fields: {
       name: ['Full name', 'Your full name'],
       email: ['Email', 'hello@example.com'],
@@ -85,7 +88,7 @@ const content = {
       vipCode: ['VIP code', 'e.g. VIP2026'],
     },
     countryNoMatch: 'No country found',
-    fundsHint: '(€10,000 minimum for student visa)',
+    fundsHint: '(the student visa requires a guaranteed amount — we will tell you the exact figure on the call)',
     vipHint: '(optional — if you received one from us or an agent)',
     levelLabels: levelValues,
     gradeLabels: ['Excellent (3.7+ / A)', 'Very Good (3.3–3.7 / B+)', 'Good (3.0–3.3 / B)', 'Average (2.5–3.0 / C+)', 'Below Average (<2.5)'],
@@ -143,7 +146,10 @@ const content = {
       desc: 'املأ أكبر قدر ممكن من المعلومات — كلما عرفنا أكثر، كانت استشارتك أكثر فائدة. يستغرق الأمر حوالي 3 دقائق.',
       badge: <><s dir="ltr">€35</s> مجاناً · 30 دقيقة · دون التزام</>,
     },
-    sections: ['المعلومات الشخصية', 'الملف الأكاديمي', 'وضعك الحالي'],
+    sections: ['دراستك', 'وضعك الحالي', 'أين نرسل لك خطتك؟'],
+    stepOf: (n) => `الخطوة ${n} من 3`,
+    continueLabel: 'متابعة ←',
+    back: '→ رجوع',
     fields: {
       name: ['الاسم الكامل', 'اسمك الكامل'],
       email: ['البريد الإلكتروني', 'hello@example.com'],
@@ -159,7 +165,7 @@ const content = {
       vipCode: ['رمز VIP', 'مثال: VIP2026'],
     },
     countryNoMatch: 'No country found',
-    fundsHint: '(الحد الأدنى €10,000 لفيزا الدراسة)',
+    fundsHint: '(تتطلب فيزا الدراسة مبلغاً مالياً مضموناً — سنخبرك بالمبلغ المطلوب بالضبط في المكالمة)',
     vipHint: '(اختياري — إذا حصلت عليه منا أو من أحد الوكلاء)',
     levelLabels: ['سنة تحضيرية', 'بكالوريوس', 'ماجستير', 'دكتوراه'],
     gradeLabels: ['ممتاز (3.7+ / A)', 'جيد جداً (3.3–3.7 / B+)', 'جيد (3.0–3.3 / B)', 'متوسط (2.5–3.0 / C+)', 'أقل من المتوسط (<2.5)'],
@@ -241,6 +247,8 @@ export default function ConsultationPage({ lang = 'en' }) {
   const [status, setStatus] = useState('idle'); // idle | submitting | success | error
   const [serial, setSerial] = useState('');
   const [showGift, setShowGift] = useState(false);
+  const [step, setStep] = useState(1);
+  const cardRef = useRef(null);
   const waLink = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(t.gift.waMsg(serial))}`;
 
   // Agents can share links like /consultation?code=AGENT10 to pre-fill the VIP code
@@ -268,8 +276,15 @@ export default function ConsultationPage({ lang = 'en' }) {
     });
   }
 
+  // Only the current step's fields are rendered, so the browser's required-field check covers just that step
+  function goToStep(n) {
+    setStep(n);
+    cardRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
   async function handleSubmit(e) {
     e.preventDefault();
+    if (step < 3) return goToStep(step + 1);
     if (!dialCodes[form.country]) return;
     setStatus('submitting');
     try {
@@ -285,6 +300,7 @@ export default function ConsultationPage({ lang = 'en' }) {
       setStatus('success');
       setShowGift(true);
       setForm(initialForm);
+      setStep(1);
     } catch {
       setStatus('error');
     }
@@ -351,14 +367,21 @@ export default function ConsultationPage({ lang = 'en' }) {
             </div>
           </div>
 
-          <div className="app-form-card">
+          <div className="app-form-card" ref={cardRef}>
             <form onSubmit={handleSubmit}>
 
-              {/* ── Personal info ── */}
-              <div className="app-form-section">
+              <div className="form-steps" aria-live="polite">
+                <div className="form-steps-label">{t.stepOf(step)}</div>
+                <div className="form-steps-bar">
+                  {[1, 2, 3].map((n) => <span key={n} className={n <= step ? 'is-done' : ''} />)}
+                </div>
+              </div>
+
+              {/* ── Step 3: personal info ── */}
+              {step === 3 && <div className="app-form-section">
                 <div className="app-form-section-header">
-                  <span className="app-form-section-num">01</span>
-                  <span className="app-form-section-title">{t.sections[0]}</span>
+                  <span className="app-form-section-num">03</span>
+                  <span className="app-form-section-title">{t.sections[2]}</span>
                 </div>
                 <div className="form-row">
                   <div className="form-group">
@@ -386,13 +409,13 @@ export default function ConsultationPage({ lang = 'en' }) {
                     <input name="whatsapp" type="tel" dir="ltr" placeholder={f.whatsapp[1]} value={form.whatsapp} onChange={handleChange} required />
                   </div>
                 </div>
-              </div>
+              </div>}
 
-              {/* ── Academic profile ── */}
-              <div className="app-form-section">
+              {/* ── Step 1: academic profile ── */}
+              {step === 1 && <div className="app-form-section">
                 <div className="app-form-section-header">
-                  <span className="app-form-section-num">02</span>
-                  <span className="app-form-section-title">{t.sections[1]}</span>
+                  <span className="app-form-section-num">01</span>
+                  <span className="app-form-section-title">{t.sections[0]}</span>
                 </div>
                 <div className="form-row">
                   <div className="form-group">
@@ -420,13 +443,13 @@ export default function ConsultationPage({ lang = 'en' }) {
                     </select>
                   </div>
                 </div>
-              </div>
+              </div>}
 
-              {/* ── Situation ── */}
-              <div className="app-form-section">
+              {/* ── Step 2: situation ── */}
+              {step === 2 && <div className="app-form-section">
                 <div className="app-form-section-header">
-                  <span className="app-form-section-num">03</span>
-                  <span className="app-form-section-title">{t.sections[2]}</span>
+                  <span className="app-form-section-num">02</span>
+                  <span className="app-form-section-title">{t.sections[1]}</span>
                 </div>
                 <div className="form-row">
                   <div className="form-group">
@@ -446,15 +469,20 @@ export default function ConsultationPage({ lang = 'en' }) {
                     <input name="vipCode" type="text" placeholder={f.vipCode[1]} maxLength={50} value={form.vipCode} onChange={handleChange} />
                   </div>
                 </div>
-              </div>
+              </div>}
 
-              {/* Submit */}
+              {/* Continue / submit */}
               <div className="app-form-submit">
-                <button type="submit" className="btn-primary" disabled={status === 'submitting'}>
-                  {status === 'submitting' ? t.submitting : t.submit}
-                </button>
+                <div className="form-step-actions">
+                  {step > 1 && (
+                    <button type="button" className="form-step-back" onClick={() => goToStep(step - 1)}>{t.back}</button>
+                  )}
+                  <button type="submit" className="btn-primary" disabled={status === 'submitting'}>
+                    {step < 3 ? t.continueLabel : status === 'submitting' ? t.submitting : t.submit}
+                  </button>
+                </div>
                 <p className="form-trust">{t.trust}</p>
-                <p className="form-consent">{t.consent}</p>
+                {step === 3 && <p className="form-consent">{t.consent}</p>}
                 {status === 'error' && <p className="form-error">{t.error}</p>}
               </div>
 
