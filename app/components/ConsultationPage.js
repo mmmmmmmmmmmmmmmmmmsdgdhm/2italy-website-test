@@ -35,10 +35,8 @@ const fundsValues = ['Yes', 'Not yet', 'Not sure'];
 const content = {
   en: {
     hero: {
-      eyebrow: 'Free consultation · 30 minutes',
       title: 'Afraid of losing one more year?',
       sub: 'Book your specialised consultation call and know exactly what you will face — from your application until you settle in Italy.',
-      meta: 'Free 30-min call · No commitment · We reply within 24 hours',
       price: ['FREE', '30-minute consultation'],
     },
     testimonials: [
@@ -113,10 +111,8 @@ const content = {
 
   ar: {
     hero: {
-      eyebrow: 'استشارة مجانية · 30 دقيقة',
       title: 'هل تخاف أن تخسر سنة أخرى؟',
       sub: 'احجز مكالمتك الاستشارية المتخصصة واعرف بالضبط ما الذي ينتظرك — من التقديم حتى الاستقرار في إيطاليا.',
-      meta: 'مكالمة مجانية 30 دقيقة · دون التزام · نرد خلال 24 ساعة',
       price: ['مجاناً', 'استشارة لمدة 30 دقيقة'],
     },
     testimonials: [
@@ -314,11 +310,9 @@ export default function ConsultationPage({ lang = 'en' }) {
     <main>
       <Navigation lang={lang} />
 
-      <section className="page-hero">
-        <span className="page-hero-eyebrow">{t.hero.eyebrow}</span>
+      <section className="page-hero consult-hero">
         <h1 className="hero-headline">{t.hero.title}</h1>
         <p className="hero-sub">{t.hero.sub}</p>
-        <div className="hero-meta">{t.hero.meta}</div>
         <div className="consult-price">
           <s dir="ltr">€35</s>
           <strong>{t.hero.price[0]}</strong>
@@ -495,7 +489,7 @@ export default function ConsultationPage({ lang = 'en' }) {
       )}
 
       {/* Answers to the three most common objections: visa, English, money */}
-      <section className="section-block">
+      <section className="section-block objections-block">
         <span className="section-eyebrow">{t.next.eyebrow}</span>
         <h2 className="section-title">{t.next.title}</h2>
         <div className="steps-timeline">

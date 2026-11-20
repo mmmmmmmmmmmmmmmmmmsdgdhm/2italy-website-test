@@ -1636,10 +1636,21 @@ button[type="submit"],
 }
 
 /* Multi-step consultation form */
-.app-form-wrap {
+.app-form-wrap,
+.mini-testi-row,
+.objections-block {
   max-width: 760px;
   margin-left: auto;
   margin-right: auto;
+}
+
+.consult-hero .hero-headline {
+  font-size: clamp(2rem, 6vw, 4rem);
+  max-width: 100%;
+}
+
+.objections-block .steps-timeline {
+  grid-template-columns: 1fr;
 }
 
 .app-form-card {
