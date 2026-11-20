@@ -36,8 +36,8 @@ const content = {
   en: {
     hero: {
       eyebrow: 'Free consultation · 30 minutes',
-      title: 'Get your personal Italy roadmap — free.',
-      sub: 'Tell us about your background and goals. We will review your profile and map the fastest, clearest path to Italy — no obligation, no sales pitch.',
+      title: 'Afraid of losing one more year?',
+      sub: 'Book your specialised consultation call and know exactly what you will face — from your application until you settle in Italy.',
       meta: 'Free 30-min call · No commitment · We reply within 24 hours',
       price: ['FREE', '30-minute consultation'],
     },
@@ -99,13 +99,14 @@ const content = {
     trust: 'Free · No commitment · We reply within 24 hours',
     consent: <>By submitting, you agree to our <Link href="/privacy">Privacy Policy</Link>.</>,
     error: 'Something went wrong. Message us on WhatsApp: +971 58 180 8979',
+    callNote: 'A 30-minute call where our team gives you personal feedback based on your situation — the same consultation we offered every one of our students who are now in Italy.',
     next: {
-      eyebrow: 'What happens next',
-      title: 'Three steps to your Italy plan.',
+      eyebrow: 'Your biggest worries, answered',
+      title: 'The three questions every student asks us.',
       steps: [
-        ['You submit the form', 'Takes about 3 minutes. No documents needed at this stage.'],
-        ['We review your profile', 'A senior consultant reviews your background and prepares your session. We confirm within 24 hours.'],
-        ['You get your roadmap', 'On the call we walk through your best universities, visa path, timeline, and costs — specific to your situation.'],
+        ['"What if my visa gets refused?"', 'Most refusals come from incomplete or inconsistent files, not bad luck. We prepare and check every document — admission letter, accommodation, insurance and proof of funds — and get you ready for your embassy appointment. That is how we keep an 84% visa approval rate.'],
+        ['"My English isn\'t good enough."', 'You may not need IELTS. Many Italian universities accept a Medium of Instruction letter from your previous studies, Duolingo, or their own online interview. On the call we tell you exactly which universities accept your current level.'],
+        ['"I don\'t have enough money for the guarantee."', 'The visa needs a guaranteed amount — often less than students fear. Public tuition in Italy is low, and the DSU scholarship can cover tuition, housing and meals. We calculate your exact guarantee and your full budget, so there are no surprises.'],
       ],
     },
   },
@@ -113,8 +114,8 @@ const content = {
   ar: {
     hero: {
       eyebrow: 'استشارة مجانية · 30 دقيقة',
-      title: 'احصل على خطتك الشخصية للدراسة في إيطاليا — مجاناً.',
-      sub: 'أخبرنا عن خلفيتك وأهدافك. سنراجع ملفك ونرسم لك أسرع وأوضح طريق إلى إيطاليا — دون أي التزام ودون محاولات بيع.',
+      title: 'هل تخاف أن تخسر سنة أخرى؟',
+      sub: 'احجز مكالمتك الاستشارية المتخصصة واعرف بالضبط ما الذي ينتظرك — من التقديم حتى الاستقرار في إيطاليا.',
       meta: 'مكالمة مجانية 30 دقيقة · دون التزام · نرد خلال 24 ساعة',
       price: ['مجاناً', 'استشارة لمدة 30 دقيقة'],
     },
@@ -176,13 +177,14 @@ const content = {
     trust: 'مجاناً · دون التزام · نرد خلال 24 ساعة',
     consent: <>بإرسال الطلب، أنت توافق على <Link href="/privacy">سياسة الخصوصية</Link>.</>,
     error: <>حدث خطأ ما. راسلنا على واتساب: <bdi dir="ltr">+971 58 180 8979</bdi></>,
+    callNote: 'مكالمة لمدة 30 دقيقة يقدّم لك فيها فريقنا رأياً شخصياً بناءً على وضعك — وهي نفس الاستشارة التي قدّمناها لكل طلابنا الموجودين اليوم في إيطاليا.',
     next: {
-      eyebrow: 'ماذا يحدث بعد ذلك',
-      title: 'ثلاث خطوات نحو خطتك في إيطاليا.',
+      eyebrow: 'إجابات عن أكبر مخاوفك',
+      title: 'الأسئلة الثلاثة التي يسألنا عنها كل طالب.',
       steps: [
-        ['ترسل الطلب', 'يستغرق حوالي 3 دقائق. لا حاجة لأي أوراق في هذه المرحلة.'],
-        ['نراجع ملفك', 'يراجع مستشار خبير خلفيتك ويحضّر لجلستك. نؤكد الموعد خلال 24 ساعة.'],
-        ['تحصل على خطتك', 'خلال المكالمة نستعرض معك أفضل الجامعات، ومسار الفيزا، والجدول الزمني، والتكاليف — بحسب وضعك تحديداً.'],
+        ['"ماذا لو رُفضت الفيزا؟"', 'معظم حالات الرفض سببها ملف ناقص أو غير متناسق، وليس الحظ. نجهّز ونراجع كل ورقة — خطاب القبول، والسكن، والتأمين، والإثبات المالي — ونحضّرك لموعد السفارة. وبهذا نحافظ على نسبة قبول فيزا 84%.'],
+        ['"لغتي الإنجليزية ليست جيدة بما يكفي."', 'قد لا تحتاج إلى IELTS. كثير من الجامعات الإيطالية تقبل شهادة لغة التدريس (Medium of Instruction) من دراستك السابقة، أو Duolingo، أو مقابلة أونلاين خاصة بها. في المكالمة نخبرك بالضبط أي الجامعات تقبل مستواك الحالي.'],
+        ['"لا أملك مالاً كافياً للضمان المالي."', 'تتطلب الفيزا مبلغاً مالياً مضموناً — وغالباً يكون أقل مما يخشاه الطلاب. الرسوم في الجامعات الحكومية الإيطالية منخفضة، ومنحة DSU قد تغطي الرسوم والسكن والطعام. نحسب لك مبلغ الضمان بالضبط وميزانيتك الكاملة، حتى لا تتفاجأ بأي شيء.'],
       ],
     },
   },
@@ -488,17 +490,18 @@ export default function ConsultationPage({ lang = 'en' }) {
 
             </form>
           </div>
+          <p className="app-form-call-note">{t.callNote}</p>
         </div>
       )}
 
-      {/* What happens next */}
+      {/* Answers to the three most common objections: visa, English, money */}
       <section className="section-block">
         <span className="section-eyebrow">{t.next.eyebrow}</span>
         <h2 className="section-title">{t.next.title}</h2>
         <div className="steps-timeline">
           {t.next.steps.map(([title, desc], i) => (
             <div key={title} className="step">
-              <div className="step-num">{String(i + 1).padStart(2, '0')}</div>
+              <div className="step-num" aria-hidden="true">{['✈', 'A', '€'][i]}</div>
               <div>
                 <h3>{title}</h3>
                 <p>{desc}</p>

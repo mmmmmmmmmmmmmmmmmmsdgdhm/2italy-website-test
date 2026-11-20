@@ -1636,8 +1636,23 @@ button[type="submit"],
 }
 
 /* Multi-step consultation form */
+.app-form-wrap {
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .app-form-card {
   scroll-margin-top: 100px;
+}
+
+.app-form-call-note {
+  margin: 1.2rem auto 0;
+  max-width: 600px;
+  text-align: center;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--text-muted);
 }
 
 .form-steps {
