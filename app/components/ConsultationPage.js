@@ -34,8 +34,7 @@ const englishValues = [
   'Certificate B2+ (IELTS 5.5+, TOEFL, Duolingo...)', 'Certificate B1 (IELTS 4.0–5.0)', 'MOI letter',
   'No certificate, around B2', 'No certificate, around B1', 'Beginner (A1–A2)', 'Not started yet', "Doesn't know level",
 ];
-const fundsValues = ['Yes', 'Not yet', 'Not sure'];
-
+const fundsValues = ['€10,000+ ready', '€7,000–10,000 ready', 'Less than €7,000', 'Not yet, family/sponsor can arrange', 'Counting on a scholarship', 'Not sure'];
 const content = {
   en: {
     hero: {
@@ -85,20 +84,22 @@ const content = {
       program: ['Desired program', 'e.g. Computer Science, Architecture'],
       grade: ['Current grade / GPA', 'Select your grade'],
       englishCertificate: ['English level', 'Select your English level'],
-      funds: ['Do you have proof of funds?', 'Select an option'],
+      funds: ['How much can you (or your family/sponsor) show for the visa guarantee?', 'Select an option'],
       goals: ['Your goals — what do you want to achieve in Italy?', 'e.g. I want to study engineering in Milan, then stay and work in Italy after graduation...'],
       vipCode: ['VIP code', 'e.g. VIP2026'],
     },
     countryNoMatch: 'No country found',
-    fundsHint: '(the student visa requires a guaranteed amount — we will tell you the exact figure on the call)',
-    vipHint: '(optional — if you received one from us or an agent)',
+    fundsHint: '(the student visa requires a guaranteed amount — we will tell you the exact figure on the call)',    vipHint: '(optional — if you received one from us or an agent)',
     levelLabels: levelValues,
     gradeLabels: ['Excellent (3.7+ / A)', 'Very Good (3.3–3.7 / B+)', 'Good (3.0–3.3 / B)', 'Average (2.5–3.0 / C+)', 'Below Average (<2.5)'],
     englishLabels: [
       'Certificate — B2 or higher (IELTS 5.5+, TOEFL, Duolingo…)', 'Certificate — B1 (IELTS 4.0–5.0)', 'MOI letter (I studied in English)',
       'No certificate — my level is around B2', 'No certificate — my level is around B1', 'Beginner (A1–A2)', 'Not started yet', "I don't know my level",
     ],
-    fundsLabels: ['Yes, I have it', 'Not yet, but I can arrange it', 'Not sure — I need guidance'],
+    fundsLabels: [
+      '€10,000 or more — ready now', '€7,000–10,000 — ready now', 'Less than €7,000',
+      'Not yet — my family or sponsor can arrange it', 'I\'m counting on a scholarship to afford it', 'Not sure — I need guidance',
+    ],
     submit: 'Submit My Application →',
     submitting: 'Sending your application...',
     trust: 'Free · No commitment · We reply within 24 hours',
@@ -164,20 +165,22 @@ const content = {
       program: ['التخصص المطلوب', 'مثال: علوم الحاسوب، العمارة'],
       grade: ['المعدل الحالي', 'اختر معدلك'],
       englishCertificate: ['مستوى اللغة الإنجليزية', 'اختر مستواك في الإنجليزية'],
-      funds: ['هل لديك إثبات مالي؟', 'اختر إجابة'],
+      funds: ['كم المبلغ الذي يمكنك (أو عائلتك/الكفيل) إثباته كضمان مالي للفيزا؟', 'اختر إجابة'],
       goals: ['أهدافك — ماذا تريد أن تحقق في إيطاليا؟', 'مثال: أريد دراسة الهندسة في ميلانو، ثم البقاء والعمل في إيطاليا بعد التخرج...'],
       vipCode: ['رمز VIP', 'مثال: VIP2026'],
     },
     countryNoMatch: 'No country found',
-    fundsHint: '(تتطلب فيزا الدراسة مبلغاً مالياً مضموناً — سنخبرك بالمبلغ المطلوب بالضبط في المكالمة)',
-    vipHint: '(اختياري — إذا حصلت عليه منا أو من أحد الوكلاء)',
+    fundsHint: '(تتطلب فيزا الدراسة مبلغاً مالياً مضموناً — سنخبرك بالمبلغ المطلوب بالضبط في المكالمة)',    vipHint: '(اختياري — إذا حصلت عليه منا أو من أحد الوكلاء)',
     levelLabels: ['سنة تحضيرية', 'بكالوريوس', 'ماجستير', 'دكتوراه'],
     gradeLabels: ['ممتاز (3.7+ / A)', 'جيد جداً (3.3–3.7 / B+)', 'جيد (3.0–3.3 / B)', 'متوسط (2.5–3.0 / C+)', 'أقل من المتوسط (<2.5)'],
     englishLabels: [
       'لدي شهادة — B2 أو أعلى (IELTS 5.5+، TOEFL، Duolingo…)', 'لدي شهادة — B1 (IELTS 4.0–5.0)', 'شهادة لغة التدريس MOI (درست بالإنجليزية)',
       'بدون شهادة — مستواي حوالي B2', 'بدون شهادة — مستواي حوالي B1', 'مبتدئ (A1–A2)', 'لم أبدأ بعد', 'لا أعرف مستواي',
     ],
-    fundsLabels: ['نعم، متوفر لدي', 'ليس بعد، لكن يمكنني تأمينه', 'لست متأكداً — أحتاج إلى توجيه'],
+    fundsLabels: [
+      '10,000 يورو أو أكثر — جاهز الآن', 'من 7,000 إلى 10,000 يورو — جاهز الآن', 'أقل من 7,000 يورو',
+      'ليس بعد — عائلتي أو الكفيل يمكنهم تأمينه', 'أعتمد على منحة لتغطية التكاليف', 'لست متأكداً — أحتاج إلى توجيه',
+    ],
     submit: 'أرسل طلبي ←',
     submitting: 'جارٍ إرسال طلبك...',
     trust: 'مجاناً · دون التزام · نرد خلال 24 ساعة',
@@ -459,8 +462,7 @@ export default function ConsultationPage({ lang = 'en' }) {
                 </div>
                 <div className="form-row">
                   <div className="form-group">
-                    <label>{f.funds[0]} <span className="form-label-hint">{t.fundsHint}</span></label>
-                    <select name="funds" value={form.funds} onChange={handleChange}>
+                    <label>{f.funds[0]} <span className="form-label-hint">{t.fundsHint}</span></label>                    <select name="funds" value={form.funds} onChange={handleChange}>
                       <Options values={fundsValues} labels={t.fundsLabels} placeholder={f.funds[1]} />
                     </select>
                   </div>
